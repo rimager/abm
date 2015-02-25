@@ -1,0 +1,58 @@
+{
+  "messages" : {
+    "-JiobOax_bE-7QqRGwVE" : {
+      "text" : "hallo"
+    },
+    "-JiobPonQnuHHVDXkD4K" : {
+      "text" : "cool"
+    }
+  },
+  "filters" : {
+    "age" : {
+      "age_30-50": "30-50",
+      "age_510-70": "51-70"
+    },
+    "artgrouptype" : {
+      "artgrouptype_literaty" : "literaty",
+      "artgrouptype_museum_visual_art" : "museum/visuarl art",
+      "artgrouptype_museum_dace" : "dance",
+      "artgrouptype_music" : "music",
+      "artgrouptype_theatre" : "theatre",
+      "artgrouptype_film" : "film",
+      "artgrouptype_media" : "media"
+    },
+    "benefits" : {
+      "benefits_entertaining" : "entertaining",
+      "benefits_networking" : "networking"
+    },
+    "business_skills" : {
+      "business_skills_accouting_bookkeeping" : "accouting_bookkeeping",
+      "business_skills_legal" : "legal"
+    },
+    "demographic" : {
+      "demographic_hispanic_latino" : "hispanic latino",
+      "demographic_white" : "white"
+    },
+    "donations" : {
+      "donations_50_500" : "50-500",
+      "donations_501_1000" : "501-1000"
+    },
+    "non_profit_experience" : "non profit experience",
+    "time_availability" : {
+      "time_availability_2_5" : "2-5 hours",
+      "time_availability_6_10" : "6-10 hours"
+    },
+    "title" : "title"
+  },
+  "users" : {
+    "simplelogin:5" : {
+      "artsGroup" : "a1",
+      "email" : "t1@t1.com",
+      "name" : "T1",
+      "phone" : "123456789",
+      "settings": {
+
+      }
+    }
+  }
+}

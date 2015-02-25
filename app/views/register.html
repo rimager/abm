@@ -1,0 +1,45 @@
+
+<h2>Register Page</h2>
+
+<fieldset>
+  <legend>Oauth</legend>
+  <p>
+    <button  class="btn btn-primary" ng-click="oauthLogin('facebook')">Facebook</button>
+    <button  class="btn btn-primary" ng-click="oauthLogin('google')">Google</button>
+    <button  class="btn btn-primary" ng-click="oauthLogin('twitter')">Twitter</button>
+  </p>
+</fieldset>
+
+<form role="form">
+  <p class="form-group">
+    <label for="loginEmail">email</label>
+    <input id="loginEmail" required name="email" type="email" ng-model="email" class="form-control" />
+  </p>
+  <p class="form-group">
+    <label for="loginPass">password</label>
+    <input id="loginPass" required name="pass" type="password" ng-model="pass" class="form-control" />
+  </p>
+  <p class="form-group" ng-cloak>
+    <label for="loginConfirm">confirm pass</label>
+    <input id="loginConfirm" required name="confirm" type="password" ng-model="confirm" class="form-control" />
+  </p>
+  <p class="form-group" ng-cloak>
+    <label for="artsGroup">arts Group</label>
+    <input id="artsGroup" required name="artsGroup" type="text" ng-model="artsGroup" class="form-control" />
+  </p>
+  <p class="form-group" ng-cloak>
+    <label for="phone">phone</label>
+    <input id="phone" required name="phone" type="text" ng-model="phone" class="form-control" />
+  </p>
+  <p>
+  <label ng-repeat="(typekey, typevalue) in artgrouptypes">
+    <input type="checkbox" ng-model="disciplines[typekey]" name="artgrouptypes" value="typekey"> {{typevalue}}
+  </label>
+  </p>
+  <p>
+    <button  class="btn btn-primary" ng-cloak
+            ng-click="createAccount(email, pass, confirm)">Create Account</button>
+  </p>
+</form>
+<p ng-show="err" class="bg-danger">{{err}}</p>
+

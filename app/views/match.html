@@ -1,0 +1,16 @@
+
+<h2>Companies</h2>
+
+
+<p class="alert alert-danger" ng-show="err">{{err}}</p>
+
+<div class="row">
+  <div class="col-md-8">
+  <ul id="companies" ng-show="companies.length">
+    <li ng-repeat="company in companies">{{company.name}}</li>
+  </ul>
+    </div>
+  <div class="col-md-4"><h3>Search</h3>
+
+  </div>
+</div>
