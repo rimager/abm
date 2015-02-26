@@ -32,8 +32,8 @@
     <input id="phone" required name="phone" type="text" ng-model="phone" class="form-control" />
   </p>
   <p>
-  <label ng-repeat="(typekey, typevalue) in artgrouptypes">
-    <input type="checkbox" ng-model="disciplines[typekey]" name="artgrouptypes" value="typekey"> {{typevalue}}
+  <label ng-repeat="item in artgrouptypes">
+    <input type="checkbox" ng-model="disciplines[item.$id]" name="artgrouptypes" value="item.$value"> {{item.$value}}
   </label>
   </p>
   <p>
