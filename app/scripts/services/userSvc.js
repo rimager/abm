@@ -22,19 +22,9 @@
     };
 
 
-    function updateProfile(user, data) {
-
-      var deferred = $q.defer();
-
-      var ref = fbutil.ref('users', user.uid);
-      ref.update(data, function(err) {
-        if (err)
-            deferred.reject(err);
-        else
-          deferred.resolve({user: user, data: data});
-      });
-
-      return deferred.promise;
+    function updateProfile(userUid, data, cbFn) {
+      var ref = fbutil.ref('users', userUid);
+      ref.update(data, cbFn);
     }
 
   }

@@ -41,7 +41,7 @@ angular.module('abmApp')
 
 
     function completeProfile(user) {
-      userSvc.updateProfile(user, {artsGroup: $scope.artsGroup,
+      userSvc.updateProfile(user.uid, {artsGroup: $scope.artsGroup,
                                    phone: $scope.phone,
 
         preferences: $scope.preferences})
@@ -49,9 +49,14 @@ angular.module('abmApp')
     }
 
     function updateUserPreferences(userData) {
-      preferenceUserSvc.addUserToPreferences(userData.user, $scope.preferences);
+      preferenceUserSvc.addUserToPreferences(userData.user.uid, $scope.preferences);
+      preferenceCompanySvc.addUserToCompanies(userData.user.uid, $scope.preferences);
       $location.path('/account');
     }
+
+    //for each company that also share this preference
+    // update the user on the companies user collection
+    // update the company in the user company collection.
 
 
     function showError(err) {

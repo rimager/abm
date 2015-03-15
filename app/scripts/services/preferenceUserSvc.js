@@ -22,17 +22,18 @@
     };
 
     //Add user to the user list of each preference
-    function addUserToPreferences(user, preferenceList) {
+    function addUserToPreferences(uid, preferenceList) {
 
       var prefChild;
       var userObj;
       var prefRef = fbutil.ref(preferences_user_url);
 
 
+      //for every preference in this list, add the user id with value true
       angular.forEach(preferenceList, function(value, key) {
         if (value) {
           userObj = {};
-          userObj[user.uid] = value;
+          userObj[uid] = value;
           prefChild = prefRef.child(key);
           prefChild.update(userObj);
         }
