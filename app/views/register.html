@@ -10,22 +10,23 @@
   </p>
 </fieldset>
 
-<form role="form">
+<form role="form" name="regForm" novalidate>
   <p class="form-group">
     <label for="loginEmail">email</label>
-    <input id="loginEmail" required name="email" type="email" ng-model="email" class="form-control" />
+    <input id="loginEmail" ngRequired="true" name="email" type="email" ng-model="email" class="form-control" />
   </p>
   <p class="form-group">
     <label for="loginPass">password</label>
-    <input id="loginPass" required name="pass" type="password" ng-model="pass" class="form-control" />
+    <input id="loginPass" ngRequired="true"  name="pass" type="password" ng-model="pass" class="form-control" />
   </p>
   <p class="form-group" ng-cloak>
     <label for="loginConfirm">confirm pass</label>
-    <input id="loginConfirm" required name="confirm" type="password" ng-model="confirm" class="form-control" />
+    <input id="loginConfirm" ngRequired="true" name="confirm" type="password" ng-model="confirm"  match="pass" class="form-control" />
+    <div ng-show="regForm.confirm.$error.match">Passwords do not match!</div>
   </p>
   <p class="form-group" ng-cloak>
     <label for="artsGroup">arts Group</label>
-    <input id="artsGroup" required name="artsGroup" type="text" ng-model="artsGroup" class="form-control" />
+    <input id="artsGroup" ngRequired="true" name="artsGroup" type="text" ng-model="artsGroup" class="form-control" />
   </p>
   <p class="form-group" ng-cloak>
     <label for="phone">phone</label>
@@ -37,9 +38,8 @@
   </label>
   </p>
   <p>
-    <button  class="btn btn-primary" ng-cloak
+    <button  class="btn btn-primary" ng-cloak ng-disabled="regForm.$invalid"
             ng-click="createAccount(email, pass, confirm)">Create Account</button>
   </p>
 </form>
-<p ng-show="err" class="bg-danger">{{err}}</p>
 

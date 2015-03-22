@@ -17,5 +17,7 @@ angular.module('abmApp', [
     'ngTouch',
     'firebase',
     'firebase.utils',
-    'simpleLogin'
+    'simpleLogin',
+    'validation.match'
+
   ]);

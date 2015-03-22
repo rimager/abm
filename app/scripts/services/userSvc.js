@@ -11,7 +11,7 @@
 
   'use strict';
 
-  angular.module('abmApp').factory('userSvc', ['fbutil', '$q', userSvc]);
+  angular.module('abmApp').factory('userSvc', ['fbutil', 'wrapPromiseSvc', userSvc]);
 
   function userSvc(fbutil, $q) {
 
@@ -22,9 +22,9 @@
     };
 
 
-    function updateProfile(userUid, data, cbFn) {
+    function updateProfile(userUid, data) {
       var ref = fbutil.ref('users', userUid);
-      ref.update(data, cbFn);
+      return wrapPromiseSvc(ref.update, data);
     }
 
   }

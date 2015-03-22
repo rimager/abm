@@ -7,26 +7,50 @@
 
 describe.only('Services: UserSvc', function() {
 
-    var userMock, userSvc, userIsAuthenticated;
+    var userMock, userSvc, simpleLogin, $rootScope, fbutil, ref;
 
     beforeEach(function () {
       module('abmApp');
     });
 
     beforeEach(inject(
-      function (_userSvc_) {
+      function (_$rootScope_, _userSvc_, _simpleLogin_, _fbutil_) {
+        $rootScope = _$rootScope_;
         userSvc =  _userSvc_;
+        simpleLogin = _simpleLogin_;
+        fbutil = _fbutil_;
+        ref = fbutil.ref();
       }));
 
-    afterEach(function() {
+    beforeEach(function (done) {
+      //login the user in
+      var promise =  simpleLogin.passwordLogin({email: 'testUser@ioa.io', password: '12345'}, {rememberMe: true});
+      promise.then(function() {
+          done();
+        },
+        function (err) {
+          done(err);
+        }
 
+
+      );
+      ref.flush();
+      $rootScope.$apply();
+    });
+
+    afterEach(function() {
+      simpleLogin.logout();
     });
 
     it('should get permission denied when updating a user profile while not logged in', function (done) {
-       userMock = window.mocks.user.getNewUser();
+
+      //logout the user first
+      simpleLogin.logout();
+
+      userMock = window.mocks.user.getNewUser();
 
        userSvc.updateProfile(userMock.uid, {a: 1, b:2, c: {hello: true, world: true}}, function(err) {
-         expect(err).to.be.null;
+         expect(err).not.to.be.null;
          //: expect(err).to.equal('permission_denied')
          done();
        })
@@ -34,11 +58,10 @@ describe.only('Services: UserSvc', function() {
     });
 
   it('should update an user profile with data', function (done) {
-       userMock = window.mocks.user.getNewUser();
+       var userTest = simpleLogin.getUser();
 
-       userSvc.updateProfile(userMock.uid, {a: 1, b:2, c: {hello: true, world: true}}, function(err) {
+       userSvc.updateProfile(userTest.uid, {a: 1, b:2, c: {hello: true, world: true}}, function(err) {
          expect(err).to.be.null;
-         //: expect(err).to.equal('permission_denied')
          done();
        })
 
