@@ -6,9 +6,9 @@
 
   'use strict';
 
-  angular.module('abmApp').factory('flashSvc',[flash]);
+  angular.module('abmApp').factory('flashSvc',['errorSvc', flash]);
 
-  function flash(){
+  function flash(errorSvc){
 
     var service = {
       send: send,
@@ -39,6 +39,9 @@
     }
 
     function error( body, header, onclickFn ) {
+      if (!body)
+         return;
+      body = errorSvc.getError(body);
       send('error', body, header, onclickFn );
     }
 

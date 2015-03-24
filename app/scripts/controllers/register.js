@@ -7,7 +7,9 @@
  * Manages authentication to any active providers.
  */
 angular.module('abmApp')
-  .controller('RegisterCtrl', function ($scope, simpleLogin, $location, fbutil, $timeout, userSvc, flashSvc, preferenceUserSvc) {
+  .controller('RegisterCtrl', function ($scope, simpleLogin,
+                                        $location, fbutil, $timeout,
+                                        userSvc, flashSvc, preferenceUserSvc) {
 
     //create a var to hold the disciplines / preferences from the user
     $scope.preferences  = {};
@@ -32,14 +34,19 @@ angular.module('abmApp')
 
 
     function completeProfile(user) {
+
+      //adding profile data
       userSvc.updateProfile(user.uid,
         {artsGroup: $scope.artsGroup, phone: $scope.phone,
-        preferences: $scope.preferences}).then(updateUserPreferences, showError);
+        preferences: $scope.preferences}, flashSvc.error);
+
+      //adding users to every preference
+      updateUserPreferences(user);
 
     }
 
-    function updateUserPreferences(userData) {
-      preferenceUserSvc.addUserToPreferences(userData.user.uid, $scope.preferences);
+    function updateUserPreferences(user) {
+      preferenceUserSvc.addUserToPreferences(user.uid, $scope.preferences);
       //preferenceCompanySvc.addUserToCompanies(userData.user.uid, $scope.preferences);
       $location.path('/account');
     }

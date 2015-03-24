@@ -13,7 +13,7 @@
 
   angular.module('abmApp').factory('userSvc', ['fbutil', 'wrapPromiseSvc', userSvc]);
 
-  function userSvc(fbutil, $q) {
+  function userSvc(fbutil, wrapPromiseSvc) {
 
     var user_url = 'preferences_users';
 
@@ -22,9 +22,9 @@
     };
 
 
-    function updateProfile(userUid, data) {
+    function updateProfile(userUid, data, cb) {
       var ref = fbutil.ref('users', userUid);
-      return wrapPromiseSvc(ref.update, data);
+      ref.update(data, cb);
     }
 
   }

@@ -11,14 +11,14 @@
 
   'use strict';
 
-  angular.module('abmApp').factory('preferenceUserSvc', ['fbutil', 'flashSvc', preferenceUserSvc]);
+  angular.module('abmApp').factory('preferenceCompaniesSvc', ['fbutil', preferenceCompaniesSvc]);
 
-  function preferenceUserSvc(fbutil, flashSvc) {
+  function preferenceCompaniesSvc(fbutil) {
 
     var preferences_user_url = 'preferences_users';
 
     return {
-      addUserToPreferences: addUserToPreferences
+      addCompanyToPreferences: addCompanyToPreferences
     };
 
 
@@ -29,27 +29,27 @@
      *
      * Add user to the user list of each preference
      * At the preferences_users location:
-     * preferences_users : {
-     *   preference_1: {user1: true}
-     *   preference_2: {user1: true}
+     * preferences_companies : {
+     *   preference_1: {company_1: true}
+     *   preference_2: {company_2: true}
      * }
      *
      */
     //
-    function addUserToPreferences(uid, preferenceList) {
+    function addCompanyToPreferences(companyId, preferenceList) {
 
       var prefChild;
-      var userObj;
+      var companyObj;
       var prefRef = fbutil.ref(preferences_user_url);
 
 
       //for every preference in this list, add the user id with value true
       angular.forEach(preferenceList, function(value, key) {
         if (value) {
-          userObj = {};
-          userObj[uid] = value;
+          companyObj = {};
+          companyObj[companyId] = value;
           prefChild = prefRef.child(key);
-          prefChild.update(userObj, flashSvc.error);
+          prefChild.update(companyObj);
         }
       })
 

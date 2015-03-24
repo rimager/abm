@@ -14,6 +14,7 @@ angular.module('abmApp')
     var profile;
     loadProfile(user);
 
+
     $scope.changePassword = function(oldPass, newPass, confirm) {
       $scope.err = null;
       if( !oldPass || !newPass ) {

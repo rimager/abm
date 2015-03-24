@@ -1,25 +1,17 @@
 {
-  "messages" : {
-    "-JiobOax_bE-7QqRGwVE" : {
-      "text" : "hallo"
-    },
-    "-JiobPonQnuHHVDXkD4K" : {
-      "text" : "cool"
-    }
-  },
   "filters" : {
     "age" : {
-      "age_30-50": "30-50",
-      "age_510-70": "51-70"
+      "age_30-50" : "30-50",
+      "age_510-70" : "51-70"
     },
     "artgrouptype" : {
-      "artgrouptype_literaty" : "literaty",
-      "artgrouptype_museum_visual_art" : "museum/visuarl art",
-      "artgrouptype_museum_dace" : "dance",
-      "artgrouptype_music" : "music",
-      "artgrouptype_theatre" : "theatre",
       "artgrouptype_film" : "film",
-      "artgrouptype_media" : "media"
+      "artgrouptype_literaty" : "literaty",
+      "artgrouptype_media" : "media",
+      "artgrouptype_museum_dace" : "dance",
+      "artgrouptype_museum_visual_art" : "museum/visuarl art",
+      "artgrouptype_music" : "music",
+      "artgrouptype_theatre" : "theatre"
     },
     "benefits" : {
       "benefits_entertaining" : "entertaining",
@@ -34,8 +26,8 @@
       "demographic_white" : "white"
     },
     "donations" : {
-      "donations_50_500" : "50-500",
-      "donations_501_1000" : "501-1000"
+      "donations_501_1000" : "501-1000",
+      "donations_50_500" : "50-500"
     },
     "non_profit_experience" : "non profit experience",
     "time_availability" : {
@@ -44,14 +36,86 @@
     },
     "title" : "title"
   },
+  "preferences_companies" : {
+    "artgrouptype_film" : {
+      "company_1" : true,
+      "company_2" : true
+    },
+    "artgrouptype_literaty" : {
+      "company_3" : true
+    },
+    "artgrouptype_media" : {
+      "company_1" : true
+    },
+    "artgrouptype_museum_dace" : {
+      "company_2" : true,
+      "company_5" : true
+    },
+    "artgrouptype_museum_visual_art" : {
+      "company_4" : true
+    }
+  },
+  "preferences_users" : {
+    "artgrouptype_film" : {
+      "simplelogin:22" : true
+    },
+    "artgrouptype_literaty" : {
+      "simplelogin:22" : true
+    },
+    "artgrouptype_media" : {
+      "simplelogin:22" : true
+    },
+    "artgrouptype_museum_dace" : {
+      "simplelogin:22" : true
+    },
+    "artgrouptype_museum_visual_art" : {
+      "simplelogin:22" : true
+    },
+    "artgrouptype_music" : {
+      "simplelogin:22" : true
+    }
+  },
   "users" : {
-    "simplelogin:5" : {
-      "artsGroup" : "a1",
-      "email" : "t1@t1.com",
-      "name" : "T1",
-      "phone" : "123456789",
-      "settings": {
-
+    "simplelogin:17" : {
+      "artsGroup" : "bb",
+      "email" : "b@b.com",
+      "name" : "B",
+      "phone" : "123456",
+      "preferences" : {
+        "artgrouptype_film" : true,
+        "artgrouptype_media" : true,
+        "artgrouptype_museum_visual_art" : true
+      }
+    },
+    "simplelogin:18" : {
+      "email" : "cc@cc.com",
+      "name" : "Cc"
+    },
+    "simplelogin:19" : {
+      "email" : "dd@dd.com",
+      "name" : "Dd"
+    },
+    "simplelogin:20" : {
+      "email" : "ee@kk.com",
+      "name" : "Ee"
+    },
+    "simplelogin:21" : {
+      "artsGroup" : true,
+      "email" : "ss@ss.com",
+      "name" : "Ss"
+    },
+    "simplelogin:22" : {
+      "artsGroup" : "yy",
+      "email" : "yy@yy.com",
+      "name" : "Yy",
+      "phone" : "12345",
+      "preferences" : {
+        "artgrouptype_film" : true,
+        "artgrouptype_literaty" : true,
+        "artgrouptype_media" : true,
+        "artgrouptype_museum_dace" : true,
+        "artgrouptype_museum_visual_art" : true,
+        "artgrouptype_music" : true
       }
     }
   }

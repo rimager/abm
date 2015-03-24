@@ -14,7 +14,7 @@
 
       var deferred = $q.defer();
 
-     fnToCall(data, function(err, response) {
+     fnToCall.call(this, data, function(err, response) {
        err ? deferred.reject(errorSvc.getError(err)) :
          deferred.resolve(response);
      });
