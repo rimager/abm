@@ -11,7 +11,7 @@ angular.module('abmApp')
   .controller('MainCtrl', function ($scope, userCompaniesSvc) {
 
 
-    var prefList = {
+    var prefList =  {
       "artgrouptype_film": true,
       "artgrouptype_literaty": true,
       "artgrouptype_media": true,
