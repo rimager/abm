@@ -5,7 +5,7 @@
  * Create by ricardocorrie on 6/18/14
  */
 
-describe.only('Services: UserSvc', function() {
+describe('Services: UserSvc', function() {
 
     var userMock, userSvc, simpleLogin, $rootScope, fbutil, ref;
 

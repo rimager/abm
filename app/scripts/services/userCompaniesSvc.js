@@ -11,14 +11,14 @@
 
   'use strict';
 
-  angular.module('abmApp').factory('userCompaniesSvc', ['fbutil', userCompaniesSvc]);
+  angular.module('abmApp').factory('userCompaniesSvc', ['fbutil', '$firebase',  userCompaniesSvc]);
 
-  function userCompaniesSvc(fbutil) {
+  function userCompaniesSvc(fbutil, $firebase) {
 
-    var user_companies_url = 'user_companies';
+    var user_companies_url = 'users';
 
     return {
-      addCompaniesToUser: addCompaniesToUser
+      addCompaniesByPreferencesToUser: addCompaniesByPreferencesToUser
     };
 
 
@@ -36,28 +36,45 @@
      *
      */
     //
-    function addCompaniesToUser(userId, preferenceList) {
+    function addCompaniesByPreferencesToUser(userId, preferenceList) {
 
-      var userCompaniesRef = fbutil.ref(user_companies_url);
-      var preferenceCompanyRef; companyList;
-      var companyObj;
-
+      var preferenceCompanyRef = fbutil.ref('preferences_companies');
 
       //for every preference in this list, add the user id with value true
-      angular.forEach(preferenceList, function(value, key) {
+      angular.forEach(preferenceList, function(value, preferenceKey) {
         if (value) {
-
           //get the companyList for this preferences
 
+          addCompaniesToUser(userId,
+            $firebase(preferenceCompanyRef.child(preferenceKey)).$asArray(),
+                             preferenceKey);
 
-          companyObj = {};
-          companyObj[companyId] = value;
-          //prefChild = prefRef.child(key);
-          prefChild.update(companyObj);
         }
       })
 
     }
+
+    function addCompaniesToUser(userId, companyList, preferenceKey) {
+      var companiesToAdd = {};
+      var company;
+      var userCompaniesRef = fbutil.ref(user_companies_url).child(userId).child('companies');
+
+      companyList.$loaded().then(function (companies) {
+
+        //for every preference in this list, add the user id with value true
+        for (var i = 0; i < companies.length; i++) {
+          company = companies[i];
+
+          companiesToAdd[company.$id] = {};
+          companiesToAdd[company.$id][preferenceKey] = true;
+        }
+
+        userCompaniesRef.update(companiesToAdd);
+
+      })
+
+    }
+
 
   }
 
