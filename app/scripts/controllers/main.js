@@ -20,7 +20,7 @@ angular.module('abmApp')
       "artgrouptype_music": true
     };
 
-    userCompaniesSvc.addCompaniesByPreferencesToUser('testUser', prefList);
+   // userCompaniesSvc.addCompaniesByPreferencesToUser('testUser', prefList);
 
 
     $scope.awesomeThings = [

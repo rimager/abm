@@ -11,9 +11,9 @@
 
   'use strict';
 
-  angular.module('abmApp').factory('userSvc', ['fbutil', 'wrapPromiseSvc', userSvc]);
+  angular.module('abmApp').factory('userSvc', ['fbutil',  userSvc]);
 
-  function userSvc(fbutil, wrapPromiseSvc) {
+  function userSvc(fbutil) {
 
     var user_url = 'preferences_users';
 
