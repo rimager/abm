@@ -1,0 +1,45 @@
+
+<h2>Register Page</h2>
+
+<fieldset>
+  <legend>Oauth</legend>
+  <p>
+    <button  class="btn btn-primary" ng-click="oauthLogin('facebook')">Facebook</button>
+    <button  class="btn btn-primary" ng-click="oauthLogin('google')">Google</button>
+    <button  class="btn btn-primary" ng-click="oauthLogin('twitter')">Twitter</button>
+  </p>
+</fieldset>
+
+<form role="form" name="regForm" novalidate>
+  <p class="form-group">
+    <label for="loginEmail">email</label>
+    <input id="loginEmail" ngRequired="true" name="email" type="email" ng-model="email" class="form-control" />
+  </p>
+  <p class="form-group">
+    <label for="loginPass">password</label>
+    <input id="loginPass" ngRequired="true"  name="pass" type="password" ng-model="pass" class="form-control" />
+  </p>
+  <p class="form-group" ng-cloak>
+    <label for="loginConfirm">confirm pass</label>
+    <input id="loginConfirm" ngRequired="true" name="confirm" type="password" ng-model="confirm"  match="pass" class="form-control" />
+    <div ng-show="regForm.confirm.$error.match">Passwords do not match!</div>
+  </p>
+  <p class="form-group" ng-cloak>
+    <label for="artsGroup">arts Group</label>
+    <input id="artsGroup" ngRequired="true" name="artsGroup" type="text" ng-model="artsGroup" class="form-control" />
+  </p>
+  <p class="form-group" ng-cloak>
+    <label for="phone">phone</label>
+    <input id="phone" required name="phone" type="text" ng-model="phone" class="form-control" />
+  </p>
+  <p>
+  <label ng-repeat="item in artgrouptypes">
+    <input type="checkbox" ng-model="preferences[item.$id]" name="artgrouptypes"  value="preferences[item.$id]"> {{item.$value}}
+  </label>
+  </p>
+  <p>
+    <button  class="btn btn-primary" ng-cloak ng-disabled="regForm.$invalid"
+            ng-click="createAccount(email, pass, confirm)">Create Account</button>
+  </p>
+</form>
+

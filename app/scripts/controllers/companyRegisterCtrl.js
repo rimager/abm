@@ -9,7 +9,7 @@
 angular.module('abmApp')
   .controller('CompanyRegisterCtrl', function ($scope, simpleLogin,
                                         $location, fbutil, $timeout,
-                                        companySvc, flashSvc, preferenceSvc) {
+                                        companySvc, flashSvc, preferenceSvc, companyUsersSvc) {
 
     //create a var to hold the disciplines / preferences from the user
     $scope.preferences  = {};

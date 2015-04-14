@@ -72,7 +72,7 @@ angular.module('abmApp')
       })
 
       .when('/register', {
-        templateUrl: 'views/register.html',
+        templateUrl: 'views/company_register.html',
         controller: 'CompanyRegisterCtrl'
       })
 
