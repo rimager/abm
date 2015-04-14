@@ -18,7 +18,8 @@
     var company_users_url = 'companies';
 
     return {
-      addUsersByPreferencesToCompany: addUsersByPreferencesToCompany
+      matchUsersByPreferenceToCompany: matchUsersByPreferenceToCompany,
+      persistUsersForCompany: persistUsersForCompany
     };
 
 
@@ -36,7 +37,9 @@
      *
      */
     //
-    function addUsersByPreferencesToCompany(companyId, preferenceList) {
+    function matchUsersByPreferenceToCompany(companyId, preferenceList) {
+
+      var deferred = $q.defer();
 
       var preferenceUsersRef = fbutil.ref('preferences_users');
       var usersToAdd = {};
@@ -50,20 +53,22 @@
         if (value) {
           //get the companyList for this preferences
 
-          addUsersToCompany($firebase(preferenceUsersRef.child(preferenceKey)).$asArray(),
-                             preferenceKey, usersToAdd).then(function(usersToBeAdded) {
+          matchUsersToCompany($firebase(preferenceUsersRef.child(preferenceKey)).$asArray(),
+                             preferenceKey, usersToAdd).then(function(matchedUsers) {
               preferenceListProcessed += 1;
               if (preferenceListProcessed == preferenceListCount)
-                persistUsersForCompany(companyId, usersToBeAdded);
+                deferred.resolve(matchedUsers);
+                //persistUsersForCompany(companyId, matchedUsers);
 
             });
-
         }
-      })
+      });
+
+      return deferred.promise;
 
     }
 
-    function addUsersToCompany(companyList, preferenceKey, usersToAdd) {
+    function matchUsersToCompany(companyList, preferenceKey, usersToAdd) {
       var user, deferred;
       deferred = $q.defer();
 
