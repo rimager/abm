@@ -7,3 +7,7 @@ body {
     background-image:url("../images/logo.png");
     min-height: 113px;
 }
+
+footer{
+    background: #2a2827 url(../images/bg_footer.png) repeat-x 0 0;
+}
