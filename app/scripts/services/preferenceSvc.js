@@ -21,7 +21,8 @@
 
     return {
       addCompanyToPreferences: addCompanyToPreferences,
-      addUserToPreferences: addUserToPreferences
+      addUserToPreferences: addUserToPreferences,
+      matchByPreference: matchByPreference
     };
 
 
@@ -44,6 +45,78 @@
     }
     function addUserToPreferences(uid, preferenceList) {
       addItemToPreferences(uid, preferenceList, preferences_users_url);
+    }
+
+
+    /**
+     *
+     * @param type (users, companies)
+     * @param preferencList array or object with preference to match  {preference_1: true, preference_2: true}
+     * @returns {*}
+     */
+    function matchByPreference(type, preferenceList) {
+
+      var deferred = $q.defer();
+
+      var preferenceTypeRef = fbutil.ref('preferences_' + type);
+      var matches = {};
+      var preferenceListCount =  getPreferenceListCount(preferenceList);
+      var itemsThatMatchPreferenceKey;
+
+      var preferenceListProcessed = 0;
+
+      //for every preference in this list, add the user id with value true
+      angular.forEach(preferenceList, function(value, preferenceKey) {
+
+        //value: true or false
+        if (value) {
+            itemsThatMatchPreferenceKey = $firebase(preferenceTypeRef.child(preferenceKey)).$asArray();
+            addMatchesToList(itemsThatMatchPreferenceKey,
+            preferenceKey, matches).then(function(currentMatchList) {
+              preferenceListProcessed += 1;
+              if (preferenceListProcessed == preferenceListCount) {
+                //currentMatchList is equal to matches...
+                deferred.resolve(currentMatchList);
+              }
+
+            });
+        }
+      });
+
+      return deferred.promise;
+
+    }
+
+
+    function addMatchesToList(currentMatches, preferenceKey, existingMatches) {
+      var item, deferred;
+      deferred = $q.defer();
+
+      currentMatches.$loaded().then(function (match) {
+
+        //for every preference in this list, add the user id with value true
+        for (var i = 0; i < match.length; i++) {
+          item = match[i];
+
+          //create a new match entry on existing matches if it does not exist
+          existingMatches[item.$id] = existingMatches[item.$id] || {};
+
+          //add the current preferenceKey as an entry for that match
+          existingMatches[item.$id][preferenceKey] = true;
+        }
+
+        deferred.resolve(existingMatches);
+
+      });
+
+      return deferred.promise;
+
+    }
+
+    function getPreferenceListCount(preferenceList) {
+      return angular.isArray(preferenceList)
+        ? preferenceList.length
+        :   Object.keys(preferenceList).length;
     }
 
 

@@ -11,83 +11,35 @@
 
   'use strict';
 
-  angular.module('abmApp').factory('companyUsersSvc', ['fbutil', '$firebase', '$q', companyUsersSvc]);
+  angular.module('abmApp').factory('companyUsersSvc', ['fbutil', 'preferenceSvc', companyUsersSvc]);
 
-  function companyUsersSvc(fbutil, $firebase, $q) {
+  function companyUsersSvc(fbutil,  preferenceSvc) {
 
     var company_users_url = 'companies';
 
     return {
       matchUsersByPreferenceToCompany: matchUsersByPreferenceToCompany,
+      matchCompaniesByPreferenceToUser: matchCompaniesByPreferenceToUser,
       persistUsersForCompany: persistUsersForCompany
     };
 
 
     /**
      *
-     * @param uid
      * @param preferenceList
-     *
-     * Find companies that match this preferenlist and add them to the user
-     * At the user_companies/user_id location:
-     * user_companies/user_id : {
-     *   company_1: {preference_1: true, preference_2: true}
-     *   company_2: {preference_2: true, preference_3: true}
-     * }
-     *
+     * @returns Promise with a list of users that match a preference List
      */
-    //
-    function matchUsersByPreferenceToCompany(companyId, preferenceList) {
-
-      var deferred = $q.defer();
-
-      var preferenceUsersRef = fbutil.ref('preferences_users');
-      var usersToAdd = {};
-      var preferenceListCount =  angular.isArray(preferenceList)
-                                 ? preferenceList.length
-                                 :   Object.keys(preferenceList).length;
-      var preferenceListProcessed = 0;
-
-      //for every preference in this list, add the user id with value true
-      angular.forEach(preferenceList, function(value, preferenceKey) {
-        if (value) {
-          //get the companyList for this preferences
-
-          matchUsersToCompany($firebase(preferenceUsersRef.child(preferenceKey)).$asArray(),
-                             preferenceKey, usersToAdd).then(function(matchedUsers) {
-              preferenceListProcessed += 1;
-              if (preferenceListProcessed == preferenceListCount)
-                deferred.resolve(matchedUsers);
-                //persistUsersForCompany(companyId, matchedUsers);
-
-            });
-        }
-      });
-
-      return deferred.promise;
-
+    function matchUsersByPreferenceToCompany(preferenceList) {
+      return preferenceSvc.matchByPreference('users', preferenceList);
     }
 
-    function matchUsersToCompany(companyList, preferenceKey, usersToAdd) {
-      var user, deferred;
-      deferred = $q.defer();
-
-      companyList.$loaded().then(function (users) {
-
-        //for every preference in this list, add the user id with value true
-        for (var i = 0; i < users.length; i++) {
-          user = users[i];
-
-          usersToAdd[user.$id] = usersToAdd[user.$id] || {};
-          usersToAdd[user.$id][preferenceKey] = true;
-        }
-
-        deferred.resolve(usersToAdd);
-
-      });
-
-      return deferred.promise;
-
+    /**
+     *
+     * @param preferenceList
+     * @returns Promise with a list of companies that match a preference List
+     */
+    function matchCompaniesByPreferenceToUser(preferenceList) {
+      return preferenceSvc.matchByPreference('companies', preferenceList);
     }
 
     function persistUsersForCompany(companyId, usersToAdd) {
