@@ -9,7 +9,7 @@
 angular.module('abmApp')
   .controller('CompanyRegisterCtrl', function ($scope, simpleLogin,
                                         $location, fbutil, $timeout,
-                                        companySvc, flashSvc, preferenceSvc, companyUsersSvc) {
+                                        companySvc, flashSvc, preferenceSvc) {
 
     //create a var to hold the disciplines / preferences from the user
     $scope.preferences  = {};
@@ -24,7 +24,7 @@ angular.module('abmApp')
 
 
     //Handles the account creation
-    $scope.createAccount = function(email, pass, confirm) {
+    $scope.createAccount = function(email, pass) {
 
       //Validations are good so create account
       simpleLogin.createAccount(email, pass, {rememberMe: true})

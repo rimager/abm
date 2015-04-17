@@ -11,20 +11,30 @@
 
   'use strict';
 
-  angular.module('abmApp').factory('companySvc', ['fbutil',  companySvc]);
+  angular.module('abmApp').factory('companySvc', ['profileSvc', companySvc]);
 
-  function companySvc(fbutil) {
+  function companySvc(profileSvc) {
 
     var company_url = 'companies';
 
     return {
-      updateProfile: updateProfile
+      updateProfile: updateProfile,
+      getPreferences: getPreferences,
+      setPreferences: setPreferences
+
+
     };
 
+    function updateProfile(userUid, data, cb) {
+      profileSvc.updateProfile(company_url, userUid, data, cb);
+    }
 
-    function updateProfile(companyUid, data, cb) {
-      var ref = fbutil.ref(company_url, companyUid);
-      ref.update(data, cb);
+    function getPreferences(uid) {
+      return profileSvc.getPreferences(company_url, uid);
+    }
+
+    function setPreferences(uid, preferencesObj) {
+      return profileSvc.setPreferences(company_url, uid, preferencesObj);
     }
 
   }

@@ -10,11 +10,11 @@
 
   function wrapPromiseSvc( $q, errorSvc ){
 
-   return function wrapCallBack(fnToCall, data) {
+   return function wrapCallBack(ref, fn, data) {
 
       var deferred = $q.defer();
 
-     fnToCall.call(this, data, function(err, response) {
+     ref[fn](data, function(err, response) {
        err ? deferred.reject(errorSvc.getError(err)) :
          deferred.resolve(response);
      });

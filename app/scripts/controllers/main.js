@@ -8,7 +8,7 @@
  * Controller of the abmApp
  */
 angular.module('abmApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainCtrl', function ($scope, companySvc) {
 
 
     //TODO: Test. Delete
@@ -21,6 +21,14 @@ angular.module('abmApp')
       "artgrouptype_music": true
     };
 
+
+    companySvc.getPreferences('testCompany')
+      .then(function (res)  {
+        console.log(res);
+      },
+    function (fail) {
+      console.log(fail)
+    });
 
 
 
