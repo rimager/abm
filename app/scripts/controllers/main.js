@@ -22,13 +22,13 @@ angular.module('abmApp')
     };
 
 
-    companySvc.getPreferences('testCompany')
-      .then(function (res)  {
-        console.log(res);
-      },
-    function (fail) {
-      console.log(fail)
-    });
+    //companySvc.getPreferences('testCompany')
+    //  .then(function (res)  {
+    //    console.log(res);
+    //  },
+    //function (fail) {
+    //  console.log(fail)
+    //});
 
 
 
