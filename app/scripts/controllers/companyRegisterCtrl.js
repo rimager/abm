@@ -47,8 +47,6 @@ angular.module('abmApp')
 
     function updateCompanyPreferences(company) {
       preferenceSvc.addCompanyToPreferences(company.uid, $scope.preferences);
-      // add all the users that match this preferences to the company user list
-      companyUsersSvc.addUsersByPreferencesToCompany(company.uid, $scope.preferences);
 
       //preferenceSvc.addUserToCompanies(userData.user.uid, $scope.preferences);
       $location.path('/account');
