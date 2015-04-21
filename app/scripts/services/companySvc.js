@@ -13,14 +13,15 @@
 
   angular.module('abmApp').factory('companySvc', ['profileSvc', companySvc]);
 
-  function companySvc(profileSvc) {
+  function companySvc(profileSvc, listingSvc) {
 
     var company_url = 'companies';
 
     return {
       updateProfile: updateProfile,
       getPreferences: getPreferences,
-      setPreferences: setPreferences
+      setPreferences: setPreferences,
+
 
 
     };

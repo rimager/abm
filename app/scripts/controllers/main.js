@@ -8,7 +8,7 @@
  * Controller of the abmApp
  */
 angular.module('abmApp')
-  .controller('MainCtrl', function ($scope, companySvc) {
+  .controller('MainCtrl', function ($scope, companyUsersSvc, listingSvc) {
 
 
     //TODO: Test. Delete
@@ -22,13 +22,13 @@ angular.module('abmApp')
     };
 
 
-    //companySvc.getPreferences('testCompany')
-    //  .then(function (res)  {
-    //    console.log(res);
-    //  },
-    //function (fail) {
-    //  console.log(fail)
-    //});
+    companyUsersSvc.matchCompaniesByPreferenceToUser(prefList)
+      .then(function (res)  {
+        console.log(res);
+      },
+    function (fail) {
+      console.log(fail)
+    });
 
 
 

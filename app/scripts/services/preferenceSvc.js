@@ -19,6 +19,7 @@
     var preferences_users_url = 'preferences_users';
 
 
+
     return {
       addCompanyToPreferences: addCompanyToPreferences,
       addUserToPreferences: addUserToPreferences,
