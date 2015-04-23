@@ -33,13 +33,18 @@ angular.module('abmApp')
       .state('artGroup', {
         url: '/art_group',
         abstract: true,
-        templateUrl: "art_groups/index.html"
+        templateUrl: "art_groups/index.html",
+        resolve: {
+          user:  ['simpleLogin', function(simpleLogin) {
+            return simpleLogin.getUser();
+          }]
+        }
 
       })
 
-      .state('artGroup.home', {
+      .state('artGroup.account', {
         url: '',
-        templateUrl: "art_groups/home.html",
+        templateUrl: "art_groups/account.html",
         controller: 'ArtGroupHomeCtrl'
       })
 
@@ -49,22 +54,6 @@ angular.module('abmApp')
         controller: 'ArtGroupEditCtrl'
       })
 
-
-      .whenAuthenticated('/account', {
-        templateUrl: 'views/account.html',
-        controller: 'AccountCtrl'
-      })
-
-      .whenAuthenticated('/match', {
-        templateUrl: 'views/match.html',
-        controller: 'MatchCtrl'
-      })
-
-      .when('/chat', {
-        templateUrl: 'views/chat.html',
-        controller: 'ChatCtrl'
-      })
-      .otherwise({redirectTo: '/'});
   }])
 
   /**

@@ -18,7 +18,7 @@ angular.module('abmApp')
     };
 
     function redirect() {
-      $state.go('artGroup.home');
+      $state.go('artGroup.account');
     }
 
     function showError(err) {
