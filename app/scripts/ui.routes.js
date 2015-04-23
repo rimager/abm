@@ -30,12 +30,25 @@ angular.module('abmApp')
         controller: 'ArtGroupRegisterCtrl'
       })
 
+      .state('artGroup', {
+        url: '/art_group',
+        abstract: true,
+        templateUrl: "art_groups/index.html"
 
-
-      .when('/chat', {
-        templateUrl: 'views/chat.html',
-        controller: 'ChatCtrl'
       })
+
+      .state('artGroup.home', {
+        url: '',
+        templateUrl: "art_groups/home.html",
+        controller: 'ArtGroupHomeCtrl'
+      })
+
+      .state('artGroup.edit', {
+        url: '',
+        templateUrl: "art_groups/edit.html",
+        controller: 'ArtGroupEditCtrl'
+      })
+
 
       .whenAuthenticated('/account', {
         templateUrl: 'views/account.html',
