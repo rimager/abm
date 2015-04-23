@@ -1,13 +1,13 @@
 'use strict';
 /**
  * @ngdoc function
- * @name abmApp.controller:CompanyRegisterCtrl
+ * @name abmApp.controller:ArtGroupRegisterCtrl
  * @description
- * # CompanyRegisterCtrl
+ * # ArtGroupRegisterCtrl
  * Manages authentication to any active providers.
  */
 angular.module('abmApp')
-  .controller('CompanyRegisterCtrl', function ($scope, simpleLogin,
+  .controller('ArtGroupRegisterCtrl', function ($scope, simpleLogin,
                                         $location, fbutil, $timeout,
                                         companySvc, flashSvc, preferenceSvc) {
 

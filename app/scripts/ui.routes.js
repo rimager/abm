@@ -2,51 +2,32 @@
 
 angular.module('abmApp')
 
-/**
- * Adds a special `whenAuthenticated` method onto $routeProvider. This special method,
- * when called, invokes the authRequired() service (see simpleLogin.js).
- *
- * The promise either resolves to the authenticated user object and makes it available to
- * dependency injection (see AccountCtrl), or rejects the promise if user is not logged in,
- * forcing a redirect to the /login page
- */
-  .config(['$routeProvider', 'SECURED_ROUTES', function($routeProvider, SECURED_ROUTES) {
-    // credits for this idea: https://groups.google.com/forum/#!msg/angular/dPr9BpIZID0/MgWVluo_Tg8J
-    // unfortunately, a decorator cannot be use here because they are not applied until after
-    // the .config calls resolve, so they can't be used during route configuration, so we have
-    // to hack it directly onto the $routeProvider object
-    $routeProvider.whenAuthenticated = function(path, route) {
-      route.resolve = route.resolve || {};
-      route.resolve.user = ['authRequired', function(authRequired) {
-        return authRequired();
-      }];
-      $routeProvider.when(path, route);
-      SECURED_ROUTES[path] = true;
-      return $routeProvider;
-    };
-  }])
+
 
   // configure views; the authRequired parameter is used for specifying pages
   // which should only be available while logged in
-  .config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+  .config(['$stateProvider', '$locationProvider', function($stateProvider, $locationProvider) {
 
     //use html5. Drop the #
     $locationProvider.html5Mode(true);
 
-    $routeProvider
-      .when('/', {
+    $stateProvider
+      .state('home', {
+        url: '/',
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
 
-      .when('/login', {
-        templateUrl: 'views/login.html',
-        controller: 'LoginCtrl'
+      .state('home.artGroupLogin', {
+        url: '/art_group_login',
+        templateUrl: 'views/art_group_login.html',
+        controller: 'ArtGroupLoginCtrl'
       })
 
-      .when('/register', {
-        templateUrl: 'views/company_register.html',
-        controller: 'CompanyRegisterCtrl'
+      .state('home.artGroupRegister', {
+        url:  '/art_group_register',
+        templateUrl: 'views/art_group_register.html',
+        controller: 'ArtGroupRegisterCtrl'
       })
 
 
