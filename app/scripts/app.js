@@ -18,6 +18,7 @@ angular.module('abmApp', [
     'firebase',
     'firebase.utils',
     'simpleLogin',
-    'validation.match'
+    'validation.match',
+    'ui.router'
 
   ]);

@@ -30,6 +30,14 @@ angular.module('abmApp')
       console.log(fail)
     });
 
+    listingSvc.getCompanies({'simplelogin:25': {a: true, b:true}, 'simplelogin:26': {c: true, d:true} })
+      .then(function (res)  {
+        console.log(res);
+      },
+      function (fail) {
+        console.log(fail)
+      });
+
 
 
     $scope.awesomeThings = [

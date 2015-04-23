@@ -11,9 +11,9 @@
 
   'use strict';
 
-  angular.module('abmApp').factory('preferenceSvc', ['fbutil', preferenceSvc]);
+  angular.module('abmApp').factory('preferenceSvc', ['fbutil', '$firebaseArray', '$q', preferenceSvc]);
 
-  function preferenceSvc(fbutil) {
+  function preferenceSvc(fbutil, $firebaseArray, $q) {
 
     var preferences_companies_url = 'preferences_companies';
     var preferences_users_url = 'preferences_users';
@@ -71,7 +71,7 @@
 
         //value: true or false
         if (value) {
-            itemsThatMatchPreferenceKey = $firebase(preferenceTypeRef.child(preferenceKey)).$asArray();
+            itemsThatMatchPreferenceKey = $firebaseArray(preferenceTypeRef.child(preferenceKey));
             addMatchesToList(itemsThatMatchPreferenceKey,
             preferenceKey, matches).then(function(currentMatchList) {
               preferenceListProcessed += 1;

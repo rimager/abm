@@ -11,15 +11,15 @@
 
   'use strict';
 
-  angular.module('abmApp').factory('listingSvc', ['fbutil', '$firebaseObject', 'wrapPromiseSvc', listingSvc]);
+  angular.module('abmApp').factory('listingSvc', ['fbutil', '$q', '$firebaseObject', listingSvc]);
 
-  function listingSvc(fbutil,  $firebaseObject, wrapPromiseSvc) {
+  function listingSvc(fbutil, $q,  $firebaseObject) {
 
 
     return {
       getList: getList,
       getUsers: getUsers,
-      getCompanies: getCompanies,
+      getCompanies: getCompanies
     };
 
 
@@ -42,7 +42,7 @@
       var deferred = $q.defer();
 
       var itemTypeRef = fbutil.ref(url);
-      var matches = {};
+      var matches = [];
       var itemKeysCount =  getKeysCount(itemKeys);
       var itemsThatMatchItemKey;
 
@@ -53,39 +53,18 @@
 
         //value: true or false
         if (value) {
-          itemsThatMatchItemKey = $firebase(itemTypeRef.child(itemKey)).$asObject();
-          addItemsToList(itemsThatMatchItemKey,  matches).then(function(currentMatchList) {
-              itemKeysProcessed += 1;
-              if (itemKeysProcessed == itemKeysCount) {
-                //currentMatchList is equal to matches...
-                deferred.resolve(currentMatchList);
-              }
+          $firebaseObject(itemTypeRef.child(itemKey)).$loaded(function(item) {
+            matches.push(item);
 
-            });
-        }
-      });
+            itemKeysProcessed += 1;
+            if (itemKeysProcessed == itemKeysCount) {
+              //currentMatchList is equal to matches...
+              deferred.resolve(matches);
+            }
 
-      return deferred.promise;
-
-    }
-
-    function addItemsToList(currentMatches,  existingMatches) {
-      var item, deferred;
-      deferred = $q.defer();
-
-      currentMatches.$loaded().then(function (match) {
-
-        //for every preference in this list, add the user id with value true
-        for (var i = 0; i < match.length; i++) {
-          item = match[i];
-
-          //create a new match entry on existing matches if it does not exist
-          existingMatches.push[item];
+          });
 
         }
-
-        deferred.resolve(existingMatches);
-
       });
 
       return deferred.promise;
