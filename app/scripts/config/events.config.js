@@ -5,7 +5,7 @@
 
   'use strict';
 
-  var app = angular.module('abm');
+  var app = angular.module(window.appName);
 
 
   var events = {

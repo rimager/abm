@@ -7,7 +7,7 @@
 
     'use strict';
 
-    angular.module('abm').factory('broadcastSvc', ['$rootScope', broadcastSvc]);
+    angular.module(window.appName).factory('broadcastSvc', ['$rootScope', broadcastSvc]);
 
     function broadcastSvc($rootScope) {
 
