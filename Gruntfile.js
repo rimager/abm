@@ -193,7 +193,7 @@ module.exports = function (grunt) {
         less: {
             development: {
                 options: {
-                    compress: true,  //minifying the result
+                    compress: true  //minifying the result
                 },
                 files: {
                     //compiling frontend.less into frontend.css
@@ -417,7 +417,7 @@ module.exports = function (grunt) {
             'wiredep',
             'concurrent:server',
             'autoprefixer',
-            'connect:livereload'
+            'connect:livereload',
             'watch'
         ]);
     });
