@@ -52,7 +52,7 @@ module.exports = function (grunt) {
                 files: ['Gruntfile.js']
             },
             less: {
-                files: ['<%= yeoman.app %>/styles/*.less'],  //watched files
+                files: ['<%= yeoman.app %>/styles/less/*.less'],  //watched files
                 tasks: ['less'],                          //tasks to run
                 options: {
                     livereload: true                        //reloads the browser
@@ -191,7 +191,15 @@ module.exports = function (grunt) {
 
         // Compiles Less to CSS and generates necessary files if requested
         less: {
-            //...
+            development: {
+                options: {
+                    compress: true,  //minifying the result
+                },
+                files: {
+                    //compiling frontend.less into frontend.css
+                    "<%= yeoman.dist %>/styles/frontend.css":"<%= yeoman.dist %>/styles/less/frontend.less"
+                }
+            }
         },
 
         // Renames files for browser caching purposes
@@ -409,7 +417,7 @@ module.exports = function (grunt) {
             'wiredep',
             'concurrent:server',
             'autoprefixer',
-            'connect:livereload',
+            'connect:livereload'
             'watch'
         ]);
     });
