@@ -89,7 +89,7 @@
       profileRef.once('value', function(snapshot) {
         var val = snapshot.val();
         if (val) {
-          deferred.resolve(item);
+          deferred.resolve(val);
         }
         else {
           broadcastSvc(abmEvents.profile.error, {message: 'profile not found.'});
