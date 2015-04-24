@@ -197,7 +197,7 @@ module.exports = function (grunt) {
                 },
                 files: {
                     //compiling frontend.less into frontend.css
-                    "<%= yeoman.app %>/styles/frontend.css":"<%= yeoman.app %>/styles/less/frontend.less"
+                    "<%= yeoman.app %>/styles/bootstrap.css":"<%= yeoman.app %>/styles/less/bootstrap.less"
                 }
             }
         },
