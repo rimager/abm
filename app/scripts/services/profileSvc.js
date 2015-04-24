@@ -85,11 +85,16 @@
     function getProfile(type, uid) {
       var deferred = $q.defer();
       var profileRef = fbutil.ref(type, uid);
-      $firebaseObject(profileRef).$loaded(function(item) {
-        deferred.resolve(item);
-      }, function(reason) {
-        broadcastSvc(abmEvents.profile.error, {message: 'profile not found.'});
-        deferred.reject(reason);
+
+      profileRef.once('value', function(snapshot) {
+        var val = snapshot.val();
+        if (val) {
+          deferred.resolve(item);
+        }
+        else {
+          broadcastSvc(abmEvents.profile.error, {message: 'profile not found.'});
+          deferred.reject({message: 'profile not found.'});
+        }
       });
 
       return deferred.promise;

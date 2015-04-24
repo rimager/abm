@@ -17,8 +17,8 @@ angular.module(window.appName)
         $stateProvider
             .state('home', {
                 url: '/',
-                templateUrl: '../../views/main.html',
-                controller: 'MainCtrl'
+                templateUrl: '../../views/main.html'
+
             })
 
             .state('artGroupLogin', {
