@@ -11,10 +11,9 @@
 
   'use strict';
 
-  angular.module(window.appName).factory('profileSvc', ['fbutil', '$firebaseObject',
-    'wrapPromiseSvc', 'ambEvents', 'broadcastSvc', profileSvc]);
+  angular.module(window.appName).factory('profileSvc',  profileSvc);
 
-  function profileSvc(fbutil,  $firebaseObject, wrapPromiseSvc, abmEvents, broadcastSvc) {
+  function profileSvc(fbutil,  $firebaseObject, $q, wrapPromiseSvc, abmEvents, broadcastSvc) {
 
 
     return {
@@ -22,7 +21,7 @@
       getPreferences: getPreferences,
       setPreferences: setPreferences,
       getProfiles: getProfiles,
-      getProfile: getProfile,
+      getProfile: getProfile
 
 
     };
