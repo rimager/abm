@@ -6,28 +6,28 @@ angular.module(window.appName)
 
   // configure views; the authRequired parameter is used for specifying pages
   // which should only be available while logged in
-  .config(['$stateProvider', '$locationProvider', function($stateProvider) {
+  .config(['$stateProvider',  function($stateProvider) {
 
     $stateProvider
       .state('artGroup', {
-        url: '/art_group',
+        url: 'art_group',
         abstract: true,
-        templateUrl: "art_groups/index.html",
+        templateUrl: "../../views/art_groups/index.html",
         resolve: {
           user:  ['simpleLogin', 'companySvc', function(simpleLogin, companySvc) {
             var loggedUser = simpleLogin.getUser();
-            return companySvc.getProfile(loggedUser.uid + 'sdfdsf');
+            return companySvc.getProfile(loggedUser.uid);
           }]
         }
       })
       .state('artGroup.account', {
         url: '',
-        templateUrl: "art_groups/account.html",
-        controller: 'ArtGroupHomeCtrl'
+        templateUrl: "../../views/art_groups/account.html",
+        controller: 'ArtGroupAccountCtrl'
       })
       .state('artGroup.edit', {
         url: '',
-        templateUrl: "art_groups/edit.html",
+        templateUrl: "../../views/art_groups/edit.html",
         controller: 'ArtGroupEditCtrl'
       })
 
