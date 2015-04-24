@@ -1,7 +1,9 @@
 {
   "name": "abm",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "grunt-contrib-less": "^1.0.1"
+  },
   "devDependencies": {
     "chai": "~1.9.1",
     "chalk": "^0.4.0",
