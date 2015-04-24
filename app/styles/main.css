@@ -8,6 +8,8 @@ body {
     min-height: 113px;
 }
 
-footer{
+#footer{
+    color:#999999;
+    padding: 25px 0 0 30px;
     background: #2a2827 url(../images/bg_footer.png) repeat-x 0 0;
 }
