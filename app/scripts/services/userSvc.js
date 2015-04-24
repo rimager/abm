@@ -11,7 +11,7 @@
 
   'use strict';
 
-  angular.module('abmApp').factory('userSvc', ['profileSvc',  userSvc]);
+  angular.module(window.appName).factory('userSvc', ['profileSvc',  userSvc]);
 
   function userSvc(profileSvc) {
 

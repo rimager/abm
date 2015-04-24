@@ -6,7 +6,7 @@
 
   'use strict';
 
-  angular.module('abmApp').factory('wrapPromiseSvc', ['$q', 'errorSvc', wrapPromiseSvc]);
+  angular.module(window.appName).factory('wrapPromiseSvc', ['$q', 'errorSvc', wrapPromiseSvc]);
 
   function wrapPromiseSvc( $q, errorSvc ){
 

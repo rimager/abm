@@ -6,7 +6,7 @@
  * # Match
  * A demo of using AngularFire to manage a synchronized list.
  */
-angular.module('abmApp')
+angular.module(window.appName)
   .controller('MatchCtrl', function ($scope, user, fbutil, $timeout) {
     // synchronize a read-only, synchronized array of companies that matches
     $scope.companies = fbutil.syncArray('users/' + user.uid + '/companies', {});

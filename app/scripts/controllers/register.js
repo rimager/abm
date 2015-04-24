@@ -6,7 +6,7 @@
  * # RegisterCtrl
  * Manages authentication to any active providers.
  */
-angular.module('abmApp')
+angular.module(window.appName)
   .controller('RegisterCtrl', function ($scope, simpleLogin,
                                         $location, fbutil, $timeout,
                                         userSvc, flashSvc, preferenceUserSvc) {

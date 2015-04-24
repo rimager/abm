@@ -11,7 +11,7 @@
 
   'use strict';
 
-  angular.module('abmApp').factory('companyUsersSvc', ['fbutil', 'preferenceSvc', companyUsersSvc]);
+  angular.module(window.appName).factory('companyUsersSvc', ['fbutil', 'preferenceSvc', companyUsersSvc]);
 
   function companyUsersSvc(fbutil,  preferenceSvc) {
 

@@ -11,7 +11,7 @@
 
   'use strict';
 
-  angular.module('abmApp').factory('preferenceSvc', ['fbutil', '$firebaseArray', '$q', preferenceSvc]);
+  angular.module(window.appName).factory('preferenceSvc', ['fbutil', '$firebaseArray', '$q', preferenceSvc]);
 
   function preferenceSvc(fbutil, $firebaseArray, $q) {
 

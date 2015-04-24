@@ -11,7 +11,7 @@
 
   'use strict';
 
-  angular.module('abmApp').factory('companySvc', ['profileSvc', companySvc]);
+  angular.module(window.appName).factory('companySvc', ['profileSvc', companySvc]);
 
   function companySvc(profileSvc, listingSvc) {
 
@@ -21,10 +21,15 @@
       updateProfile: updateProfile,
       getPreferences: getPreferences,
       setPreferences: setPreferences,
+      getProfile: getProfile
 
 
 
     };
+
+    function getProfile(uid) {
+      return profileSvc.getProfile(company_url, uid);
+    }
 
     function updateProfile(userUid, data, cb) {
       profileSvc.updateProfile(company_url, userUid, data, cb);

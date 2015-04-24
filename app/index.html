@@ -35,7 +35,7 @@
                 <a class="navbar-brand" href="http://www.knightfoundation.org/">founding sponsor: <img src="images/sponsor_kf.png" alt="Knight Foundation"></a>
             </div>
             <div id="navbar" class="navbar-collapse collapse navbar-right">
-                Art Group <a href="/art-groups/group-registration/">Registration</a> | <a href="/art-groups/my-account/login/">Sign In</a>
+                Art Group <a ui-sref="artGroupRegister">Registration</a> | <a ui-sref="artGroupLogin">Sign In</a>
             </div><!--/.navbar-collapse -->
         </div>
     </nav>
@@ -85,7 +85,7 @@
             </div><!--/.container-fluid -->
         </nav>
 
-      <div ng-view=""></div>
+      <div ui-view></div>
 
       <div class="footer">
         <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team, and from Firebase</p>
@@ -131,18 +131,28 @@
     <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
+
+        <!-- core scritps -->
         <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/mainCtrl.js"></script>
         <script src="scripts/angularfire/config.js"></script>
         <script src="scripts/angularfire/firebase.utils.js"></script>
         <script src="scripts/controllers/chat.js"></script>
         <script src="scripts/filters/reverse.js"></script>
         <script src="scripts/angularfire/simpleLogin.js"></script>
-        <script src="scripts/controllers/login.js"></script>
-        <script src="scripts/controllers/account.js"></script>
+
+        <script src="scripts/config/events.config.js"></script>
+
+
+        <script src="scripts/routes/home.routes.js"></script>
+
+        <!-- art groups related -->
+        <script src="scripts/routes/art_groups.routes.js"></script>
+        <script src="scripts/controllers/ArtGroupLoginCtrl.js"></script>
+        <script src="scripts/controllers/ArtGroupAccountCtrl.js"></script>
+        <script src="scripts/controllers/ArtGroupRegisterCtrl.js"></script>
         <script src="scripts/controllers/match.js"></script>
-        <script src="scripts/controllers/register.js"></script>
-        <script src="scripts/controllers/companyRegisterCtrl.js"></script>
+        <script src="scripts/services/broadcastSvc.js"></script>
         <script src="scripts/services/profileSvc.js"></script>
         <script src="scripts/services/userSvc.js"></script>
         <script src="scripts/services/companySvc.js"></script>

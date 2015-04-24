@@ -6,7 +6,7 @@
 
   'use strict';
 
-  angular.module('abmApp').factory('errorSvc',[errorSvc]);
+  angular.module(window.appName).factory('errorSvc',[errorSvc]);
 
   var erroMappings = [];
   erroMappings['NETWORK_ERROR'] = 'Unable to connect to server. Please try again later';

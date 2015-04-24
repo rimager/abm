@@ -27,7 +27,7 @@
  *   }
  *
  */
-angular.module('abmApp')
+angular.module(window.appName)
 
 /**
  * Adds a special `whenAuthenticated` method onto $routeProvider. This special method,

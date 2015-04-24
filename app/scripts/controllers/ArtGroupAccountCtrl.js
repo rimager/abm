@@ -6,7 +6,7 @@
  * # ArtGroupAccountCtrl
  * Provides rudimentary account management functions.
  */
-angular.module('abmApp')
+angular.module(window.appName)
   .controller('ArtGroupAccountCtrl', function ($scope, user, simpleLogin, fbutil, $timeout) {
     $scope.user = user;
     $scope.logout = simpleLogin.logout;
@@ -62,7 +62,7 @@ angular.module('abmApp')
       if( profile ) {
         profile.$destroy();
       }
-      profile = fbutil.syncObject('users/'+user.uid);
+      profile = fbutil.syncObject('companies/'+user.uid);
       profile.$bindTo($scope, 'profile');
     }
   });

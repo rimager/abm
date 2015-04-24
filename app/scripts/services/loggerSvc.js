@@ -4,7 +4,7 @@
 (function () {
   'use strict';
 
-  angular.module('abmApp').factory('loggerSvc', [ '$window', '$log', 'flash', logger]);
+  angular.module(window.appName).factory('loggerSvc', [ '$window', '$log', 'flash', logger]);
 
   function logger( $window, $log, flash) {
 

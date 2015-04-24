@@ -6,7 +6,7 @@
  * # LoginCtrl
  * Manages authentication to any active providers.
  */
-angular.module('abmApp')
+angular.module(window.appName)
   .controller('LoginCtrl', function ($scope, simpleLogin, $location) {
     $scope.oauthLogin = function(provider) {
       $scope.err = null;

@@ -11,16 +11,18 @@
 
   'use strict';
 
-  angular.module('abmApp').factory('profileSvc', ['fbutil', '$firebaseObject', 'wrapPromiseSvc', profileSvc]);
+  angular.module(window.appName).factory('profileSvc', ['fbutil', '$firebaseObject',
+    'wrapPromiseSvc', 'ambEvents', 'broadcastSvc', profileSvc]);
 
-  function profileSvc(fbutil,  $firebaseObject, wrapPromiseSvc) {
+  function profileSvc(fbutil,  $firebaseObject, wrapPromiseSvc, abmEvents, broadcastSvc) {
 
 
     return {
       updateProfile: updateProfile,
       getPreferences: getPreferences,
       setPreferences: setPreferences,
-      getProfiles: getProfiles
+      getProfiles: getProfiles,
+      getProfile: getProfile,
 
 
     };
@@ -81,29 +83,17 @@
     }
 
 
-    function getProfile(items) {
-      var item, deferred;
-      deferred = $q.defer();
-
-      currentMatches.$loaded().then(function (match) {
-
-        //for every preference in this list, add the user id with value true
-        for (var i = 0; i < match.length; i++) {
-          item = match[i];
-
-          //create a new match entry on existing matches if it does not exist
-          existingMatches[item.$id] = existingMatches[item.$id] || {};
-
-          //add the current preferenceKey as an entry for that match
-          existingMatches[item.$id][preferenceKey] = true;
-        }
-
-        deferred.resolve(existingMatches);
-
+    function getProfile(type, uid) {
+      var deferred = $q.defer();
+      var profileRef = fbutil.ref(type, uid);
+      $firebaseObject(profileRef).$loaded(function(item) {
+        deferred.resolve(item);
+      }, function(reason) {
+        broadcastSvc(abmEvents.profile.error, {message: 'profile not found.'});
+        deferred.reject(reason);
       });
 
       return deferred.promise;
-
     }
 
   }

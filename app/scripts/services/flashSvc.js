@@ -6,7 +6,7 @@
 
   'use strict';
 
-  angular.module('abmApp').factory('flashSvc',['errorSvc', flash]);
+  angular.module(window.appName).factory('flashSvc',['errorSvc', flash]);
 
   function flash(errorSvc){
 

@@ -7,8 +7,8 @@
  * # MainCtrl
  * Controller of the abmApp
  */
-angular.module('abmApp')
-  .controller('MainCtrl', function ($scope, companyUsersSvc, listingSvc) {
+angular.module(window.appName)
+  .controller('MainCtrl', function ($scope, flashSvc, abmEvents, companyUsersSvc, listingSvc) {
 
 
     //TODO: Test. Delete
@@ -39,6 +39,10 @@ angular.module('abmApp')
       });
 
 
+    //Event listeners
+    $scope.$on(abmEvents.profile.error, function(e, data) {
+      flashSvc.error(data.message);
+    });
 
     $scope.awesomeThings = [
       'HTML5 Boilerplate',

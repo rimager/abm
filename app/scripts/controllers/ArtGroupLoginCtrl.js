@@ -6,8 +6,8 @@
  * # ArtGroupLoginCtrl
  * Manages authentication to any active providers.
  */
-angular.module('abmApp')
-  .controller('ArtGroupLoginCtrl', function ($scope, simpleLogin, $state) {
+angular.module(window.appName)
+  .controller('ArtGroupLoginCtrl', function ($scope, simpleLogin, $state, flashSvc) {
 
 
     $scope.passwordLogin = function(email, pass) {

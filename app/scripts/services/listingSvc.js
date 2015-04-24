@@ -11,7 +11,7 @@
 
   'use strict';
 
-  angular.module('abmApp').factory('listingSvc', ['fbutil', '$q', '$firebaseObject', listingSvc]);
+  angular.module(window.appName).factory('listingSvc', ['fbutil', '$q', '$firebaseObject', listingSvc]);
 
   function listingSvc(fbutil, $q,  $firebaseObject) {
 

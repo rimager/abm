@@ -6,7 +6,7 @@
  * # ChatCtrl
  * A demo of using AngularFire to manage a synchronized list.
  */
-angular.module('abmApp')
+angular.module(window.appName)
   .controller('ChatCtrl', function ($scope, fbutil, $timeout) {
     // synchronize a read-only, synchronized array of messages, limit to most recent 10
     $scope.messages = fbutil.syncArray('messages', {limitToLast: 10});

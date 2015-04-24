@@ -8,7 +8,11 @@
  *
  * Main module of the application.
  */
-angular.module('abmApp', [
+
+//add this global variable for the app name
+window.appName = 'abmApp';
+
+angular.module(window.appName, [
     'ngAnimate',
     'ngCookies',
     'ngResource',

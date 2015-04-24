@@ -6,17 +6,19 @@
  * # ArtGroupRegisterCtrl
  * Manages authentication to any active providers.
  */
-angular.module('abmApp')
-  .controller('ArtGroupRegisterCtrl', function ($scope, simpleLogin,
-                                        $location, fbutil, $timeout,
+angular.module(window.appName)
+  .controller('ArtGroupRegisterCtrl', function ($scope, simpleLogin, fbutil,
+                                        $state, $firebaseArray, $timeout,
                                         companySvc, flashSvc, preferenceSvc) {
+
+    var filterRef = fbutil.ref('filters/artgrouptype');
 
     //create a var to hold the disciplines / preferences from the user
     $scope.preferences  = {};
 
 
     //load discipline data
-    $scope.artgrouptypes = fbutil.syncArray('filters/artgrouptype');
+    $scope.artgrouptypes = $firebaseArray(filterRef);
 
     //If there was an error when loading the discipline data show it.
     // display any errors
@@ -49,7 +51,7 @@ angular.module('abmApp')
       preferenceSvc.addCompanyToPreferences(company.uid, $scope.preferences);
 
       //preferenceSvc.addUserToCompanies(userData.user.uid, $scope.preferences);
-      $location.path('/account');
+      $state.go('artGroup.account');
     }
 
     //for each company that also share this preference
