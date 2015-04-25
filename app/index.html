@@ -13,9 +13,6 @@
     <link rel="stylesheet" href="bower_components/toastr/toastr.css" />
     <!-- endbower -->
     <!-- endbuild -->
-    <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
-    <!-- endbuild -->
   </head>
   <body ng-app="abmApp" ng-controller="MainCtrl">
     <!--[if lt IE 7]>
@@ -23,7 +20,7 @@
     <![endif]-->
 
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav id="navbar-top" class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <a href="http://www.knightfoundation.org/">founding sponsor: <img src="images/sponsor_kf.png" alt="Knight Foundation"></a>
@@ -64,7 +61,7 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a ui-sref="home">Home</a></li>
+                        <li><a ui-sref="home">Home</a></li>
                         <li><a ui-sref="about">About</a></li>
                         <li><a ui-sref="partners">Partners</a></li>
                         <li><a ui-sref="info-links">Info & Links</a></li>
