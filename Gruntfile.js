@@ -193,10 +193,10 @@ module.exports = function (grunt) {
         less: {
             development: {
                 options: {
-                    compress: true  //minifying the result
+                    compress: false  //minifying the result
                 },
                 files: {
-                    //compiling frontend.less into frontend.css
+                    //compiling bootstrap.less into bootstrap.css
                     "<%= yeoman.app %>/styles/bootstrap.css":"<%= yeoman.app %>/styles/less/bootstrap.less"
                 }
             }

@@ -1,6 +1,15 @@
-body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+#navbar-artgroup{
+   color: #C66;
+}
+
+#navbar-artgroup a {
+    color: #F96;
+    text-decoration: underline;
+}
+
+#navbar-main{
+    border-top: 5px solid #77c2d2;
+    border-bottom: 5px solid #77c2d2;
 }
 
 .header{
