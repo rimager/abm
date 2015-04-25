@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="bower_components/toastr/toastr.css" />
     <!-- endbower -->
     <!-- endbuild -->
+    <!-- build:css(.tmp) styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css">
+    <!-- endbuild -->
   </head>
   <body ng-app="abmApp" ng-controller="MainCtrl">
     <!--[if lt IE 7]>
@@ -20,12 +23,18 @@
     <![endif]-->
 
 
-    <nav id="navbar-top" class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
                 <a href="http://www.knightfoundation.org/">founding sponsor: <img src="images/sponsor_kf.png" alt="Knight Foundation"></a>
             </div>
-            <div id="navbar-artgroup" class="navbar-right">
+            <div id="navbar" class="navbar-collapse collapse navbar-right">
                 Art Group <a ui-sref="artGroupRegister">Registration</a> | <a ui-sref="artGroupLogin">Sign In</a>
             </div><!--/.navbar-collapse -->
         </div>
@@ -49,7 +58,7 @@
 
 
         <!-- Static navbar -->
-        <nav id="navbar-main" class="navbar navbar-inverse navbar-default">
+        <nav class="navbar navbar-inverse navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -61,12 +70,12 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li ng-class="{'active': currentState=='home'}"><a ui-sref="home">Home</a></li>
-                        <li ng-class="{'active': currentState=='about'}"><a ui-sref="about">About</a></li>
-                        <li ng-class="{'active': currentState=='partners'}"><a ui-sref="partners">Partners</a></li>
-                        <li ng-class="{'active': currentState=='info-links'}"><a ui-sref="info-links">Info & Links</a></li>
-                        <li ng-class="{'active': currentState=='workshops'}"><a ui-sref="workshops" >Workshops</a></li>
-                        <li ng-class="{'active': currentState=='contact'}"><a ui-sref="contact">Contact Us</a></li>
+                        <li ng-class="{'active': currentState='home'}"><a ui-sref="home">Home</a></li>
+                        <li ng-class="{'active': currentState='about'}"><a ui-sref="about">About</a></li>
+                        <li ng-class="{'active': currentState='partners'}"><a ui-sref="partners">Partners</a></li>
+                        <li ng-class="{'active': currentState='info-links'}"><a ui-sref="info-links">Info & Links</a></li>
+                        <li ng-class="{'active': currentState='workshops'}"><a ui-sref="workshops" >Workshops</a></li>
+                        <li ng-class="{'active': currentState='contact'}"><a ui-sref="contact">Contact Us</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="https://www.facebook.com/ArtsBizMiami?fref=ts" target="_self">Facebook</a></li>
