@@ -70,12 +70,12 @@
                 </div>
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a ui-sref="home">Home</a></li>
-                        <li><a ui-sref="about">About</a></li>
-                        <li><a ui-sref="partners">Partners</a></li>
-                        <li><a ui-sref="info-links">Info & Links</a></li>
-                        <li><a ui-sref="workshops">Workshops</a></li>
-                        <li><a ui-sref="contact">Contact Us</a></li>
+                        <li ng-class="{'active': currentState=='home'}"><a ui-sref="home">Home</a></li>
+                        <li ng-class="{'active': currentState=='about'}"><a ui-sref="about">About</a></li>
+                        <li ng-class="{'active': currentState=='partners'}"><a ui-sref="partners">Partners</a></li>
+                        <li ng-class="{'active': currentState=='info-links'}"><a ui-sref="info-links">Info & Links</a></li>
+                        <li ng-class="{'active': currentState=='workshops'}"><a ui-sref="workshops" >Workshops</a></li>
+                        <li ng-class="{'active': currentState=='contact'}"><a ui-sref="contact">Contact Us</a></li>
                     </ul>
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="https://www.facebook.com/ArtsBizMiami?fref=ts" target="_self">Facebook</a></li>
