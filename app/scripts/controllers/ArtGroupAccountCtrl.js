@@ -7,56 +7,35 @@
  * Provides rudimentary account management functions.
  */
 angular.module(window.appName)
-  .controller('ArtGroupAccountCtrl', function ($scope, user, simpleLogin, fbutil, $timeout) {
+  .controller('ArtGroupAccountCtrl', function ($scope, $state, user, simpleLogin, fbutil, companyUsersSvc, listingSvc) {
     $scope.user = user;
-    $scope.logout = simpleLogin.logout;
-    $scope.messages = [];
-    var profile;
-    loadProfile(user);
-
-
-    $scope.changePassword = function(oldPass, newPass, confirm) {
-      $scope.err = null;
-      if( !oldPass || !newPass ) {
-        error('Please enter all fields');
-      }
-      else if( newPass !== confirm ) {
-        error('Passwords do not match');
-      }
-      else {
-        simpleLogin.changePassword(profile.email, oldPass, newPass)
-          .then(function() {
-            success('Password changed');
-          }, error);
-      }
+    $scope.logout = function() {
+      simpleLogin.logout;
+      $state.go('home');
     };
+    $scope.users = [];
+    $scope.preferences = [];
 
-    $scope.changeEmail = function(pass, newEmail) {
-      $scope.err = null;
-      simpleLogin.changeEmail(pass, newEmail, profile.email)
-        .then(function() {
-          profile.email = newEmail;
-          profile.$save();
-          success('Email changed');
-        })
-        .catch(error);
-    };
+    //matching users
+    companyUsersSvc.matchUsersByPreferenceToCompany(user.preferences)
+      .then(function(list) {
+        return listingSvc.getUsers(list);
+      })
+      .then(function (list) {
+        $scope.users = list;
+      } );
 
-    function error(err) {
-      alert(err, 'danger');
-    }
 
-    function success(msg) {
-      alert(msg, 'success');
-    }
+    //matching preferences
+    listingSvc.getPreferences(user.preferences, 'artgrouptype')
+      .then(function(list) {
+        $scope.preferences = list;
+      });
 
-    function alert(msg, type) {
-      var obj = {text: msg+'', type: type};
-      $scope.messages.unshift(obj);
-      $timeout(function() {
-        $scope.messages.splice($scope.messages.indexOf(obj), 1);
-      }, 10000);
-    }
+
+    //var profile;
+    //loadProfile(user);
+
 
     function loadProfile(user) {
       if( profile ) {

@@ -19,7 +19,8 @@
     return {
       getList: getList,
       getUsers: getUsers,
-      getCompanies: getCompanies
+      getCompanies: getCompanies,
+      getPreferences: getPreferences,
     };
 
 
@@ -27,9 +28,16 @@
       return getList('users', keys);
     }
 
+
     function getCompanies(keys) {
       return getList('companies', keys);
     }
+
+    function getPreferences(keys, child_pref) {
+      child_pref = child_pref ? "/" + child_pref : "";
+      return getList('filters' + child_pref, keys);
+    }
+
 
     /**
      *

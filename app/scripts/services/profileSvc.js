@@ -26,6 +26,14 @@
 
     };
 
+    //all users are added to this list for the purpse of commont attributes like
+    //type: [company, customer]
+    function addProfile(uid, type,  cb) {
+      var ref = fbutil.ref('profiles');
+      var profile = [];
+      profile[uid] = {type: type};
+      ref.set(profile, cb);
+    }
 
     function updateProfile(resource_url, uid, data, cb) {
       var ref = fbutil.ref(resource_url, uid);
@@ -89,7 +97,7 @@
       profileRef.once('value', function(snapshot) {
         var val = snapshot.val();
         if (val) {
-          deferred.resolve(item);
+          deferred.resolve(val);
         }
         else {
           broadcastSvc(abmEvents.profile.error, {message: 'profile not found.'});

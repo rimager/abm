@@ -18,17 +18,20 @@
     var company_url = 'companies';
 
     return {
+      addProfile: addProfile,
       updateProfile: updateProfile,
       getPreferences: getPreferences,
       setPreferences: setPreferences,
       getProfile: getProfile
-
-
-
     };
+
 
     function getProfile(uid) {
       return profileSvc.getProfile(company_url, uid);
+    }
+
+    function addProfile(userUid, cb) {
+      profileSvc.addProfile(userUid,'users', cb);
     }
 
     function updateProfile(userUid, data, cb) {
