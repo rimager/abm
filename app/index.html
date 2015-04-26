@@ -10,10 +10,11 @@
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/toastr/toastr.css" />
+    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/bootstrap.css">
     <!-- endbuild -->
   </head>
   <body ng-app="abmApp" ng-controller="MainCtrl">
@@ -22,18 +23,12 @@
     <![endif]-->
 
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav id="navbar-top" class="navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a href="http://www.knightfoundation.org/">founding sponsor: <img src="images/sponsor_kf.png" alt="Knight Foundation"></a>
+                <a href="http://www.knightfoundation.org/" class="small">founding sponsor: <img src="images/sponsor_kf.png" alt="Knight Foundation"></a>
             </div>
-            <div id="navbar" class="navbar-collapse collapse navbar-right">
+            <div id="navbar-artgroup" class="navbar-right">
                 Art Group <a ui-sref="artGroupRegister">Registration</a> | <a ui-sref="artGroupLogin">Sign In</a>
             </div><!--/.navbar-collapse -->
         </div>
@@ -41,23 +36,19 @@
     <!-- Add your site or application content here -->
     <div class="container">
       <div class="header">
-        <!--
-        <ul class="nav nav-pills pull-right">
-          <li class="active"><a ng-href="#">Home</a></li>
-          <li>
-            <a ng-hide-auth="" href="/login">log in</a>
-            <a ng-hide-auth="" href="/register">register</a>
-            <a ng-show-auth="" href="/match">match</a>
-
-            <a ng-show-auth="" href="/account">account</a>
-          </li>
-          </ul>
-          -->
+        <div class="row">
+            <div class="col-md-9">
+                <img src="images/logo.png" alt="Arts Board Match Logo" class="img-responsive">
+            </div>
+            <div class="col-md-3">
+                <img src="images/artsbusinesscouncil_logo.png" alt="Arts Business Council Miami Logo" class="img-responsive">
+            </div>
+        </div>
       </div>
 
 
         <!-- Static navbar -->
-        <nav class="navbar navbar-inverse navbar-default">
+        <nav id="navbar-main" class="navbar navbar-inverse navbar-default">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -76,9 +67,9 @@
                         <li ng-class="{'active': currentState='workshops'}"><a ui-sref="workshops" >Workshops</a></li>
                         <li ng-class="{'active': currentState='contact'}"><a ui-sref="contact">Contact Us</a></li>
                     </ul>
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="https://www.facebook.com/ArtsBizMiami?fref=ts" target="_self">Facebook</a></li>
-                        <li><a href="https://twitter.com/ArtsBizMiami" target="_self">Twitter</a></li>
+                    <ul id="navbar-social" class="nav navbar-nav navbar-right">
+                        <li><a href="https://www.facebook.com/ArtsBizMiami?fref=ts" target="_self"><i class="fa fa-twitter-square fa-lg"></i></a></li>
+                        <li><a href="https://twitter.com/ArtsBizMiami" target="_self"><i class="fa fa-facebook-square fa-lg"></i></a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
             </div><!--/.container-fluid -->
@@ -92,7 +83,7 @@
         <div class="container">
             <div class="row">
                 <footer>
-                    <a href="http://www.CharityChannel.com" target="_blank"><img src="images/RTEmagicC_terrie-banner.jpg.jpg" alt="" width="728" height="90"></a>
+                    <a href="http://www.CharityChannel.com" target="_blank"><img src="images/RTEmagicC_terrie-banner.jpg.jpg" alt="Clarity Channel Ad" class="img-responsive"></a>
                     <p>© Copyright 2015. All rights reserved.
                         Text, graphics, platform and code may not be copied, reprinted, published, hosted or otherwise distributed without express written consent. Arts Board Match name, brand, website and related are owned by the Arts & Business Council of Miami.</p>
                     <div id="footerNav"><ul class="list-inline"><li><a href="/?no_cache=1">Home</a></li><li><a href="about/">About</a></li><li><a href="footer-navigation/art-group-profiles/">Art Group Profiles</a></li><li><a href="parners/">Partners</a></li><li><a href="footer-navigation/professional/">Professional</a></li><li><a href="footer-navigation/resources/">Resources</a></li><li><a href="footer-navigation/seminars/">Seminars</a></li><li><a href="contact/?no_cache=1">Contact Us</a></li><li><a href="footer-navigation/donate/">Donate</a></li></ul></div>

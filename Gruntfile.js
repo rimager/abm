@@ -247,15 +247,15 @@ module.exports = function (grunt) {
         // By default, your `index.html`'s <!-- Usemin block --> will take care of
         // minification. These next options are pre-configured if you do not wish
         // to use the Usemin blocks.
-        // cssmin: {
-        //   dist: {
-        //     files: {
-        //       '<%= yeoman.dist %>/styles/main.css': [
-        //         '.tmp/styles/{,*/}*.css'
-        //       ]
-        //     }
-        //   }
-        // },
+         cssmin: {
+           dist: {
+             files: {
+               '<%= yeoman.dist %>/styles/bootstrap.css': [
+                 '.tmp/styles/{,*/}*.css'
+               ]
+             }
+           }
+         },
         // uglify: {
         //   dist: {
         //     files: {
@@ -352,7 +352,7 @@ module.exports = function (grunt) {
                             '*.html',
                             'views/{,*/}*.html',
                             'images/{,*/}*.{webp}',
-                            'fonts/{,*/}*.*'
+                            'styles/fonts/{,*/}*.*'
                         ]
                     },
                     {
@@ -363,15 +363,10 @@ module.exports = function (grunt) {
                     },
                     {
                         expand: true,
-                        cwd: 'bower_components/bootstrap/dist',
-                        src: 'fonts/*',
-                        dest: '<%= yeoman.dist %>'
-                    },
-                    {
-                        expand: true,
-                        cwd: '.',
-                        src: 'bower_components/bootstrap-sass-official/assets/fonts/bootstrap/*',
-                        dest: '<%= yeoman.dist %>'
+                        dot: true,
+                        cwd: 'bower_components/font-awesome',
+                        src: ['fonts/*.*'],
+                        dest: '<%= yeoman.dist %>/fonts'
                     }
                 ]
             },

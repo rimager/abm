@@ -2,7 +2,8 @@
   "name": "abm",
   "version": "0.0.0",
   "dependencies": {
-    "grunt-contrib-less": "^1.0.1"
+    "grunt-contrib-less": "^1.0.1",
+    "font-awesome": "^4.3.0"
   },
   "devDependencies": {
     "chai": "~1.9.1",

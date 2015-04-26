@@ -58,6 +58,11 @@ angular.module(window.appName)
                 templateUrl: '../../views/contact.html'
             })
 
+            .state('terms', {
+                url: 'terms',
+                templateUrl: '../../views/terms.html'
+            })
+
 
 
 
