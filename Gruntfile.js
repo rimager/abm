@@ -180,7 +180,8 @@ module.exports = function (grunt) {
         // Automatically inject Bower components into the app
         wiredep: {
             options: {
-                cwd: ''
+                cwd: '',
+              exclude: ['bower_components/bootstrap/dist/css/bootstrap.css']
             },
             app: {
                 src: ['<%= yeoman.app %>/index.html'],
