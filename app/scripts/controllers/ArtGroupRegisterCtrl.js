@@ -8,6 +8,7 @@
  */
 angular.module(window.appName)
   .controller('ArtGroupRegisterCtrl', function ($scope, simpleLogin, fbutil,
+                                        abmConfig,
                                         $state, $firebaseArray, $timeout,
                                         companySvc, flashSvc, preferenceSvc) {
 
@@ -36,6 +37,10 @@ angular.module(window.appName)
 
 
     function completeProfile(company) {
+
+      //add profile to the profile list as a company
+      companySvc.addProfile(company.uid,
+        {type: abmConfig.profile.type.company});
 
       //adding profile data
       companySvc.updateProfile(company.uid,
