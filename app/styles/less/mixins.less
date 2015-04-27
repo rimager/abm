@@ -1,0 +1,12 @@
+#gradient {
+  .vertical-alpha-with-image(@startColor: #555, @endColor: #333, @image, @alpha) {
+    background-color: mix(@startColor, @endColor, 60%); // fallback
+    background-image: @image; // fallback
+
+    background: -moz-linear-gradient(top, fade(@startColor, @alpha), fade(@endColor, @alpha)), @image; // FF 3.6+
+    background: -webkit-gradient(linear, 0 0, 0 100%, from(fade(@startColor, @alpha)), to(fade(@endColor, @alpha))), @image; // Safari 4+, Chrome 2+
+    background: -webkit-linear-gradient(top, fade(@startColor, @alpha), fade(@endColor, @alpha)), @image; // Safari 5.1+, Chrome 10+
+    background: -o-linear-gradient(top, fade(@startColor, @alpha), fade(@endColor, @alpha)), @image; // Opera 11.10
+    background: linear-gradient(to bottom, fade(@startColor, @alpha), fade(@endColor, @alpha)), @image; // Standard, IE10
+  }
+}
