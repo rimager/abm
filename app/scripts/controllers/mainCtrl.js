@@ -43,6 +43,7 @@ angular.module(window.appName)
     //Event listeners
     $scope.$on(abmEvents.profile.error, function(e, data) {
       flashSvc.error(data.message);
+      $state.go('home');
     });
 
     $scope.awesomeThings = [

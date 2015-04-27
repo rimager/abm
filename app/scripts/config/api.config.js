@@ -9,7 +9,11 @@
 
 
   var api = {
-    accounts: 'accounts'
+    accounts: 'accounts',
+    profiles: {
+      users: 'users',
+      companies: 'companies'
+    }
   };
 
 

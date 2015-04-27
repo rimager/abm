@@ -14,17 +14,18 @@ angular.module(window.appName)
     //once the are logged in.
 
     $stateProvider
-      .state('artGroup', {
-        url: 'art_group',
+      .state('account', {
+        url: 'account',
         abstract: true,
-        templateUrl: "../../views/art_groups/index.html",
+        templateUrl: "../../views/account/index.html",
         resolve: {
-          account:  ['simpleLogin', 'profileSvc', function(simpleLogin, profileSvc) {
+          account:  ['simpleLogin', 'accountSvc', function(simpleLogin, accountSvc) {
             var loggedUser = simpleLogin.getUser();
-            return profileSvc.getAccount(loggedUser.uid);
+            return accountSvc.getAccount(loggedUser.uid);
           }]
         }
       })
 
 
   }]);
+

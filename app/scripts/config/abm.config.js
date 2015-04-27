@@ -11,18 +11,34 @@
   var profile = {
     type: {
       user: 'user',
-      artGroup: 'artgroup'
+      company: 'company'
+    }
+  };
+
+  var states = {
+    home: 'home',
+    company: {
+      home: 'account.artGroup.home'
+    },
+    user: {
+      home: 'account.user.home'
     }
   };
 
   var config = {
-    profile: profile
+    profile: profile,
+    states: states
   };
 
   //Make the config data available as a service
-  app.factory('abmConfig', [function () {
+  app.factory('abmConfig', function (abmEvents, abmApiConfig) {
+
+    //adding entries for redundancy
+    config.api = abmApiConfig;
+    config.events = abmEvents;
+
     return config;
-  }]);
+  });
 
 
 })(angular);

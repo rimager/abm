@@ -18,7 +18,7 @@ angular.module(window.appName)
     };
 
     function redirect() {
-      return $state.go('artGroup.account');
+      return $state.go('account.artGroup.home');
     }
 
     function showError(err) {

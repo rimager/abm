@@ -14,26 +14,22 @@
   angular.module(window.appName).factory('profileSvc',  profileSvc);
 
   function profileSvc(fbutil,  $firebaseObject, $q,
-                      wrapPromiseSvc, abmEvents, broadcastSvc,
-                      abmApiConfig) {
+                      wrapPromiseSvc, abmEvents, broadcastSvc, abmApiConfig) {
 
 
     return {
-      getAccount: getAccount,
       addProfile: addProfile,
       updateProfile: updateProfile,
       getPreferences: getPreferences,
       setPreferences: setPreferences,
       getProfiles: getProfiles,
       getProfile: getProfile
-
-
     };
 
     //all users are added to this list for the purpse of commont attributes like
     //type: [company, customer]
-    function addAccount(uid, data,  cb) {
-      var ref = fbutil.ref(abmApiConfig.accounts);
+    function addProfile(uid, data,  cb) {
+      var ref = fbutil.ref('profiles');
       var profile = [];
       profile[uid] = data;
       ref.set(profile, cb);
@@ -93,24 +89,6 @@
 
     }
 
-
-    function getAccount(uid) {
-      var deferred = $q.defer();
-      var profileRef = fbutil.ref(type, uid);
-
-      profileRef.once('value', function(snapshot) {
-        var val = snapshot.val();
-        if (val) {
-          deferred.resolve(val);
-        }
-        else {
-          broadcastSvc(abmEvents.profile.error, {message: 'profile not found.'});
-          deferred.reject({message: 'profile not found.'});
-        }
-      });
-
-      return deferred.promise;
-    }
 
     function getProfile(type, uid) {
       var deferred = $q.defer();
