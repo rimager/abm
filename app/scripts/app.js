@@ -12,7 +12,7 @@
 //add this global variable for the app name
 window.appName = 'abmApp';
 
-angular.module(window.appName, [
+var app  = angular.module(window.appName, [
     'ngAnimate',
     'ngCookies',
     'ngResource',
@@ -26,3 +26,30 @@ angular.module(window.appName, [
     'ui.router'
 
   ]);
+
+app.run(['$rootScope', '$state', 'simpleLogin', 'abmConfig',
+  function($rootScope, $state, simpleLogin, abmConfig) {
+    // watch for login status changes and redirect if appropriate
+    simpleLogin.watch(check, $rootScope);
+
+    // some of our routes may reject resolve promises with the special {authRequired: true} error
+    // this redirects to the login page whenever that is encountered
+
+    $rootScope.$on('$stateChangeError', function(event, toState, toParams, fromState, fromParams, error) {
+      event.preventDefault();
+      if( angular.isObject(error) && error.authRequired ) {
+        $state.go(abmConfig.states.home)
+      }
+    });
+
+    function check(user) {
+      if( !user && authRequired($state.current.name) ) {
+        $state.go(abmConfig.states.home);
+      }
+    }
+
+    function authRequired(stateName) {
+      return  stateName.indexOf('account') === 0;
+    }
+  }
+]);

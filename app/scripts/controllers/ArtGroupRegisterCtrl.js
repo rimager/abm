@@ -8,10 +8,12 @@
  */
 angular.module(window.appName)
   .controller('ArtGroupRegisterCtrl', function ($scope, simpleLogin, fbutil,
+                                        abmConfig,
                                         $state, $firebaseArray, $timeout,
+                                        accountSvc,
                                         companySvc, flashSvc, preferenceSvc) {
 
-    var filterRef = fbutil.ref('filters/artgrouptype');
+    var filterRef = fbutil.ref(abmConfig.api.filters.artgrouptypes);
 
     //create a var to hold the disciplines / preferences from the user
     $scope.preferences  = {};
@@ -37,6 +39,10 @@ angular.module(window.appName)
 
     function completeProfile(company) {
 
+      //add account to our manage list of accounts
+      accountSvc.addAccount(company.uid,
+        {type: abmConfig.profile.type.company});
+
       //adding profile data
       companySvc.updateProfile(company.uid,
         {artsGroup: $scope.artsGroup, phone: $scope.phone,
@@ -51,7 +57,7 @@ angular.module(window.appName)
       preferenceSvc.addCompanyToPreferences(company.uid, $scope.preferences);
 
       //preferenceSvc.addUserToCompanies(userData.user.uid, $scope.preferences);
-      $state.go('artGroup.account');
+      $state.go(abmConfig.states.company.home);
     }
 
     //for each company that also share this preference

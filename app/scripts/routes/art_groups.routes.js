@@ -9,23 +9,22 @@ angular.module(window.appName)
   .config(['$stateProvider',  function($stateProvider) {
 
     $stateProvider
-      .state('artGroup', {
-        url: 'art_group',
+      .state('account.artGroup', {
+        url: '/art_group',
         abstract: true,
         templateUrl: "../../views/art_groups/index.html",
         resolve: {
-          user:  ['simpleLogin', 'companySvc', function(simpleLogin, companySvc) {
-            var loggedUser = simpleLogin.getUser();
-            return companySvc.getProfile(loggedUser.uid);
-          }]
+          profile:  function(account, authSvc) {
+            return authSvc.authorizeCompany(account)
+          }
         }
       })
-      .state('artGroup.account', {
+      .state('account.artGroup.home', {
         url: '',
         templateUrl: "../../views/art_groups/account.html",
         controller: 'ArtGroupAccountCtrl'
       })
-      .state('artGroup.edit', {
+      .state('account.artGroup.edit', {
         url: '',
         templateUrl: "../../views/art_groups/edit.html",
         controller: 'ArtGroupEditCtrl'

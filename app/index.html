@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="styles/bootstrap.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="abmApp" ng-controller="MainCtrl">
+  <body ng-app="abmApp" ng-controller="LayoutCtrl">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -29,8 +29,8 @@
                 <a href="http://www.knightfoundation.org/" class="small">founding sponsor: <img src="images/sponsor_kf.png" alt="Knight Foundation"></a>
             </div>
             <div id="navbar-artgroup" class="navbar-right">
-                Art Group <a ui-sref="artGroupRegister">Registration</a> | <a ui-sref="artGroupLogin">Sign In</a>
-            </div><!--/.navbar-collapse -->
+                Art Group <span ng-hide-auth=""><a ui-sref="artGroupRegister">Registration</a> | <a ui-sref="artGroupLogin">Sign In</a></span>
+                <span ng-show-auth=""><a href="#" ng-click="logout()">Log out</a></span>
         </div>
     </nav>
     <!-- Add your site or application content here -->
@@ -135,39 +135,56 @@
 
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
 
-        <!-- core scritps -->
+
         <script src="scripts/app.js"></script>
-        <script src="scripts/controllers/mainCtrl.js"></script>
+
+        <!-- angularfire -->
         <script src="scripts/angularfire/config.js"></script>
         <script src="scripts/angularfire/firebase.utils.js"></script>
-        <script src="scripts/controllers/chat.js"></script>
-        <script src="scripts/filters/reverse.js"></script>
         <script src="scripts/angularfire/simpleLogin.js"></script>
 
-        <script src="scripts/config/events.config.js"></script>
+    <!-- core scritps -->
+    <script src="scripts/controllers/layoutCtrl.js"></script>
+    <script src="scripts/services/broadcastSvc.js"></script>
+    <script src="scripts/services/wrapPromiseSvc.js"></script>
+    <script src="scripts/services/errorSvc.js"></script>
+    <script src="scripts/services/loggerSvc.js"></script>
+    <script src="scripts/services/flashSvc.js"></script>
+    <script src="scripts/directives/ngShowAuth.js"></script>
+    <script src="scripts/directives/ngHideAuth.js"></script>
+
+    <!-- common data svc -->
+    <script src="scripts/services/accountSvc.js"></script>
+    <script src="scripts/services/authSvc.js"></script>
+    <script src="scripts/services/profileSvc.js"></script>
+    <script src="scripts/services/preferenceSvc.js"></script>
+    <script src="scripts/services/listingSvc.js"></script>
 
 
+
+        <!-- routes -->
         <script src="scripts/routes/home.routes.js"></script>
-
-        <!-- art groups related -->
+        <script src="scripts/routes/account.routes.js"></script>
         <script src="scripts/routes/art_groups.routes.js"></script>
+
+        <!-- configs -->
+        <script src="scripts/config/abm.config.js"></script>
+        <script src="scripts/config/api.config.js"></script>
+        <script src="scripts/config/events.config.js"></script>
+        <script src="scripts/config/config.exceptionHandler.js"></script>
+
+        <!-- art groups -->
         <script src="scripts/controllers/ArtGroupLoginCtrl.js"></script>
         <script src="scripts/controllers/ArtGroupAccountCtrl.js"></script>
         <script src="scripts/controllers/ArtGroupRegisterCtrl.js"></script>
-        <script src="scripts/controllers/match.js"></script>
-        <script src="scripts/services/broadcastSvc.js"></script>
-        <script src="scripts/services/profileSvc.js"></script>
-        <script src="scripts/services/userSvc.js"></script>
         <script src="scripts/services/companySvc.js"></script>
-        <script src="scripts/services/preferenceSvc.js"></script>
-        <script src="scripts/services/listingSvc.js"></script>
+
+        <!-- user -->
+        <script src="scripts/services/userSvc.js"></script>
+
+
         <script src="scripts/services/companyUsersSvc.js"></script>
-        <script src="scripts/services/wrapPromiseSvc.js"></script>
-        <script src="scripts/services/errorSvc.js"></script>
-        <script src="scripts/services/loggerSvc.js"></script>
-        <script src="scripts/services/flashSvc.js"></script>
-        <script src="scripts/directives/ngShowAuth.js"></script>
-        <script src="scripts/directives/ngHideAuth.js"></script>
+
 
         <!-- endbuild -->
 </body>

@@ -11,14 +11,13 @@
 
   'use strict';
 
-  angular.module(window.appName).factory('companySvc', ['profileSvc', companySvc]);
+  angular.module(window.appName).factory('companySvc',companySvc);
 
-  function companySvc(profileSvc, listingSvc) {
+  function companySvc(profileSvc, abmConfig) {
 
-    var company_url = 'companies';
+    var company_url =   abmConfig.api.profiles.companies;
 
     return {
-      addProfile: addProfile,
       updateProfile: updateProfile,
       getPreferences: getPreferences,
       setPreferences: setPreferences,
@@ -30,9 +29,6 @@
       return profileSvc.getProfile(company_url, uid);
     }
 
-    function addProfile(userUid, cb) {
-      profileSvc.addProfile(userUid,'users', cb);
-    }
 
     function updateProfile(userUid, data, cb) {
       profileSvc.updateProfile(company_url, userUid, data, cb);
