@@ -23,7 +23,8 @@ var app  = angular.module(window.appName, [
     'firebase.utils',
     'simpleLogin',
     'validation.match',
-    'ui.router'
+    'ui.router',
+    'angular-loading-bar'
 
   ]);
 
