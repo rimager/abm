@@ -6,5 +6,9 @@
     "**/.*",
     "**/node_modules/**",
     "**/bower_components/**"
-  ]
+  ],
+  "rewrites": [ {
+    "source": "**",
+    "destination": "/index.html"
+  } ]
 }
