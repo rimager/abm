@@ -8,9 +8,13 @@
  * Controller of the abmApp
  */
 angular.module(window.appName)
-  .controller('MainCtrl', function ($scope, $state, flashSvc, abmEvents, companyUsersSvc, listingSvc) {
+  .controller('MainCtrl', function ($scope, $state, simpleLogin, flashSvc, abmEvents, companyUsersSvc, listingSvc) {
 
     $scope.currentState = $state.current.name;
+
+    $scope.logout = function() {
+      simpleLogin.logout;
+    };
 
     //TODO: Test. Delete
     var prefList =  {

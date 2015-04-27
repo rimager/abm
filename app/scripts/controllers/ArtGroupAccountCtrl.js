@@ -9,10 +9,6 @@
 angular.module(window.appName)
   .controller('ArtGroupAccountCtrl', function ($scope, $state, user, simpleLogin, fbutil, companyUsersSvc, listingSvc) {
     $scope.user = user;
-    $scope.logout = function() {
-      simpleLogin.logout;
-      $state.go('home');
-    };
     $scope.users = [];
     $scope.preferences = [];
 

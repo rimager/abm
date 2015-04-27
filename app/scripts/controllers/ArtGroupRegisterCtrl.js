@@ -13,7 +13,7 @@ angular.module(window.appName)
                                         accountSvc,
                                         companySvc, flashSvc, preferenceSvc) {
 
-    var filterRef = fbutil.ref('filters/artgrouptype');
+    var filterRef = fbutil.ref(abmConfig.api.filters.artgrouptypes);
 
     //create a var to hold the disciplines / preferences from the user
     $scope.preferences  = {};
@@ -41,7 +41,7 @@ angular.module(window.appName)
 
       //add account to our manage list of accounts
       accountSvc.addAccount(company.uid,
-        {type: abmConfig.profile.type.companies});
+        {type: abmConfig.profile.type.company});
 
       //adding profile data
       companySvc.updateProfile(company.uid,

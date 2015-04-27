@@ -13,6 +13,9 @@
     profiles: {
       users: 'users',
       companies: 'companies'
+    },
+    filters: {
+      artgrouptypes: 'filters/artgrouptype'
     }
   };
 
