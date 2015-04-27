@@ -35,8 +35,7 @@
         </div>
     </nav>
     <!-- Add your site or application content here -->
-    <div class="container">
-      <div class="header">
+      <div class="container header">
         <div class="row">
             <div class="col-md-9">
                 <img src="images/logo.png" alt="Arts Board Match Logo" class="img-responsive">
@@ -48,9 +47,10 @@
       </div>
 
 
-        <!-- Static navbar -->
-        <nav id="navbar-main" class="navbar navbar-inverse navbar-default">
-            <div class="container">
+    <!-- Static navbar -->
+    <div class="container" id="navbar-main">
+        <nav class="navbar navbar-inverse navbar-default">
+
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
                         <span class="sr-only">Toggle navigation</span>
@@ -73,12 +73,12 @@
                         <li><a href="https://twitter.com/ArtsBizMiami" target="_self"><i class="fa fa-facebook-square fa-lg"></i></a></li>
                     </ul>
                 </div><!--/.nav-collapse -->
-            </div><!--/.container-fluid -->
+
         </nav>
-
-      <div ui-view class="container-view"></div>
-
     </div>
+
+      <div ui-view class="container-view container"></div>
+
 
     <div id="footer">
         <div class="container">

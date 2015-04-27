@@ -5617,6 +5617,9 @@ h4 {
   background-repeat: no-repeat;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff000000', endColorstr='#ff000000', GradientType=0);
 }
+#navbar-main .navbar-inverse {
+  background-color: transparent;
+}
 #navbar-main ul:first-child li {
   border-right: 2px dashed #FFF;
 }
@@ -5629,8 +5632,6 @@ h4 {
   background-color: transparent;
 }
 .header {
-  background-image: url("../../images/logo.png");
-  background-repeat: no-repeat;
   background-color: #000;
   min-height: 113px;
 }
