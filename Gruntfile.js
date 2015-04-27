@@ -76,24 +76,23 @@ module.exports = function (grunt) {
                 port: 9000,
                 // Change this to '0.0.0.0' to access the server from outside.
                 hostname: 'localhost',
-                livereload: 35729,
-                middleware: function (connect, options) {
-                    return [function (req, res) {
-                        require('fs').createReadStream('index.html').pipe(res);
-                    }]
-                }
+                livereload: 35729
             },
             livereload: {
                 options: {
                     open: true,
-                    middleware: function (connect) {
-                        return [
+                    middleware: function (connect, options, middlewares) {
+                      var modRewrite = require('connect-modrewrite');
+
+                      return [
+                        modRewrite(['!\\.html|\\.js|\\.svg|\\.css|\\.png$ /index.html [L]']),
                             connect.static('.tmp'),
                             connect().use(
                                 '/bower_components',
                                 connect.static('./bower_components')
                             ),
                             connect.static(appConfig.app)
+
                         ];
                     }
                 }
