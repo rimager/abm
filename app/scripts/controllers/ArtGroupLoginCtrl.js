@@ -7,23 +7,23 @@
  * Manages authentication to any active providers.
  */
 angular.module(window.appName)
-  .controller('ArtGroupLoginCtrl', function ($scope, simpleLogin, $state, flashSvc) {
+  .controller('ArtGroupLoginCtrl', function ($scope,
+                                             abmConfig,
+                                             simpleLogin, $state, flashSvc) {
 
 
     $scope.passwordLogin = function(email, pass) {
       $scope.err = null;
       simpleLogin.passwordLogin({email: email, password: pass}, {rememberMe: true}).then(
-        redirect, showError
+        redirect, $scope.showError
       );
     };
 
     function redirect() {
-      return $state.go('account.artGroup.home');
+      return $state.go(abmConfig.states.company.home);
     }
 
-    function showError(err) {
-      flashSvc.error(err);
-    }
+
 
 
   });

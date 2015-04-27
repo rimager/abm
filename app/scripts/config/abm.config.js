@@ -26,6 +26,7 @@
   };
 
   var config = {
+    appErrorPrefix: 'abm error',
     profile: profile,
     states: states
   };

@@ -11,10 +11,10 @@
 
   'use strict';
 
-  angular.module(window.appName).factory('profileSvc',  profileSvc);
+  angular.module(window.appName).factory('accountSvc',  accountSvc);
 
-  function profileSvc(fbutil,  $firebaseObject, $q,
-                      wrapPromiseSvc, abmEvents, broadcastSvc,
+  function accountSvc(fbutil,  $q,
+                      abmEvents, broadcastSvc,
                       abmApiConfig) {
 
 

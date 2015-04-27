@@ -13,9 +13,9 @@
 
   angular.module(window.appName).factory('companySvc',companySvc);
 
-  function companySvc(profileSvc, listingSvc, abmApiConfig) {
+  function companySvc(profileSvc, abmConfig) {
 
-    var company_url = abmApiConfig.api.profiles.companies;
+    var company_url =   abmConfig.api.profiles.companies;
 
     return {
       updateProfile: updateProfile,

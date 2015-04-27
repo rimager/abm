@@ -7,13 +7,13 @@
  * Provides rudimentary account management functions.
  */
 angular.module(window.appName)
-  .controller('ArtGroupAccountCtrl', function ($scope, $state, user, simpleLogin, fbutil, companyUsersSvc, listingSvc) {
-    $scope.user = user;
+  .controller('ArtGroupAccountCtrl', function ($scope, $state, profile, simpleLogin, fbutil, companyUsersSvc, listingSvc) {
+    $scope.user = profile;
     $scope.users = [];
     $scope.preferences = [];
 
     //matching users
-    companyUsersSvc.matchUsersByPreferenceToCompany(user.preferences)
+    companyUsersSvc.matchUsersByPreferenceToCompany(profile.preferences)
       .then(function(list) {
         return listingSvc.getUsers(list);
       })
@@ -23,7 +23,7 @@ angular.module(window.appName)
 
 
     //matching preferences
-    listingSvc.getPreferences(user.preferences, 'artgrouptype')
+    listingSvc.getPreferences(profile.preferences, 'artgrouptype')
       .then(function(list) {
         $scope.preferences = list;
       });

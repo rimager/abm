@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="abmApp" ng-controller="MainCtrl">
+  <body ng-app="abmApp" ng-controller="LayoutCtrl">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
@@ -154,7 +154,7 @@
         <script src="scripts/angularfire/simpleLogin.js"></script>
 
     <!-- core scritps -->
-    <script src="scripts/controllers/mainCtrl.js"></script>
+    <script src="scripts/controllers/layoutCtrl.js"></script>
     <script src="scripts/services/broadcastSvc.js"></script>
     <script src="scripts/services/wrapPromiseSvc.js"></script>
     <script src="scripts/services/errorSvc.js"></script>
@@ -164,7 +164,7 @@
     <script src="scripts/directives/ngHideAuth.js"></script>
 
     <!-- common data svc -->
-    <script src="scripts/services/companySvc.js"></script>
+    <script src="scripts/services/accountSvc.js"></script>
     <script src="scripts/services/authSvc.js"></script>
     <script src="scripts/services/profileSvc.js"></script>
     <script src="scripts/services/preferenceSvc.js"></script>
@@ -181,6 +181,7 @@
         <script src="scripts/config/abm.config.js"></script>
         <script src="scripts/config/api.config.js"></script>
         <script src="scripts/config/events.config.js"></script>
+        <script src="scripts/config/config.exceptionHandler.js"></script>
 
         <!-- art groups -->
         <script src="scripts/controllers/ArtGroupLoginCtrl.js"></script>

@@ -4,9 +4,9 @@
 (function () {
   'use strict';
 
-  angular.module(window.appName).factory('loggerSvc', [ '$window', '$log', 'flash', logger]);
+  angular.module(window.appName).factory('loggerSvc', [  '$log', 'flashSvc', logger]);
 
-  function logger( $window, $log, flash) {
+  function logger( $log, flash) {
 
     var service = {
 

@@ -14,7 +14,7 @@ angular.module(window.appName)
         abstract: true,
         templateUrl: "../../views/art_groups/index.html",
         resolve: {
-          profile:  function(authSvc) {
+          profile:  function(account, authSvc) {
             return authSvc.authorizeCompany(account)
           }
         }

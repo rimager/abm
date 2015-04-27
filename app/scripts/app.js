@@ -27,7 +27,7 @@ var app  = angular.module(window.appName, [
 
   ]);
 
-app.run(['$rootScope', '$state', 'simpleLogin',
+app.run(['$rootScope', '$state', 'simpleLogin', 'abmConfig',
   function($rootScope, $state, simpleLogin, abmConfig) {
     // watch for login status changes and redirect if appropriate
     simpleLogin.watch(check, $rootScope);

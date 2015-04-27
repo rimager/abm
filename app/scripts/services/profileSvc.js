@@ -14,7 +14,7 @@
   angular.module(window.appName).factory('profileSvc',  profileSvc);
 
   function profileSvc(fbutil,  $firebaseObject, $q,
-                      wrapPromiseSvc, abmEvents, broadcastSvc, abmApiConfig) {
+                      wrapPromiseSvc, abmEvents, broadcastSvc, abmConfig) {
 
 
     return {
@@ -23,7 +23,8 @@
       getPreferences: getPreferences,
       setPreferences: setPreferences,
       getProfiles: getProfiles,
-      getProfile: getProfile
+      getProfile: getProfile,
+      getProfilesUrl: getProfilesUrl
     };
 
     //all users are added to this list for the purpse of commont attributes like
@@ -90,9 +91,16 @@
     }
 
 
-    function getProfile(type, uid) {
+    function getProfilesUrl(type) {
+      return type === abmConfig.profile.type.company
+             ? abmConfig.api.profiles.companies
+             : abmConfig.api.profiles.users
+    }
+
+
+    function getProfile(profilesUrl, uid) {
       var deferred = $q.defer();
-      var profileRef = fbutil.ref(type, uid);
+      var profileRef = fbutil.ref(profilesUrl, uid);
 
       profileRef.once('value', function(snapshot) {
         var val = snapshot.val();

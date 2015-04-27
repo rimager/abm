@@ -13,8 +13,7 @@
 
   angular.module(window.appName).factory('authSvc',  authSvc);
 
-  function authSvc($q, account,
-                      abmConfig,
+  function authSvc($q, abmConfig,
                       abmEvents,
                       profileSvc, simpleLogin,  broadcastSvc
                       ) {
@@ -36,7 +35,9 @@
         rejectAuth(deferred);
       }
       else {
-        profileSvc.getProfile(simpleLogin.getUser()).then(function (user) {
+        profileSvc.getProfile(profileSvc.getProfilesUrl(profileType),
+                              simpleLogin.getUser().uid)
+          .then(function (user) {
             deferred.resolve(user);
           }, function (reason) {
             rejectAuth(deferred);
