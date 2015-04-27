@@ -197,7 +197,7 @@ module.exports = function (grunt) {
                 },
                 files: {
                     //compiling bootstrap.less into bootstrap.css
-                    "<%= yeoman.app %>/styles/bootstrap.css":"<%= yeoman.app %>/styles/less/bootstrap.less"
+                    "<%= yeoman.app %>/styles/bootstrap.css":"<%= yeoman.app %>/styles/bootstrap.less"
                 }
             }
         },
