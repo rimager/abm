@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "dependencies": {
     "grunt-contrib-less": "^1.0.1",
-    "font-awesome": "^4.3.0"
+    "font-awesome": "^4.3.0",
     "connect-modrewrite": "^0.7.11",
     "grunt-contrib-less": "^1.0.1"
   },
