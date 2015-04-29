@@ -15,11 +15,11 @@ angular.module(window.appName)
 
     var filterRef = fbutil.ref(abmConfig.api.filters.artgrouptypes);
 
-    //create a var to hold the disciplines / preferences from the user
+    //create a var to hold the company preferences
     $scope.preferences  = {};
 
 
-    //load discipline data
+    //load preferences data data
     $scope.artgrouptypes = $firebaseArray(filterRef);
 
     //If there was an error when loading the discipline data show it.

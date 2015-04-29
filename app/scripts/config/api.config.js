@@ -17,7 +17,7 @@
     filters: {
       artgrouptypes: 'filters/artgrouptype'
     },
-    userAttributes: 'user_attributes'
+    user_attributes: 'user_attributes'
   };
 
 
