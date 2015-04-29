@@ -11,11 +11,11 @@
 
   'use strict';
 
-  angular.module(window.appName).factory('userSvc', ['profileSvc',  userSvc]);
+  angular.module(window.appName).factory('userSvc', userSvc);
 
-  function userSvc(profileSvc) {
+  function userSvc(profileSvc, abmConfig) {
 
-    var user_url = 'users';
+    var user_url = abmConfig.api.profile.users;
 
     return {
       updateProfile: updateProfile,

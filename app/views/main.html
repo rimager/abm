@@ -206,19 +206,24 @@
         </div>
         <h3>Step One: Start Here to Find a Match</h3>
 
-        <form>
+        <form name="regForm" novalidate>
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="email" class="form-control" id="name" placeholder="Name">
+                <input type="email" class="form-control" id="name" ng-model="user.name" ngRequired="true" placeholder="Name">
             </div>
             <div class="form-group">
                 <label for="email">Email address</label>
-                <input type="email" class="form-control" id="email" placeholder="Email">
+                <input type="email" class="form-control" id="email" ng-model="user.email" ngRequired="true" placeholder="Email">
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="Password">
+                <input type="password" class="form-control" id="password" ng-model="user.password" placeholder="Password">
             </div>
+          <div class="form-group">
+            <label for="passwordConfirm">Confirm Password</label>
+            <input type="password" class="form-control" id="passwordConfirm" match="password" placeholder="Confirm Password">
+            <div ng-show="regForm.confirm.$error.match">Passwords do not match!</div>
+          </div>
             <div class="form-group">
                 <label for="profileImage">Profile Image</label>
                 <input type="file" id="profileImage">
@@ -229,11 +234,13 @@
             </div>
             <div class="checkbox">
                 <label>
-                    <input type="checkbox"> I accept the <a ui-sref="terms">Terms & Conditions</a>
+                    <input ngRequired="true" type="checkbox" ng-model="{terms}" ng-required="!regForm.terms.length"> I accept the <a ui-sref="terms">Terms & Conditions</a>
                 </label>
             </div>
-            <button type="submit" class="btn btn-warning">Register</button>
-            <p>Already registered? <a href="#">Login to your account</a></p>
+            <button type="submit" class="btn btn-warning"
+                    ng-cloak ng-disabled="regForm.$invalid"
+                    ng-click="createAccount(user.email, user.pass, user.confirm)">Register</button>
+            <p>Already registered? <a ui-sref="userLogin">Login to your account</a></p>
         </form>
 
         <a href="What_Does_A_Board_Do.pdf"><img src="images/img_what.jpg" alt="What do Board Members do?" class="img-responsive"></a>

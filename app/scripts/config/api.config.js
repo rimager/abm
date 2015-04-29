@@ -16,7 +16,8 @@
     },
     filters: {
       artgrouptypes: 'filters/artgrouptype'
-    }
+    },
+    userAttributes: 'user_attributes'
   };
 
 

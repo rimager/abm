@@ -1,58 +1,252 @@
 {
-  "filters" : {
-    "age" : {
-      "age_30-50" : "30-50",
-      "age_510-70" : "51-70"
+  "accounts" : {
+    "simplelogin:30" : {
+      "type" : "company"
     },
-    "artgrouptype" : {
-      "artgrouptype_film" : "film",
-      "artgrouptype_literaty" : "literaty",
-      "artgrouptype_media" : "media",
-      "artgrouptype_museum_dace" : "dance",
-      "artgrouptype_museum_visual_art" : "museum/visuarl art",
-      "artgrouptype_music" : "music",
-      "artgrouptype_theatre" : "theatre"
+    "simplelogin:25" : {
+      "type" : "company"
     },
+    "simplelogin:26" : {
+      "type" : "company"
+    },
+    "simplelogin:27" : {
+      "type" : "company"
+    },
+    "simplelogin:28" : {
+      "type" : "company"
+    },
+    "simplelogin:17" : {
+      "type" : "user"
+    },
+    "simplelogin:18" : {
+      "type" : "user"
+    },
+    "simplelogin:19" : {
+      "type" : "user"
+    },
+    "simplelogin:20" : {
+      "type" : "user"
+    }
+
+  },
+  "companies" : {
+    "simplelogin:25" : {
+      "artsGroup" : "co1",
+      "phone" : "12345",
+      "preferences" : {
+        "artgrouptype_film" : true,
+        "artgrouptype_literaty" : true,
+        "artgrouptype_media" : true,
+        "artgrouptype_museum_dace" : true
+      }
+    },
+    "simplelogin:26" : {
+      "artsGroup" : "co2art",
+      "phone" : "1234566778",
+      "preferences" : {
+        "artgrouptype_film" : true,
+        "artgrouptype_literaty" : true,
+        "artgrouptype_media" : true,
+        "artgrouptype_museum_dace" : true,
+        "artgrouptype_museum_visual_art" : true
+      },
+      "users" : {
+        "simplelogin:22" : {
+          "artgrouptype_film" : true,
+          "artgrouptype_literaty" : true,
+          "artgrouptype_media" : true,
+          "artgrouptype_museum_dace" : true,
+          "artgrouptype_museum_visual_art" : true
+        },
+        "simplelogin:23" : {
+          "artgrouptype_literaty" : true
+        },
+        "simplelogin:24" : {
+          "artgrouptype_museum_visual_art" : true
+        }
+      }
+    },
+    "simplelogin:27" : {
+      "artsGroup" : "abm1",
+      "phone" : "123456789",
+      "preferences" : {
+        "artgrouptype_film" : true,
+        "artgrouptype_literaty" : true,
+        "artgrouptype_media" : true,
+        "artgrouptype_museum_dace" : true,
+        "artgrouptype_museum_visual_art" : true
+      }
+    },
+    "simplelogin:28" : {
+      "artsGroup" : "abm2",
+      "phone" : "123456789",
+      "preferences" : {
+        "artgrouptype_film" : true,
+        "artgrouptype_literaty" : true,
+        "artgrouptype_media" : true,
+        "artgrouptype_museum_dace" : true
+      }
+    },
+    "simplelogin:29" : {
+      "artsGroup" : "my group",
+      "phone" : "1234567890",
+      "preferences" : {
+        "artgrouptype_film" : true,
+        "artgrouptype_literaty" : true,
+        "artgrouptype_media" : true,
+        "artgrouptype_museum_visual_art" : true,
+        "artgrouptype_music" : true
+      }
+    },
+    "simplelogin:30" : {
+      "artsGroup" : "abm3",
+      "phone" : "123456789",
+      "preferences" : {
+        "artgrouptype_film" : true,
+        "artgrouptype_literaty" : true,
+        "artgrouptype_media" : true,
+        "artgrouptype_museum_dace" : true
+      }
+    },
+    "testCompany" : {
+      "preferences" : {
+        "a" : true,
+        "b" : false,
+        "d" : true
+      }
+    }
+  },
+  "user_attributes": {
+      "age" : {
+        "age_30-50" : "30-50",
+        "age_510-70" : "51-70"
+      },
+      "in_kind_donation" : {
+        "in_kind_donation_printing" : "Printing",
+        "in_kind_donation_office_space" : "Office Space",
+        "in_kind_donation_office_equipment" : "Office Equipment",
+        "in_kind_donation_computer_software" : "Computer/Software",
+        "in_kind_donation_catering" : "Catering",
+        "in_kind_donation_host_event" : "Host Event",
+        "in_kind_donation_other" : "Other"
+   },
+      "age" : {
+        "age_prefer_not_to_say" : "prefer not to say",
+        "age_21_35" : "21 - 35",
+        "age_36_50" : "36 - 50",
+        "age_51_65" : "51 - 65",
+        "age_65" : "65+"
+      },
+      "business_skills" : {
+        "business_skills_accouting_bookkeeping" : "Accouting/Bookkeeping",
+        "business_skills_development_fundraising" : "Development/Fundraising",
+        "business_skills_event_planning_and_logistics" : "Event Planning and Logistics",
+        "business_skills_financials_business_management" : "Financials/Business Management",
+        "business_skills_graphic_design" : "Graphic Design",
+        "business_skills_legal" : "Legal",
+        "business_skills_marketing_public_relations" : "Marketing/Public Relations/Advertising",
+        "business_skills_real_estate" : "Real Estate/Facilities",
+        "business_skills_strategic" : "Strategic/Long Range Planning",
+        "business_skills_technology" : "Technology"
+      },
+      "demographic" : {
+        "demographic_prefer_not_to_say" : "I prefer not to say",
+        "demographic_hispanic_latino" : "Hispanic/Latino",
+        "demographic_asia_pacific_islander" : "Asian/Pasific/Islander",
+        "demographic_multicultural" : "Multicultural",
+        "demographic_white" : "White/Caucasian",
+        "demographic_black" : "Black/Afrian American",
+        "demographic_native" : "Native American Indian"
+      },
+      "donations" : {
+        "donations_50_500" : "$50 to $500",
+        "donations_501_1000" : "$501 to $1000",
+        "donations_1001_2500" : "$1001 to $2500",
+        "donations_2501_5000" : "$2501 to $5000",
+        "donations_5001_plus" : "$5001 and above"
+      },
+      "previously_served" : {
+         "previously_served_yes": "yes",
+         "previously_served_no": "no"
+      },
+      "time_availability" : {
+        "time_availability_2_5" : "2-5 hours",
+        "time_availability_6_10" : "6-10 hours",
+        "time_availability_11_15" : "11-15 hours",
+        "time_availability_15_plus" : "15+ hours per month"
+      },
     "benefits" : {
-      "benefits_entertaining" : "entertaining",
-      "benefits_networking" : "networking"
-    },
-    "business_skills" : {
-      "business_skills_accouting_bookkeeping" : "accouting_bookkeeping",
-      "business_skills_legal" : "legal"
-    },
-    "demographic" : {
-      "demographic_hispanic_latino" : "hispanic latino",
-      "demographic_white" : "white"
-    },
-    "donations" : {
-      "donations_501_1000" : "501-1000",
-      "donations_50_500" : "50-500"
-    },
-    "non_profit_experience" : "non profit experience",
-    "time_availability" : {
-      "time_availability_2_5" : "2-5 hours",
-      "time_availability_6_10" : "6-10 hours"
-    },
-    "title" : "title"
+      "benefits_networking" : "Networking",
+      "benefits_entertaining" : "Entertaining/Social",
+      "benefits_professional_development" : "Professional Development",
+      "benefits_improving_community" : "Improving the community",
+      "benefits_behind_scene" : "Behind the scene",
+      "benefits_interaction" : "Interaction with artist and creatives",
+      "benefits_meeting_officials" : "Meeting with government officials",
+      "benefits_business_development" : "Professional Development"
+    }
+
+  },
+  "filters" : {
+    "artgrouptype" : {
+      "artgrouptype_film" : "Film and Media",
+      "artgrouptype_literaty" : "Literary",
+      "artgrouptype_historic_preservation" : "Historic preservation",
+      "artgrouptype_service_and_support_group" : "Service and Support Group",
+      "artgrouptype_museum_dace" : "Dance",
+      "artgrouptype_museum_visual_art" : "museum/visual art",
+      "artgrouptype_music" : "Music",
+      "artgrouptype_multi_disciplinary" : "Multi-Disciplinary",
+      "artgrouptype_arts_programs_serving_children" : "Arts programs serving children",
+      "artgrouptype_theatre" : "Theatre"
+    }
   },
   "preferences_companies" : {
     "artgrouptype_film" : {
       "company_1" : true,
-      "company_2" : true
+      "company_2" : true,
+      "simplelogin:25" : true,
+      "simplelogin:26" : true,
+      "simplelogin:27" : true,
+      "simplelogin:28" : true,
+      "simplelogin:29" : true,
+      "simplelogin:30" : true
     },
     "artgrouptype_literaty" : {
-      "company_3" : true
+      "company_3" : true,
+      "simplelogin:25" : true,
+      "simplelogin:26" : true,
+      "simplelogin:27" : true,
+      "simplelogin:28" : true,
+      "simplelogin:29" : true,
+      "simplelogin:30" : true
     },
     "artgrouptype_media" : {
-      "company_1" : true
+      "company_1" : true,
+      "simplelogin:25" : true,
+      "simplelogin:26" : true,
+      "simplelogin:27" : true,
+      "simplelogin:28" : true,
+      "simplelogin:29" : true,
+      "simplelogin:30" : true
     },
     "artgrouptype_museum_dace" : {
       "company_2" : true,
-      "company_5" : true
+      "company_5" : true,
+      "simplelogin:25" : true,
+      "simplelogin:26" : true,
+      "simplelogin:27" : true,
+      "simplelogin:28" : true,
+      "simplelogin:30" : true
     },
     "artgrouptype_museum_visual_art" : {
-      "company_4" : true
+      "company_4" : true,
+      "simplelogin:26" : true,
+      "simplelogin:27" : true,
+      "simplelogin:29" : true
+    },
+    "artgrouptype_music" : {
+      "simplelogin:29" : true
     }
   },
   "preferences_users" : {
@@ -60,7 +254,8 @@
       "simplelogin:22" : true
     },
     "artgrouptype_literaty" : {
-      "simplelogin:22" : true
+      "simplelogin:22" : true,
+      "simplelogin:23" : true
     },
     "artgrouptype_media" : {
       "simplelogin:22" : true
@@ -69,10 +264,14 @@
       "simplelogin:22" : true
     },
     "artgrouptype_museum_visual_art" : {
-      "simplelogin:22" : true
+      "simplelogin:22" : true,
+      "simplelogin:24" : true
     },
     "artgrouptype_music" : {
       "simplelogin:22" : true
+    },
+    "artgrouptype_theatre" : {
+      "simplelogin:24" : true
     }
   },
   "users" : {
@@ -117,6 +316,84 @@
         "artgrouptype_museum_visual_art" : true,
         "artgrouptype_music" : true
       }
+    },
+    "simplelogin:23" : {
+      "artsGroup" : "Art Group",
+      "email" : "rima.gerhard@gmail.com",
+      "name" : "Rima.gerhard",
+      "phone" : "1231231212",
+      "preferences" : {
+        "artgrouptype_literaty" : true
+      }
+    },
+    "simplelogin:24" : {
+      "artsGroup" : "Rimas Group",
+      "email" : "rgerhard@aii.edu",
+      "name" : "Rgerhard",
+      "phone" : "1231231212",
+      "preferences" : {
+        "artgrouptype_museum_visual_art" : true,
+        "artgrouptype_theatre" : true
+      }
+    },
+    "simplelogin:25" : {
+      "email" : "co1@co.com",
+      "name" : "Co1"
+    },
+    "simplelogin:26" : {
+      "email" : "co2@co2.com",
+      "name" : "Co2"
+    },
+    "simplelogin:27" : {
+      "email" : "abm1@abm1.com",
+      "name" : "Abm1"
+    },
+    "simplelogin:28" : {
+      "email" : "abm2@abm.com",
+      "name" : "Abm2"
+    },
+    "simplelogin:29" : {
+      "email" : "abm3@abm.com",
+      "name" : "Abm3"
+    },
+    "simplelogin:30" : {
+      "email" : "abm4@abm.com",
+      "name" : "Abm4"
+    },
+    "testUser" : {
+      "companies" : {
+        "company_1" : {
+          "artgrouptype_film" : true,
+          "artgrouptype_media" : true
+        },
+        "company_2" : {
+          "artgrouptype_film" : true,
+          "artgrouptype_museum_dace" : true
+        },
+        "company_3" : {
+          "artgrouptype_literaty" : true
+        },
+        "company_4" : {
+          "artgrouptype_museum_visual_art" : true
+        },
+        "company_5" : {
+          "artgrouptype_museum_dace" : true
+        },
+        "simplelogin:25" : {
+          "artgrouptype_film" : true,
+          "artgrouptype_literaty" : true,
+          "artgrouptype_media" : true,
+          "artgrouptype_museum_dace" : true
+        },
+        "simplelogin:26" : {
+          "artgrouptype_film" : true,
+          "artgrouptype_literaty" : true,
+          "artgrouptype_media" : true,
+          "artgrouptype_museum_dace" : true,
+          "artgrouptype_museum_visual_art" : true
+        }
+      },
+      "name" : "test"
     }
   }
 }

@@ -1,0 +1,25 @@
+<div class="row-fluid">
+  <p>artboad name: {{user.artsGroup}}</p>
+  <p>phone: {{user.phone}}</p>
+  <button role="button" ng-click="logout()" class="btn btn-danger">Log Out</button>
+</div>
+
+
+
+<div class="row-fluid">
+  <h2>My preferences</h2>
+  <li ng-repeat="pref in preferences" >
+    {{pref.$value}}
+  </li>
+</div>
+
+<div class="row-fluid">
+  <h2>Users</h2>
+  <ul>
+  <li ng-repeat="u in users" >
+     {{u.name}}
+  </li>
+  </ul>
+</div>
+
+
