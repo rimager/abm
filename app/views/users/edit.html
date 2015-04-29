@@ -1,74 +1,65 @@
 
-<div class="row-fluid">
-<div class="{{user.provider === 'password'? 'col-md-4' : 'col-md-12'}}">
-  <h3>Profile</h3>
-
-  <form role="form">
-    <p class="form-group">
-      <label>Account ID</label>
-      <br />{{user.uid}}
-    </p>
-
-    <p class="form-group">
-      <label>Name:</label>
-      <input type="text" name="name" ng-model="profile.name" class="form-control" />
-    </p>
-
-    <p class="form-group">
-      <label>Email:</label>
-      <input type="text" name="email" ng-model="profile.email" class="form-control" />
-    </p>
-  </form>
+<h2>User Profile</h2>
+<form role="form" name="editForm" novalidate>
+  <p>1. What type of art group are you interested in?</p>
+  <p>
+    <label ng-repeat="item in artgrouptypes">
+      <input type="checkbox" ng-model="user.preferences[item.$id]" name="artgrouptypes"  value="user.preferences[item.$id]"> {{item.$value}}
+    </label>
+  </p>
+  <label>2. How much time can you give as a board member
+  <select ng-model="user.time_availability" ng-options="item.$value for item in userAttributes.time_availability">
+      <option value="">Please Select...</option>
+    </select>
+  </label>
+  <br />
+  <label>3. What donation can you make as a board member
+    <select ng-model="user.donation" ng-options="item.$value for item in userAttributes.donations">
+      <option value="">Please Select...</option>
+    </select>
+  </label>
 
   <p>
-    <button role="button" ng-click="logout()" class="btn btn-danger">Log Out</button>
+  <p>4. * What type of art group are you interested in?</p>
+    <label ng-repeat="item in userAttributes.business_skills">
+      <input type="checkbox" ng-model="user.business_skills[item.$id]" name="business_skills"  value="user.business_skills[item.$id]"> {{item.$value}}
+    </label>
   </p>
-</div>
-
-<div class="col-md-4" ng-show="{{user.provider === 'password'}}">
-<form role="form">
-  <h3>Change Password</h3>
-
-  <p class="form-group">
-    <label>Old Password:</label>
-    <input type="password" ng-keypress="clear()" ng-model="oldpass" class="form-control" />
+  <p>5. Can you make an In Kind Donation?
+    (donate a service or product)</p>
+  <label ng-repeat="item in userAttributes.in_kind_donation">
+    <input type="checkbox" ng-model="user.in_kind_donations[item.$id]" name="in_kind_donations"  value="user.in_kind_donations[item.$id]"> {{item.$value}}
+  </label>
+  </p>
+  <p>
+  <label for="user_title">6. * What is your title
+  <input type="text" ng-model="user.title" name="user_title"  ng-required="true">
+  </label>
+  </p>
+  <p>7. What is your age</p>
+  <label ng-repeat="item in userAttributes.age">
+    <input type="radio" ng-model="user.age" ng-value="item">
+  </label>
+  </p>
+  <p>8. Demographic Info</p>
+  <label ng-repeat="item in userAttributes.demographic">
+    <input type="radio" ng-model="user.demographic" ng-value="item">
+  </label>
+  </p>
+  <p>9. Previously served</p>
+  <label ng-repeat="item in userAttributes.previously_served">
+    <input type="radio" ng-model="user.previously_served" ng-value="item">
+  </label>
+  </p>
+  <p>10. Business professionals benefit in several ways from joining an arts board. What benefits are valuable to you? Check all that apply</p>
+  <label ng-repeat="item in userAttributes.benefits">
+    <input type="checkbox" ng-model="user.benefits[item.$id]" name="benefits"  value="user.benefits[item.$id]"> {{item.$value}}
+  </label>
   </p>
 
-  <p class="form-group">
-    <label>New Password:</label>
-    <input type="password" ng-keypress="clear()" ng-model="newpass" class="form-control" />
+  <p>
+    <button  class="btn btn-primary" ng-cloak ng-disabled="regForm.$invalid"
+             ng-click="updateProfile()">Update profile</button>
   </p>
 
-  <p class="form-group">
-    <label>Confirm New Password:</label>
-    <input type="password" ng-keypress="clear()" ng-model="confirm" class="form-control" />
-  </p>
-
-  <button class="btn btn-primary" ng-click="changePassword(oldpass, newpass, confirm)">change password</button>
-
-  <p class="error" ng-show="err">{{err}}</p>
-  <p class="good" ng-show="msg">{{msg}}</p>
 </form>
-</div>
-
-<div class="col-md-4" ng-show="{{user.provider === 'password'}}">
-<form>
-  <h3>Change Email</h3>
-
-  <p class="form-group">
-    <label>New Email:</label>
-    <input type="text" ng-keypress="clear()" ng-model="newEmail" class="form-control" />
-  </p>
-
-  <p class="form-group">
-    <label>Password:</label>
-    <input type="password" ng-keypress="clear()" ng-model="pass" class="form-control" />
-  </p>
-
-  <button class="btn btn-primary" ng-click="changeEmail(pass, newEmail)">update email</button>
-</form>
-</div>
-
-</div>
-<p class="clearfix"></p>
-<div ng-repeat="message in messages" class="alert alert-{{message.type}}">{{message.text}}</div>
