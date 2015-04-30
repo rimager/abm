@@ -9,7 +9,7 @@
 angular.module(window.appName)
   .controller('UserLoginCtrl', function ($scope,
                                              abmConfig,
-                                             simpleLogin, $state, flashSvc) {
+                                             simpleLogin, $state) {
 
 
     $scope.passwordLogin = function(email, pass) {
@@ -20,7 +20,7 @@ angular.module(window.appName)
     };
 
     function redirect() {
-      return $state.go(abmConfig.states.company.home);
+      return $state.go(abmConfig.states.user.home);
     }
 
 

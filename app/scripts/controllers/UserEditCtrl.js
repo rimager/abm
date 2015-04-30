@@ -1,15 +1,15 @@
 'use strict';
 /**
  * @ngdoc function
- * @name abmApp.controller:UserRegisterCtrl
+ * @name abmApp.controller:UserEditCtrl
  * @description
- * # UserRegisterCtrl
+ * # UserEditCtrl
  * Manages authentication to any active providers.
  */
 angular.module(window.appName)
-  .controller('UserRegisterCtrl', function ($scope, simpleLogin, fbutil,
+  .controller('UserEditCtrl', function ($scope, simpleLogin, fbutil,
                                             $firebaseArray,
-                                            $firebaseOjbect,
+                                            $firebaseObject,
                                         abmConfig,
                                         $state,
                                         accountSvc,

@@ -15,7 +15,7 @@
 
   function userSvc(profileSvc, abmConfig) {
 
-    var user_url = abmConfig.api.profile.users;
+    var user_url = abmConfig.api.profiles.users;
 
     return {
       updateProfile: updateProfile,

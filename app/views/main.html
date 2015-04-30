@@ -206,7 +206,7 @@
         </div>
         <h3>Step One: Start Here to Find a Match</h3>
 
-        <form name="regForm" novalidate>
+        <form name="regForm" novalidate ng-controller="UserRegisterCtrl">
             <div class="form-group">
                 <label for="name">Name</label>
                 <input type="email" class="form-control" id="name" ng-model="user.name" ngRequired="true" placeholder="Name">
@@ -234,7 +234,7 @@
             </div>
             <div class="checkbox">
                 <label>
-                    <input ngRequired="true" type="checkbox" ng-model="{terms}" ng-required="!regForm.terms.length"> I accept the <a ui-sref="terms">Terms & Conditions</a>
+                    <input ngRequired="true" type="checkbox" ng-model="terms" ng-required="!regForm.terms.length"> I accept the <a ui-sref="terms">Terms & Conditions</a>
                 </label>
             </div>
             <button type="submit" class="btn btn-warning"

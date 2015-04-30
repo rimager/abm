@@ -40,7 +40,6 @@
   <label ng-repeat="item in userAttributes.age">
     <input type="radio" ng-model="user.age" ng-value="item">
   </label>
-  </p>
   <p>8. Demographic Info</p>
   <label ng-repeat="item in userAttributes.demographic">
     <input type="radio" ng-model="user.demographic" ng-value="item">
@@ -58,7 +57,7 @@
   </p>
 
   <p>
-    <button  class="btn btn-primary" ng-cloak ng-disabled="regForm.$invalid"
+    <button  class="btn btn-primary" ng-cloak ng-disabled="editForm.$invalid"
              ng-click="updateProfile()">Update profile</button>
   </p>
 

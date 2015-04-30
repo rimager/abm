@@ -11,7 +11,7 @@ angular.module(window.appName)
                                         abmConfig,
                                         $state,
                                         accountSvc,
-                                        userSvc, flashSvc) {
+                                        userSvc) {
 
     $scope.user = {};
 
@@ -51,7 +51,7 @@ angular.module(window.appName)
     }
 
     function showError(err) {
-      flashSvc.error(err);
+      $scope.showError(err);
     }
 
 
