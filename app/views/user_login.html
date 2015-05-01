@@ -1,0 +1,21 @@
+
+<h2>User Login Page</h2>
+
+<form role="form" name="loginForm" novalidate>
+  <p class="form-group">
+    <label for="loginEmail">email</label>
+    <input id="loginEmail" required name="email" type="email" ng-model="email" class="form-control" />
+  </p>
+  <p class="form-group">
+    <label for="loginPass">password</label>
+    <input id="loginPass" required name="pass" type="password" ng-model="pass" class="form-control" />
+  </p>
+  <p>
+    <button  class="btn btn-primary"
+             ng-cloak ng-disabled="loginForm.$invalid"
+             ng-click="passwordLogin(email, pass)">Log In</button>
+    <a ui-sref="home" class="btn btn-default">Register</a>
+  </p>
+</form>
+
+

@@ -20,7 +20,7 @@ angular.module(window.appName)
     };
 
     function redirect() {
-      return $state.go(abmConfig.states.user.home);
+      return $state.go('account.user.edit');
     }
 
 

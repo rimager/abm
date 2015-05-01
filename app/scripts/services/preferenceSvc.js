@@ -11,9 +11,9 @@
 
   'use strict';
 
-  angular.module(window.appName).factory('preferenceSvc', ['fbutil', '$firebaseArray', '$q', preferenceSvc]);
+  angular.module(window.appName).factory('preferenceSvc', preferenceSvc);
 
-  function preferenceSvc(fbutil, $firebaseArray, $q) {
+  function preferenceSvc(fbutil, $firebaseArray,$firebaseObject, $q, abmConfig) {
 
     var preferences_companies_url = 'preferences_companies';
     var preferences_users_url = 'preferences_users';
@@ -24,7 +24,11 @@
       addCompanyToPreferences: addCompanyToPreferences,
       addUserToPreferences: addUserToPreferences,
       matchByPreference: matchByPreference
+
     };
+
+
+
 
 
     /**

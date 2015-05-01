@@ -30,14 +30,16 @@
     //type: [company, customer]
     function authorizeProfile(profileType, account) {
       var deferred = $q.defer();
+      var loggedUser = simpleLogin.getUser();
 
       if (account.type !== profileType) {
         rejectAuth(deferred);
       }
       else {
         profileSvc.getProfile(profileSvc.getProfilesUrl(profileType),
-                              simpleLogin.getUser().uid)
+          loggedUser.uid)
           .then(function (user) {
+            angular.extend(user, loggedUser);
             deferred.resolve(user);
           }, function (reason) {
             rejectAuth(deferred);

@@ -27,27 +27,27 @@
   </p>
   <p>5. Can you make an In Kind Donation?
     (donate a service or product)</p>
-  <label ng-repeat="item in userAttributes.in_kind_donation">
+  <label ng-repeat="item in userAttributes.in_kind_donations">
     <input type="checkbox" ng-model="user.in_kind_donations[item.$id]" name="in_kind_donations"  value="user.in_kind_donations[item.$id]"> {{item.$value}}
   </label>
   </p>
   <p>
-  <label for="user_title">6. * What is your title
-  <input type="text" ng-model="user.title" name="user_title"  ng-required="true">
+  <label for="useTitle">6. * What is your title
+  <input type="text" ng-model="user.title" id="userTitle" name="useTitle"  ng-required="true">
   </label>
   </p>
   <p>7. What is your age</p>
   <label ng-repeat="item in userAttributes.age">
-    <input type="radio" ng-model="user.age" ng-value="item">
+    <input type="radio" name="user_age" ng-model="user.age" ng-value="item">{{item.$value}}
   </label>
   <p>8. Demographic Info</p>
   <label ng-repeat="item in userAttributes.demographic">
-    <input type="radio" ng-model="user.demographic" ng-value="item">
+    <input type="radio" name="user_demographic"  ng-model="user.demographic" ng-value="item">{{item.$value}}
   </label>
   </p>
   <p>9. Previously served</p>
   <label ng-repeat="item in userAttributes.previously_served">
-    <input type="radio" ng-model="user.previously_served" ng-value="item">
+    <input type="radio"  name="user_previously_served" ng-model="user.previously_served" ng-value="item">{{item.value}}
   </label>
   </p>
   <p>10. Business professionals benefit in several ways from joining an arts board. What benefits are valuable to you? Check all that apply</p>

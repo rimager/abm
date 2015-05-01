@@ -23,15 +23,14 @@
       addAccount: addAccount
 
 
+
     };
 
     //all users are added to this list for the purpse of commont attributes like
     //type: [company, customer]
     function addAccount(uid, data,  cb) {
-      var ref = fbutil.ref(abmApiConfig.accounts);
-      var profile = [];
-      profile[uid] = data;
-      ref.set(profile, cb);
+      var ref = fbutil.ref(abmApiConfig.accounts,uid);
+      ref.set(data, cb);
     }
 
 

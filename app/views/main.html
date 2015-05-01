@@ -206,22 +206,22 @@
         </div>
         <h3>Step One: Start Here to Find a Match</h3>
 
-        <form name="regForm" novalidate ng-controller="UserRegisterCtrl">
+        <form  name="regForm" novalidate ng-controller="UserRegisterCtrl">
             <div class="form-group">
                 <label for="name">Name</label>
-                <input type="email" class="form-control" id="name" ng-model="user.name" ngRequired="true" placeholder="Name">
+                <input type="text" class="form-control" id="name" name="name" ng-model="user.name" required placeholder="Name" ngMinlength="4" ngMaxlength="50">
             </div>
             <div class="form-group">
                 <label for="email">Email address</label>
-                <input type="email" class="form-control" id="email" ng-model="user.email" ngRequired="true" placeholder="Email">
+                <input type="email" class="form-control" id="email" name="email" ng-model="user.email" required placeholder="Email" ngMinlength="4">
             </div>
             <div class="form-group">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" ng-model="user.password" placeholder="Password">
+                <input type="password" class="form-control" id="password" name="password" required ng-model="user.password" placeholder="Password" ngMinlength="4" ngMaxlength="20">
             </div>
           <div class="form-group">
             <label for="passwordConfirm">Confirm Password</label>
-            <input type="password" class="form-control" id="passwordConfirm" match="password" placeholder="Confirm Password">
+            <input type="password" class="form-control" id="passwordConfirm" match="user.password" required name="passwordConfirm" placeholder="Confirm Password">
             <div ng-show="regForm.confirm.$error.match">Passwords do not match!</div>
           </div>
             <div class="form-group">
@@ -234,12 +234,12 @@
             </div>
             <div class="checkbox">
                 <label>
-                    <input ngRequired="true" type="checkbox" ng-model="terms" ng-required="!regForm.terms.length"> I accept the <a ui-sref="terms">Terms & Conditions</a>
+                    <input  type="checkbox" ng-model="terms" ng-required="!regForm.terms.length"> I accept the <a ui-sref="terms">Terms & Conditions</a>
                 </label>
             </div>
             <button type="submit" class="btn btn-warning"
                     ng-cloak ng-disabled="regForm.$invalid"
-                    ng-click="createAccount(user.email, user.pass, user.confirm)">Register</button>
+                    ng-click="createAccount(user.email, user.password, user.confirm)">Register</button>
             <p>Already registered? <a ui-sref="userLogin">Login to your account</a></p>
         </form>
 

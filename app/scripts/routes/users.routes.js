@@ -10,7 +10,7 @@ angular.module(window.appName)
 
     $stateProvider
       .state('account.user', {
-        url: '/art_group',
+        url: '/user',
         abstract: true,
         templateUrl: "../../views/users/index.html",
         resolve: {
@@ -25,7 +25,7 @@ angular.module(window.appName)
         controller: 'UserAccountCtrl'
       })
       .state('account.user.edit', {
-        url: '',
+        url: '/edit',
         templateUrl: "../../views/users/edit.html",
         controller: 'UserEditCtrl'
       })
