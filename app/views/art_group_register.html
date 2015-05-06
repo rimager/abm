@@ -2,24 +2,24 @@
 
 <form role="form" name="regForm" novalidate>
   <p class="form-group">
-    <label for="loginEmail">email</label>
+    <label for="loginEmail">Email</label>
     <input id="loginEmail" ngRequired="true" name="email" type="email" ng-model="email" class="form-control" />
   </p>
   <p class="form-group">
-    <label for="loginPass">password</label>
+    <label for="loginPass">Password</label>
     <input id="loginPass" ngRequired="true"  name="pass" type="password" ng-model="pass" class="form-control" />
   </p>
   <p class="form-group" ng-cloak>
-    <label for="loginConfirm">confirm pass</label>
+    <label for="loginConfirm">Confirm password</label>
     <input id="loginConfirm" ngRequired="true" name="confirm" type="password" ng-model="confirm"  match="pass" class="form-control" />
     <div ng-show="regForm.confirm.$error.match">Passwords do not match!</div>
   </p>
   <p class="form-group" ng-cloak>
-    <label for="artsGroup">arts Group</label>
+    <label for="artsGroup">Arts Group</label>
     <input id="artsGroup" ngRequired="true" name="artsGroup" type="text" ng-model="artsGroup" class="form-control" />
   </p>
   <p class="form-group" ng-cloak>
-    <label for="phone">phone</label>
+    <label for="phone">Phone</label>
     <input id="phone" required name="phone" type="text" ng-model="phone" class="form-control" />
   </p>
   <p>
