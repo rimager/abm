@@ -48,7 +48,11 @@ app.run(['$rootScope', '$state', 'simpleLogin', 'abmConfig', 'accountSvc',
         $state.go(abmConfig.states.home);
       }
       else if (user) {
-        accountSvc.getAccount(user.uid);
+        //make sure we are no registering
+        if ($state.current.name !== 'home' && $state.current.name !== 'artGroupRegister' ) {
+          //load account to determine the type and redirect accordingly
+          accountSvc.getAccount(user.uid);
+        }
       }
 
     }

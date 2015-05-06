@@ -10,6 +10,12 @@ angular.module(window.appName)
   .controller('UserAccountCtrl',
   function ($scope, $state, profile, simpleLogin, fbutil, companyUsersSvc, listingSvc) {
     $scope.user = profile;
+
+    if (!profile.preferences || profile.preferences.lenght == 0) {
+      $state.go('account.user.edit');
+      return;
+    }
+
     $scope.users = [];
     $scope.preferences = [];
 
