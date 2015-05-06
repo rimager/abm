@@ -14,8 +14,8 @@ angular.module(window.appName)
                                         accountSvc,
                                         profile,
                                         userSvc, flashSvc) {
-
-    $scope.user = profile;
+    //Will hold all user attributes
+    $scope.user = {};
 
 
     //load preferences data data
@@ -37,18 +37,16 @@ angular.module(window.appName)
     //Handles the account creation
     $scope.updateProfile = function() {
 
-      var user = $scope.user;
-
       //adding profile data
-      userSvc.updateProfile(user.uid, $scope.user, flashSvc.error);
+      userSvc.updateProfile(profile.uid, $scope.user, flashSvc.error);
 
       //adding users to every preference
-      updateUserPreferences(user);
+      updateUserPreferences(profile);
 
     };
 
-    function updateUserPreferences(user) {
-      preferenceSvc.addUserToPreferences(user.uid, $scope.user.preferences);
+    function updateUserPreferences(profile) {
+      preferenceSvc.addUserToPreferences(profile.uid, $scope.user.preferences);
 
       $state.go(abmConfig.states.user.home);
     }

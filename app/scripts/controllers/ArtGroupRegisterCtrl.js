@@ -57,7 +57,7 @@ angular.module(window.appName)
       preferenceSvc.addCompanyToPreferences(company.uid, $scope.preferences);
 
       //preferenceSvc.addUserToCompanies(userData.user.uid, $scope.preferences);
-      $state.go(abmConfig.states.company.home);
+      //$state.go(abmConfig.states.company.home);
     }
 
     //for each company that also share this preference

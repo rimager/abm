@@ -8,7 +8,7 @@
  * Controller of the abmApp
  */
 angular.module(window.appName)
-  .controller('LayoutCtrl', function ($scope, $state, simpleLogin, flashSvc, abmEvents, companyUsersSvc, listingSvc) {
+  .controller('LayoutCtrl', function ($scope, $state, simpleLogin, flashSvc, abmConfig, companyUsersSvc, listingSvc) {
 
     $scope.currentState = $state.current.name;
 
@@ -45,9 +45,19 @@ angular.module(window.appName)
 
 
     //Event listeners
-    $scope.$on(abmEvents.profile.error, function(e, data) {
+    $scope.$on(abmConfig.events.profile.error, function(e, data) {
       flashSvc.error(data.message);
       $state.go('home');
+    });
+
+    //Once the account is loaded we know what type of account it is
+    $scope.$on(abmConfig.events.account.loaded, function(e, data) {
+
+      var gotoState = data.isUser
+         ? abmConfig.states.user.home
+         : abmConfig.states.company.home;
+      $state.go(gotoState);
+
     });
 
     $scope.showError = function(err) {

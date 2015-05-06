@@ -9,7 +9,7 @@
 angular.module(window.appName)
   .controller('UserLoginCtrl', function ($scope,
                                              abmConfig,
-                                             simpleLogin, $state) {
+                                             simpleLogin) {
 
 
     $scope.passwordLogin = function(email, pass) {
@@ -20,7 +20,7 @@ angular.module(window.appName)
     };
 
     function redirect() {
-      return $state.go('account.user.edit');
+      return;
     }
 
 

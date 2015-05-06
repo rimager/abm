@@ -42,12 +42,7 @@ angular.module(window.appName)
     }
 
     function afterUpdateProfile(err) {
-      if (!err) {
-        $state.go('account.user.edit');
-      }
-      else {
-        showError(err);
-      }
+      showError(err);
     }
 
     function showError(err) {

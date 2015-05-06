@@ -9,7 +9,7 @@
 angular.module(window.appName)
   .controller('ArtGroupLoginCtrl', function ($scope,
                                              abmConfig,
-                                             simpleLogin, $state, flashSvc) {
+                                             simpleLogin ) {
 
 
     $scope.passwordLogin = function(email, pass) {
@@ -20,7 +20,7 @@ angular.module(window.appName)
     };
 
     function redirect() {
-      return $state.go(abmConfig.states.company.home);
+      return;
     }
 
 

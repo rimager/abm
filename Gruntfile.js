@@ -191,7 +191,6 @@ module.exports = function (grunt) {
 
         // Compiles Less to CSS and generates necessary files if requested
         less: {
-            development: {
                 options: {
                     compress: false  //minifying the result
                 },
@@ -199,7 +198,7 @@ module.exports = function (grunt) {
                     //compiling bootstrap.less into bootstrap.css
                     "<%= yeoman.app %>/styles/bootstrap.css":"<%= yeoman.app %>/styles/bootstrap.less"
                 }
-            }
+
         },
 
         // Renames files for browser caching purposes

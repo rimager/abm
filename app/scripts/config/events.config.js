@@ -11,6 +11,9 @@
   var events = {
     profile: {
       error: 'profile.error'
+    },
+    account: {
+      loaded: 'account.loaded'
     }
   };
 

@@ -4,17 +4,17 @@
   <p>1. What type of art group are you interested in?</p>
   <p>
     <label ng-repeat="item in artgrouptypes">
-      <input type="checkbox" ng-model="user.preferences[item.$id]" name="artgrouptypes"  value="user.preferences[item.$id]"> {{item.$value}}
+      <input type="checkbox" ng-model="user.preferences[item.$id]"  name="artgrouptypes"  value="user.preferences[item.$id]"> {{item.$value}}
     </label>
   </p>
   <label>2. How much time can you give as a board member
-  <select ng-model="user.time_availability" ng-options="item.$value for item in userAttributes.time_availability">
+  <select ng-model="user.time_availability" ng-value="item.$id" ng-options="item.$value for item in userAttributes.time_availability">
       <option value="">Please Select...</option>
     </select>
   </label>
   <br />
   <label>3. What donation can you make as a board member
-    <select ng-model="user.donation" ng-options="item.$value for item in userAttributes.donations">
+    <select ng-model="user.donation" ng-value="item.$id" ng-options="item.$value for item in userAttributes.donations">
       <option value="">Please Select...</option>
     </select>
   </label>
@@ -38,16 +38,16 @@
   </p>
   <p>7. What is your age</p>
   <label ng-repeat="item in userAttributes.age">
-    <input type="radio" name="user_age" ng-model="user.age" ng-value="item">{{item.$value}}
+    <input type="radio" name="user_age"  ng-value="item.$id" ng-model="user.age" ng-value="item.$id">{{item.$value}}
   </label>
   <p>8. Demographic Info</p>
   <label ng-repeat="item in userAttributes.demographic">
-    <input type="radio" name="user_demographic"  ng-model="user.demographic" ng-value="item">{{item.$value}}
+    <input type="radio" name="user_demographic"  ng-value="item.$id"  ng-model="user.demographic" ng-value="item.$id">{{item.$value}}
   </label>
   </p>
   <p>9. Previously served</p>
   <label ng-repeat="item in userAttributes.previously_served">
-    <input type="radio"  name="user_previously_served" ng-model="user.previously_served" ng-value="item">{{item.value}}
+    <input type="radio"  name="user_previously_served"  ng-value="item.$id" ng-model="user.previously_served" ng-value="item.$id">{{item.value}}
   </label>
   </p>
   <p>10. Business professionals benefit in several ways from joining an arts board. What benefits are valuable to you? Check all that apply</p>
