@@ -7,7 +7,8 @@
  * Provides rudimentary account management functions.
  */
 angular.module(window.appName)
-  .controller('UserAccountCtrl', function ($scope, $state, profile, simpleLogin, fbutil, companyUsersSvc, listingSvc) {
+  .controller('UserAccountCtrl',
+  function ($scope, $state, profile, simpleLogin, fbutil, companyUsersSvc, listingSvc) {
     $scope.user = profile;
     $scope.users = [];
     $scope.preferences = [];
