@@ -15,7 +15,8 @@
       companies: 'companies'
     },
     filters: {
-      artgrouptypes: 'filters/artgrouptype'
+      artgrouptypes: 'filters/artgrouptype',
+      donations: 'filters/donations'
     },
     user_attributes: 'user_attributes'
   };

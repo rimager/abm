@@ -13,7 +13,8 @@
       error: 'profile.error'
     },
     account: {
-      loaded: 'account.loaded'
+      loaded: 'account.loaded',
+      loggedOut: 'account.loggedOut'
     }
   };
 

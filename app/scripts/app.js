@@ -28,8 +28,8 @@ var app  = angular.module(window.appName, [
 
   ]);
 
-app.run(['$rootScope', '$state', 'simpleLogin', 'abmConfig', 'accountSvc',
-  function($rootScope, $state, simpleLogin, abmConfig, accountSvc) {
+app.run(['$rootScope', '$state', 'simpleLogin', 'abmConfig', 'accountSvc', 'broadcastSvc',
+  function($rootScope, $state, simpleLogin, abmConfig, accountSvc, broadcastSvc) {
     // watch for login status changes and redirect if appropriate
     simpleLogin.watch(check, $rootScope);
 
@@ -45,7 +45,8 @@ app.run(['$rootScope', '$state', 'simpleLogin', 'abmConfig', 'accountSvc',
 
     function check(user) {
       if( !user && authRequired($state.current.name) ) {
-        $state.go(abmConfig.states.home);
+         broadcastSvc(abmConfig.events.account.loggedOut);
+         $state.go(abmConfig.states.home);
       }
       else if (user) {
         //make sure we are no registering
