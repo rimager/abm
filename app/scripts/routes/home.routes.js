@@ -44,6 +44,11 @@ angular.module(window.appName)
                 templateUrl: '../../views/about.html'
             })
 
+            .state('board-stories', {
+                url: 'board-stories',
+                templateUrl: '../../views/board-stories.html'
+            })
+
             .state('partners', {
                 url: 'partners',
                 templateUrl: '../../views/partners.html'

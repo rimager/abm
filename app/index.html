@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="bower_components/toastr/toastr.css" />
     <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
     <link rel="stylesheet" href="bower_components/angular-loading-bar/build/loading-bar.css" />
+    <link rel="stylesheet" href="bower_components/animate.css/animate.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
@@ -31,14 +32,12 @@
                 <img src="images/logo.png" alt="Arts Board Match Logo" class="img-responsive margin-bottom-sm">
             </div>
             <div class="col-md-4">
-                        <ul id="navbar-social" class="nav navbar-nav">
-                        <li><a href="https://www.facebook.com/ArtsBizMiami?fref=ts" target="_self"><i class="fa fa-twitter-square fa-lg"></i></a></li>
-                        <li><a href="https://twitter.com/ArtsBizMiami" target="_self"><i class="fa fa-facebook-square fa-lg"></i></a></li>
+                        <ul id="navbar-top" class="nav navbar-nav">
+                        <li><a href="https://www.facebook.com/ArtsBizMiami?fref=ts" target="_self"><i class="fa fa-twitter"></i></a></li>
+                        <li><a href="https://twitter.com/ArtsBizMiami" target="_self"><i class="fa fa-facebook"></i></a></li>
+                        <li><span ng-hide-auth=""><a ui-sref="artGroupRegister"> Art Group Registration</a> | <a ui-sref="artGroupLogin">Sign In</a></span></li>
+                        <li><span ng-show-auth=""><a href="#" ng-click="logout()">Log out</a></span></li>
                     </ul>
-            <div id="navbar-artgroup" >
-                Art Group <span ng-hide-auth=""><a ui-sref="artGroupRegister">Registration</a> | <a ui-sref="artGroupLogin">Sign In</a></span>
-                <span ng-show-auth=""><a href="#" ng-click="logout()">Log out</a></span>
-            </div>
             </div>
         </div>
       </div>
@@ -57,9 +56,9 @@
           <ul class="nav navbar-nav">
             <li ng-class="{'active': currentState=='home'}"><a ui-sref="home">Home</a></li>
             <li ng-class="{'active': currentState=='about'}"><a ui-sref="about">About</a></li>
-            <li ng-class="{'active': currentState=='board-stories'}"><a ui-sref="stories">Board Stories</a></li>
+            <li ng-class="{'active': currentState=='board-stories'}"><a ui-sref="board-stories">Board Stories</a></li>
             <li ng-class="{'active': currentState=='info-links'}"><a ui-sref="info-links">Info</a></li>
-            <li ng-class="{'active': currentState=='art-groups'}"><a ui-sref="info-links">Art Groups</a></li>
+            <li ng-class="{'active': currentState=='art-groups'}"><a ui-sref="art-groups">Art Groups</a></li>
             <li ng-class="{'active': currentState=='contact'}"><a ui-sref="contact">Contact Us</a></li>
           </ul>
         </div><!--/.nav-collapse -->
