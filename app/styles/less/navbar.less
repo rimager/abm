@@ -7,7 +7,7 @@
 }
 
 .navbar-inverse {
-  a {
+  a,p {
     color: @navbar-inverse-link-color;
 
     &:hover,
@@ -25,37 +25,30 @@
 }
 
 #navbar-artgroup{
-  color: @darkOrange;
+  color: @pink;
 }
 
 #navbar-artgroup a {
-  color: @lightOrange;
+  color: @pink;
   text-decoration: underline;
 }
 
 #navbar-main{
-    border-top: 2px solid @skyblue;
-    border-bottom: 2px solid @skyblue;
-    #gradient > .vertical-three-colors(darken(@gray-darkest,10%),lighten(@gray-darkest,10%), 50%, darken(@gray-darkest,10%));
+    background-color: @gray-dark;
 
   .navbar-inverse {
     background-color: transparent;
   }
 
-  ul:first-child li{
-
-    border-right: 2px dashed #FFF;
-  }
 }
 
 #navbar-social{
-  //#gradient > .vertical(darken(@gray-light,10%),lighten(@gray-light,10%));
   a {
-    color: @navbar-inverse-link-color;
+    color: @pink;
 
     &:hover,
     &:focus {
-      color: @navbar-inverse-link-hover-color;
+      color: @pink;
       background-color: @navbar-inverse-link-hover-bg;
     }
   }
