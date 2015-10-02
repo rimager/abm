@@ -14,6 +14,7 @@ angular.module(window.appName)
 
     return {
       restrict: 'A',
+      scope: true,
       link: function(scope, el, attr) {
         el.addClass('ng-cloak'); // hide until we process it
 

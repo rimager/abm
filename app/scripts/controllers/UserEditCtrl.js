@@ -21,13 +21,13 @@ angular.module(window.appName)
     //load preferences data data
     $scope.artgrouptypes = $firebaseArray(fbutil.ref(abmConfig.api.filters.artgrouptypes));
     $scope.donations = $firebaseArray(fbutil.ref(abmConfig.api.filters.donations));
+    $scope.business_skills = $firebaseArray(fbutil.ref(abmConfig.api.filters, 'business_skills'));
 
     $scope.userAttributes = {};
 
     //load all the attributes
     $scope.userAttributes.age = $firebaseArray(fbutil.ref(abmConfig.api.user_attributes, 'age'));
     $scope.userAttributes.time_availability = $firebaseArray(fbutil.ref(abmConfig.api.user_attributes, 'time_availability'));
-    $scope.userAttributes.business_skills = $firebaseArray(fbutil.ref(abmConfig.api.user_attributes, 'business_skills'));
     $scope.userAttributes.in_kind_donations = $firebaseArray(fbutil.ref(abmConfig.api.user_attributes, 'in_kind_donations'));
     $scope.userAttributes.demographic = $firebaseArray(fbutil.ref(abmConfig.api.user_attributes, 'demographic'));
     $scope.userAttributes.previously_served = $firebaseArray(fbutil.ref(abmConfig.api.user_attributes, 'previously_served'));

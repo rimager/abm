@@ -2,10 +2,9 @@
   "name": "abm",
   "version": "0.0.0",
   "dependencies": {
-    "grunt-contrib-less": "^1.0.1",
     "font-awesome": "^4.3.0",
-    "connect-modrewrite": "^0.7.11",
-    "grunt-contrib-less": "^1.0.1"
+    "connect-modrewrite": "^0.7.11"
+
   },
   "devDependencies": {
     "chai": "~1.9.1",
@@ -23,6 +22,7 @@
     "grunt-contrib-jshint": "^0.10.0",
     "grunt-contrib-uglify": "^0.6.0",
     "grunt-contrib-watch": "^0.6.1",
+    "grunt-contrib-less": "^1.0.1",
     "grunt-filerev": "^2.1.2",
     "grunt-google-cdn": "^0.4.3",
     "grunt-karma": "^0.10.1",

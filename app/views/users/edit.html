@@ -21,7 +21,7 @@
 
   <p>
   <p>4. * What type of art group are you interested in?</p>
-    <label ng-repeat="item in userAttributes.business_skills">
+    <label ng-repeat="item in business_skills">
       <input type="checkbox" ng-model="user.business_skills[item.$id]" name="business_skills"  value="user.business_skills[item.$id]"> {{item.name}}
     </label>
   </p>

@@ -115,22 +115,105 @@
   },
   "filters" : {
     "artgrouptype" : {
-      "artgrouptype_arts_programs_serving_children" : {".priority" : 10, "name": "Arts programs serving children"},
-      "artgrouptype_film" : {".priority" : 6, "name": "Film and Media"},
-      "artgrouptype_historic_preservation" : {".priority" : 7, "name": "Historic preservation"},
-      "artgrouptype_literaty" : {".priority" : 2, "name": "Literary"},
-      "artgrouptype_multi_disciplinary" : {".priority" : 9, "name": "Multi-Disciplinary"},
-      "artgrouptype_museum_dace" : {".priority" : 3, "name": "Dance"},
-      "artgrouptype_museum_visual_art" : {".priority" : 1, "name": "Museum/Visual art"},
-      "artgrouptype_music" : {".priority" : 4, "name": "Music"},
-      "artgrouptype_service_and_support_group" : {".priority" : 8, "name": "Service and Support Group"},
-      "artgrouptype_theatre" : {".priority" : 5, "name": "Theatre"}
+      "artgrouptype_arts_programs_serving_children" : {
+        ".priority" : 10.0,
+        "name" : "Arts programs serving children"
+      },
+      "artgrouptype_film" : {
+        ".priority" : 6.0,
+        "name" : "Film and Media"
+      },
+      "artgrouptype_historic_preservation" : {
+        ".priority" : 7.0,
+        "name" : "Historic preservation"
+      },
+      "artgrouptype_literaty" : {
+        ".priority" : 2.0,
+        "name" : "Literary"
+      },
+      "artgrouptype_multi_disciplinary" : {
+        ".priority" : 9.0,
+        "name" : "Multi-Disciplinary"
+      },
+      "artgrouptype_museum_dace" : {
+        ".priority" : 3.0,
+        "name" : "Dance"
+      },
+      "artgrouptype_museum_visual_art" : {
+        ".priority" : 1.0,
+        "name" : "Museum/Visual art"
+      },
+      "artgrouptype_music" : {
+        ".priority" : 4.0,
+        "name" : "Music"
+      },
+      "artgrouptype_service_and_support_group" : {
+        ".priority" : 8.0,
+        "name" : "Service and Support Group"
+      },
+      "artgrouptype_theatre" : {
+        ".priority" : 5.0,
+        "name" : "Theatre"
+      }
     },
     "donations" : {
-      "donations_50_1000" : {".priority": 1, "name": "$50 to $1000", "tier": 1},
-      "donations_1001_2500" : {".priority": 2, "name": "$1001 to $2500", "tier": 2},
-      "donations_2500_up" : {".priority": 3, "name": "$2500 and up", "tier": 3}
-
+      "donations_1001_2500" : {
+        ".priority" : 2.0,
+        "name" : "$1001 to $2500",
+        "tier" : 2
+      },
+      "donations_2500_up" : {
+        ".priority" : 3.0,
+        "name" : "$2500 and up",
+        "tier" : 3
+      },
+      "donations_50_1000" : {
+        ".priority" : 1.0,
+        "name" : "$50 to $1000",
+        "tier" : 1
+      }
+    },
+    "business_skills" : {
+      "business_skills_accouting_bookkeeping" : {
+        ".priority" : 1.0,
+        "name" : "Accouting/Bookkeeping"
+      },
+      "business_skills_development_fundraising" : {
+        ".priority" : 2.0,
+        "name" : "Development/Fundraising"
+      },
+      "business_skills_event_planning_and_logistics" : {
+        ".priority" : 3.0,
+        "name" : "Event Planning and Logistics"
+      },
+      "business_skills_financials_business_management" : {
+        ".priority" : 4.0,
+        "name" : "Financials/Business Management"
+      },
+      "business_skills_graphic_design" : {
+        ".priority" : 5.0,
+        "name" : "Graphic Design"
+      },
+      "business_skills_legal" : {
+        ".priority" : 6.0,
+        "name" : "Legal"
+      },
+      "business_skills_marketing_public_relations" : {
+        ".priority" : 7.0,
+        "name" : "Marketing/Public Relations/Advertising"
+      },
+      "business_skills_real_estate" : {
+        ".priority" : 8.0,
+        "name" : "Real Estate/Facilities"
+      },
+      "business_skills_strategic" : {
+        ".priority" : 9.0,
+        "name" : "Strategic/Long Range Planning"
+      },
+      "business_skills_technology" : {
+        ".priority" : 10.0,
+        "name" : "Technology"
+      }
     }
   },
   "preferences_companies" : {
@@ -209,63 +292,152 @@
   },
   "user_attributes" : {
     "age" : {
-      "age_21_35" : {".priority" : 2, "name": "21 - 35"},
-      "age_36_50" : {".priority" : 3, "name": "36 - 50"},
-      "age_51_65" : {".priority" : 4, "name": "51 - 65"},
-      "age_65" : {".priority" : 5, "name": "65+"},
-      "age_prefer_not_to_say" : {".priority" : 1, "name": "prefer not to say"}
+      "age_21_35" : {
+        ".priority" : 2.0,
+        "name" : "21 - 35"
+      },
+      "age_36_50" : {
+        ".priority" : 3.0,
+        "name" : "36 - 50"
+      },
+      "age_51_65" : {
+        ".priority" : 4.0,
+        "name" : "51 - 65"
+      },
+      "age_65" : {
+        ".priority" : 5.0,
+        "name" : "65+"
+      },
+      "age_prefer_not_to_say" : {
+        ".priority" : 1.0,
+        "name" : "prefer not to say"
+      }
     },
     "benefits" : {
-      "benefits_behind_scene": {".priority" : 5, "name": "Behind the scene"},
-      "benefits_business_development" : {".priority" : 9, "name": "Business Development"},
-      "benefits_entertaining" : {".priority" : 2, "name": "Entertaining/Social"},
-      "benefits_improving_community" :{".priority" : 4, "name":  "Improving the community"},
-      "benefits_interaction" : {".priority" : 6, "name": "Interaction with artist and creatives"},
-      "benefits_meeting_officials" :{".priority" : 7, "name":  "Meeting with government officials"},
-      "benefits_meeting_professionals" :{".priority" : 8, "name":  "Meeting other business proffesionals"},
-      "benefits_networking" :{".priority" : 1, "name":  "Networking"},
-      "benefits_professional_development" :{".priority" : 3, "name":  "Professional Development"}
-    },
-    "business_skills" : {
-      "business_skills_accouting_bookkeeping" : {".priority" : 1, "name":  "Accouting/Bookkeeping"},
-      "business_skills_development_fundraising" : {".priority" : 2, "name":  "Development/Fundraising"},
-      "business_skills_event_planning_and_logistics" : {".priority" : 3, "name":  "Event Planning and Logistics"},
-      "business_skills_financials_business_management" : {".priority" : 4, "name":  "Financials/Business Management"},
-      "business_skills_graphic_design" : {".priority" : 5, "name":  "Graphic Design"},
-      "business_skills_legal" : {".priority" : 6, "name":  "Legal"},
-      "business_skills_marketing_public_relations" : {".priority" : 7, "name":  "Marketing/Public Relations/Advertising"},
-      "business_skills_real_estate" : {".priority" : 8, "name":  "Real Estate/Facilities"},
-      "business_skills_strategic" : {".priority" : 9, "name":  "Strategic/Long Range Planning"},
-      "business_skills_technology" : {".priority" : 10, "name":  "Technology"}
+      "benefits_behind_scene" : {
+        ".priority" : 5.0,
+        "name" : "Behind the scene"
+      },
+      "benefits_business_development" : {
+        ".priority" : 9.0,
+        "name" : "Business Development"
+      },
+      "benefits_entertaining" : {
+        ".priority" : 2.0,
+        "name" : "Entertaining/Social"
+      },
+      "benefits_improving_community" : {
+        ".priority" : 4.0,
+        "name" : "Improving the community"
+      },
+      "benefits_interaction" : {
+        ".priority" : 6.0,
+        "name" : "Interaction with artist and creatives"
+      },
+      "benefits_meeting_officials" : {
+        ".priority" : 7.0,
+        "name" : "Meeting with government officials"
+      },
+      "benefits_meeting_professionals" : {
+        ".priority" : 8.0,
+        "name" : "Meeting other business proffesionals"
+      },
+      "benefits_networking" : {
+        ".priority" : 1.0,
+        "name" : "Networking"
+      },
+      "benefits_professional_development" : {
+        ".priority" : 3.0,
+        "name" : "Professional Development"
+      }
     },
     "demographic" : {
-      "demographic_asia_pacific_islander" :  {".priority" : 6, "name": "Asian/Pasific/Islander"},
-      "demographic_black" :  {".priority" : 6, "name": "Black/Afrian American"},
-      "demographic_hispanic_latino" : {".priority" : 6, "name":  "Hispanic/Latino"},
-      "demographic_multicultural" : {".priority" : 6, "name":  "Multicultural"},
-      "demographic_native" :  {".priority" : 6, "name": "Native American Indian"},
-      "demographic_prefer_not_to_say" :  {".priority" : 6, "name": "I prefer not to say"},
-      "demographic_white" :  {".priority" : 6, "name": "White/Caucasian"}
+      "demographic_asia_pacific_islander" : {
+        ".priority" : 6.0,
+        "name" : "Asian/Pasific/Islander"
+      },
+      "demographic_black" : {
+        ".priority" : 6.0,
+        "name" : "Black/Afrian American"
+      },
+      "demographic_hispanic_latino" : {
+        ".priority" : 6.0,
+        "name" : "Hispanic/Latino"
+      },
+      "demographic_multicultural" : {
+        ".priority" : 6.0,
+        "name" : "Multicultural"
+      },
+      "demographic_native" : {
+        ".priority" : 6.0,
+        "name" : "Native American Indian"
+      },
+      "demographic_prefer_not_to_say" : {
+        ".priority" : 6.0,
+        "name" : "I prefer not to say"
+      },
+      "demographic_white" : {
+        ".priority" : 6.0,
+        "name" : "White/Caucasian"
+      }
     },
-
     "in_kind_donation" : {
-      "in_kind_donation_catering" :  {".priority" : 6, "name": "Catering"},
-      "in_kind_donation_computer_software" :  {".priority" : 5, "name": "Computer/Software"},
-      "in_kind_donation_host_event" :  {".priority" : 7, "name": "Host Event"},
-      "in_kind_donation_office_equipment" : {".priority" : 3, "name":  "Office Equipment"},
-      "in_kind_donation_office_space" : {".priority" : 2, "name":  "Office Space"},
-      "in_kind_donation_other" :  {".priority" : 4, "name": "Other"},
-      "in_kind_donation_printing" :  {".priority" : 1, "name": "Printing"}
+      "in_kind_donation_catering" : {
+        ".priority" : 6.0,
+        "name" : "Catering"
+      },
+      "in_kind_donation_computer_software" : {
+        ".priority" : 5.0,
+        "name" : "Computer/Software"
+      },
+      "in_kind_donation_host_event" : {
+        ".priority" : 7.0,
+        "name" : "Host Event"
+      },
+      "in_kind_donation_office_equipment" : {
+        ".priority" : 3.0,
+        "name" : "Office Equipment"
+      },
+      "in_kind_donation_office_space" : {
+        ".priority" : 2.0,
+        "name" : "Office Space"
+      },
+      "in_kind_donation_other" : {
+        ".priority" : 4.0,
+        "name" : "Other"
+      },
+      "in_kind_donation_printing" : {
+        ".priority" : 1.0,
+        "name" : "Printing"
+      }
     },
     "previously_served" : {
-      "previously_served_no" :  {".priority" : 1, "name": "no"},
-      "previously_served_yes" :  {".priority" : 2, "name": "yes"}
+      "previously_served_no" : {
+        ".priority" : 1.0,
+        "name" : "no"
+      },
+      "previously_served_yes" : {
+        ".priority" : 2.0,
+        "name" : "yes"
+      }
     },
     "time_availability" : {
-      "time_availability_11_15" :  {".priority" : 3, "name": "11-15 hours"},
-      "time_availability_15_plus" : {".priority" : 4, "name":  "15+ hours per month"},
-      "time_availability_2_5" :  {".priority" : 1, "name": "2-5 hours"},
-      "time_availability_6_10" :  {".priority" : 2, "name": "6-10 hours"}
+      "time_availability_11_15" : {
+        ".priority" : 3.0,
+        "name" : "11-15 hours"
+      },
+      "time_availability_15_plus" : {
+        ".priority" : 4.0,
+        "name" : "15+ hours per month"
+      },
+      "time_availability_2_5" : {
+        ".priority" : 1.0,
+        "name" : "2-5 hours"
+      },
+      "time_availability_6_10" : {
+        ".priority" : 2.0,
+        "name" : "6-10 hours"
+      }
     }
   },
   "users" : {
