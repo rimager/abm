@@ -1,59 +1,90 @@
-<h2>Art Group Registration Page</h2>
+<div class="row">
+    <h2>Art Group Registration Page</h2>
+    <form role="form" name="regForm" novalidate>
+        <div class="col-xs-6 form-group">
+            <label for="loginEmail">Email</label>
+            <input id="loginEmail" ngRequired="true" name="email" type="email" ng-model="email" class="form-control" />
+        </div>
+        <div class="col-xs-6 form-group">
+            <label for="loginPass">Password</label>
+            <input id="loginPass" ngRequired="true" name="pass" type="password" ng-model="pass" class="form-control" />
+        </div>
+        <div class="col-xs-6 form-group" ng-cloak>
+            <label for="artsGroup">Arts Group Name</label>
+            <input id="artsGroup" ngRequired="true" name="artsGroup" type="text" ng-model="artsGroup" class="form-control" />
+        </div>
+        <div class="col-xs-6 form-group" ng-cloak>
+            <label for="phone">Phone</label>
+            <input id="phone" required name="phone" type="text" ng-model="phone" class="form-control" />
+        </div>
+        <div class="col-xs-12 form-group">
+            <input type="checkbox" ng-model="has_address" name="has_address" class="ng-pristine ng-untouched ng-valid">
+            <div ng-sho="has_address">
+                <p class="form-group" ng-cloak>
+                    <label for="address">Address</label>
+                    <input id="address" name="address" type="text" ng-model="address" class="form-control" />
+                </p>
+                <p class="form-group" ng-cloak>
+                    <label for="address_2">Address continuation</label>
+                    <input id="address_2" name="address_2" type="text" ng-model="address_2" class="form-control" />
+                </p>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <h3>What is your discipline?</h3>
+        </div>
+        <div class="col-xs-6 form-group">
+            <label class="ng-binding ng-scope">
+                <input type="checkbox" ng-model="artgrouptype_museum_visual_art" name="artgrouptype" class="ng-pristine ng-untouched ng-valid"> Museum/Visual art
+            </label>
+        </div>
+        <div class="col-xs-6 form-group">
+            <label class="ng-binding ng-scope">
+                <input type="checkbox" ng-model="artgrouptype_film" name="artgrouptypes" class="ng-pristine ng-untouched ng-valid"> Film and Media
+            </label>
+        </div>        
+        <div class="col-xs-6 form-group">
+            <label class="ng-binding ng-scope">
+                <input type="checkbox" ng-model="artgrouptype_literaty" name="artgrouptypes" class="ng-pristine ng-untouched ng-valid"> Literary
+            </label>
+        </div>
+        <div class="col-xs-6 form-group">
+            <label class="ng-binding ng-scope">
+                <input type="checkbox" ng-model="artgrouptype_historic_preservation" name="artgrouptypes" class="ng-pristine ng-untouched ng-valid"> Historic preservation
+            </label>
+          </div>        
+        <div class="col-xs-6 form-group">
+            <label class="ng-binding ng-scope">
+                <input type="checkbox" ng-model="artgrouptype_museum_dance" name="artgrouptypes" class="ng-pristine ng-untouched ng-valid"> Dance
+            </label>
+        </div>
+          <div class="col-xs-6 form-group">
+            <label class="ng-binding ng-scope">
+                <input type="checkbox" ng-model="artgrouptype_service_and_support_group" name="artgrouptypes" class="ng-pristine ng-untouched ng-valid"> Service and Support Group
+            </label>
+        </div>        
+        <div class="col-xs-6 form-group">
+            <label class="ng-binding ng-scope">
+                <input type="checkbox" ng-model="artgrouptype_music" name="artgrouptypes" class="ng-pristine ng-untouched ng-valid"> Music
+            </label>
+        </div>
+        <div class="col-xs-6 form-group">
+            <label class="ng-binding ng-scope">
+                <input type="checkbox" ng-model="artgrouptype_multi_disciplinary" name="artgrouptypes" class="ng-pristine ng-untouched ng-valid"> Multi-Disciplinary
+            </label>
+        </div>        
+        <div class="col-xs-6 form-group">
+            <label class="ng-binding ng-scope">
+                <input type="checkbox" ng-model="artgrouptype_theatre" name="artgrouptypes" class="ng-pristine ng-untouched ng-valid"> Theatre
+            </label>
+        </div>
 
-<form role="form" name="regForm" novalidate>
-  <p class="form-group">
-    <label for="loginEmail">Email</label>
-    <input id="loginEmail" ngRequired="true" name="email" type="email" ng-model="email" class="form-control" />
-  </p>
-  <p class="form-group">
-    <label for="loginPass">Password</label>
-    <input id="loginPass" ngRequired="true"  name="pass" type="password" ng-model="pass" class="form-control" />
-  </p>
-  <p class="form-group" ng-cloak>
-    <label for="loginConfirm">Confirm password</label>
-    <input id="loginConfirm" ngRequired="true" name="confirm" type="password" ng-model="confirm"  match="pass" class="form-control" />
-    <div ng-show="regForm.confirm.$error.match">Passwords do not match!</div>
-  </p>
-  <p class="form-group" ng-cloak>
-    <label for="artsGroup">Arts Group</label>
-    <input id="artsGroup" ngRequired="true" name="artsGroup" type="text" ng-model="artsGroup" class="form-control" />
-  </p>
-  <p class="form-group" ng-cloak>
-    <label for="phone">Phone</label>
-    <input id="phone" required name="phone" type="text" ng-model="phone" class="form-control" />
-  </p>
-  <p>What is your discipline?
-    <input type="checkbox" ng-model="check_all_artgrouptypes"   name="check_all_group_types" class="ng-pristine ng-untouched ng-valid">check all options 
-    <label  class="ng-binding ng-scope">
-    <input type="checkbox" ng-model="artgrouptype_museum_visual_art" name="artgrouptype" class="ng-pristine ng-untouched ng-valid"> Museum/Visual art
-  </label><label  class="ng-binding ng-scope">
-    <input type="checkbox" ng-model="artgrouptype_literaty" name="artgrouptypes"  class="ng-pristine ng-untouched ng-valid"> Literary
-  </label><label  class="ng-binding ng-scope">
-    <input type="checkbox" ng-model="artgrouptype_museum_dance" name="artgrouptypes"  class="ng-pristine ng-untouched ng-valid"> Dance
-  </label><label  class="ng-binding ng-scope">
-    <input type="checkbox" ng-model="artgrouptype_music" name="artgrouptypes"  class="ng-pristine ng-untouched ng-valid"> Music
-  </label><label  class="ng-binding ng-scope">
-    <input type="checkbox" ng-model="artgrouptype_theatre" name="artgrouptypes"  class="ng-pristine ng-untouched ng-valid"> Theatre
-  </label><label  class="ng-binding ng-scope">
-    <input type="checkbox" ng-model="artgrouptype_film" name="artgrouptypes"  class="ng-pristine ng-untouched ng-valid"> Film and Media
-  </label><label  class="ng-binding ng-scope">
-    <input type="checkbox" ng-model="artgrouptype_historic_preservation" name="artgrouptypes"  class="ng-pristine ng-untouched ng-valid"> Historic preservation
-  </label><label  class="ng-binding ng-scope">
-    <input type="checkbox" ng-model="artgrouptype_service_and_support_group" name="artgrouptypes"  class="ng-pristine ng-untouched ng-valid"> Service and Support Group
-  </label><label  class="ng-binding ng-scope">
-    <input type="checkbox" ng-model="artgrouptype_multi_disciplinary" name="artgrouptypes"  class="ng-pristine ng-untouched ng-valid"> Multi-Disciplinary
-  </label><label  class="ng-binding ng-scope">
-    <input type="checkbox" ng-model="artgrouptype_programs_serving_children" name="artgrouptypes"  class="ng-pristine ng-untouched ng-valid"> Arts programs serving children
-  </label>
-  </p>
-    <input type="checkbox" ng-model="has_address"   name="has_address" class="ng-pristine ng-untouched ng-valid">
-    <div ng-sho="has_address">
-  <p class="form-group" ng-cloak>
-    <label for="address">address</label>
-    <input id="address" name="address" type="text" ng-model="address" class="form-control" />
-    </p>
-  <p class="form-group" ng-cloak>
-    <label for="address_2">address continuation</label>
-    <input id="address_2" name="address_2" type="text" ng-model="address_2" class="form-control" />
-    </p>
-  </div>
+
+
+
+        <div class="col-xs-6 form-group">
+            <label class="ng-binding ng-scope">
+                <input type="checkbox" ng-model="artgrouptype_programs_serving_children" name="artgrouptypes" class="ng-pristine ng-untouched ng-valid"> Arts programs serving children
+            </label>
+        </div>
+</div>
