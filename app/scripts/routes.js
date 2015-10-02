@@ -62,8 +62,7 @@ angular.module(window.appName)
 
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
+        templateUrl: 'views/main.html'
       })
 
       .when('/login', {
