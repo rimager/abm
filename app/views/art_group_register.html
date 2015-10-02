@@ -22,14 +22,38 @@
     <label for="phone">Phone</label>
     <input id="phone" required name="phone" type="text" ng-model="phone" class="form-control" />
   </p>
-  <p>
-  <label ng-repeat="item in artgrouptypes">
-    <input type="checkbox" ng-model="preferences[item.$id]" name="artgrouptypes"  value="preferences[item.$id]"> {{item.name}}
+  <p>What is your discipline?
+    <input type="checkbox" ng-model="check_all_artgrouptypes"   name="check_all_group_types" class="ng-pristine ng-untouched ng-valid">check all options 
+    <label  class="ng-binding ng-scope">
+    <input type="checkbox" ng-model="artgrouptype_museum_visual_art" name="artgrouptype" class="ng-pristine ng-untouched ng-valid"> Museum/Visual art
+  </label><label  class="ng-binding ng-scope">
+    <input type="checkbox" ng-model="artgrouptype_literaty" name="artgrouptypes"  class="ng-pristine ng-untouched ng-valid"> Literary
+  </label><label  class="ng-binding ng-scope">
+    <input type="checkbox" ng-model="artgrouptype_museum_dance" name="artgrouptypes"  class="ng-pristine ng-untouched ng-valid"> Dance
+  </label><label  class="ng-binding ng-scope">
+    <input type="checkbox" ng-model="artgrouptype_music" name="artgrouptypes"  class="ng-pristine ng-untouched ng-valid"> Music
+  </label><label  class="ng-binding ng-scope">
+    <input type="checkbox" ng-model="artgrouptype_theatre" name="artgrouptypes"  class="ng-pristine ng-untouched ng-valid"> Theatre
+  </label><label  class="ng-binding ng-scope">
+    <input type="checkbox" ng-model="artgrouptype_film" name="artgrouptypes"  class="ng-pristine ng-untouched ng-valid"> Film and Media
+  </label><label  class="ng-binding ng-scope">
+    <input type="checkbox" ng-model="artgrouptype_historic_preservation" name="artgrouptypes"  class="ng-pristine ng-untouched ng-valid"> Historic preservation
+  </label><label  class="ng-binding ng-scope">
+    <input type="checkbox" ng-model="artgrouptype_service_and_support_group" name="artgrouptypes"  class="ng-pristine ng-untouched ng-valid"> Service and Support Group
+  </label><label  class="ng-binding ng-scope">
+    <input type="checkbox" ng-model="artgrouptype_multi_disciplinary" name="artgrouptypes"  class="ng-pristine ng-untouched ng-valid"> Multi-Disciplinary
+  </label><label  class="ng-binding ng-scope">
+    <input type="checkbox" ng-model="artgrouptype_programs_serving_children" name="artgrouptypes"  class="ng-pristine ng-untouched ng-valid"> Arts programs serving children
   </label>
   </p>
-  <p>
-    <button  class="btn btn-primary" ng-cloak ng-disabled="regForm.$invalid"
-            ng-click="createAccount(email, pass, confirm)">Create Account</button>
-  </p>
-</form>
-
+    <input type="checkbox" ng-model="has_address"   name="has_address" class="ng-pristine ng-untouched ng-valid">
+    <div ng-sho="has_address">
+  <p class="form-group" ng-cloak>
+    <label for="address">address</label>
+    <input id="address" name="address" type="text" ng-model="address" class="form-control" />
+    </p>
+  <p class="form-group" ng-cloak>
+    <label for="address_2">address continuation</label>
+    <input id="address_2" name="address_2" type="text" ng-model="address_2" class="form-control" />
+    </p>
+  </div>
