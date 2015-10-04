@@ -8,7 +8,7 @@
  */
 angular.module(window.appName)
   .controller('ArtGroupRegisterCtrl', function ($scope, simpleLogin, fbutil,
-                                        abmConfig,
+                                        abmConfig, profileHelperSvc,
                                         $state, $firebaseArray, $timeout,
                                         profileSvc,
                                         companySvc, flashSvc, preferenceSvc) {
@@ -46,32 +46,21 @@ angular.module(window.appName)
         company: true
         };
 
-
       //add account to our manage list of accounts
-      profileSvc.addProfile(company.uid,sanitizeProfile(profileData), 'companies', flashSvc.error);
+      profileSvc.addProfile(company.uid,profileHelperSvc.sanitizeArtGroupProfile(profileData), 'companies', flashSvc.error);
 
       //adding users to every preference
       updateCompanyPreferences(company);
 
     }
 
-    function sanitizeProfile(profile) {
-      var defaults = {
-        address: "",
-        address_2: "",
-        description: "",
-        url: ""
-      }
-
-      return _.defaults(profile, defaults);
-
-    }
-
     function updateCompanyPreferences(company) {
-      preferenceSvc.addCompanyToPreferences(company.uid, $scope.preferences);
-
+     //sanitize preflist
+     var preference_list = profileHelperSvc.sanitizePreferenceList($scope.preference_list); 
+      preferenceSvc.addCompanyToPreferences(company.uid, preference_list);
+      preferenceSvc.match(company.uid, $scope.preferences, 'candidates');
       //preferenceSvc.addUserToCompanies(userData.user.uid, $scope.preferences);
-      state.go(abmConfig.states.company.home);
+      //state.go(abmConfig.states.company.home);
     }
 
     //for each company that also share this preference

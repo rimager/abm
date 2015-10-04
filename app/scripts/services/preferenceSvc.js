@@ -23,8 +23,8 @@
     return {
       addCompanyToPreferences: addCompanyToPreferences,
       addUserToPreferences: addUserToPreferences,
-      matchByPreference: matchByPreference
-
+     matchByPreference: matchByPreference,
+      match: match
     };
 
 
@@ -93,6 +93,8 @@
     }
 
 
+
+
     function addMatchesToList(currentMatches, preferenceKey, existingMatches) {
       var item, deferred;
       deferred = $q.defer();
@@ -124,6 +126,39 @@
         :   Object.keys(preferenceList).length;
     }
 
+   //match companies to users or users to company
+   //profile will be company if we are trying to match users and viceversa
+   //matchee will be company if we are trying to mach user and viceversa.
+   //Profile != matchee
+   //preference_list is the list of uid.
+   //uid is the id of candidate if we are trying to match companies and
+   //viceversa
+    function match (uid, preference_list, uid_type ){
+     var matcheeRefUrl = (uid_type == 'companies') ? 'companies' : 'candidates';
+     var matcheeRef = fbutil.ref(matcheeRefUrl);
+     var profileRefUrl = (uid_type == 'companies')? 'candidates' : 'companies';
+     var profileRef = fbutil.ref(profileRefUrl);
+     var matchesForMatcheesRef = fbutil.ref('matches_for_' + matcheeRefUrl);
+     var matchesForProfileRef = fbutil.ref('matches_for_' + profileRefUrl);
+     var matchee;
+     
+
+      //navigate all matchees
+      matcheeRef.on('child_added', function (matcheeObj) {
+        
+        matchee = matcheeObj.val(); 
+        //compares prefs
+        var match_prefs = _.intersection(_.keys(preference_list), _.keys(matchee.preferences));
+        if (match_prefs.length === 0) return;
+        var match_prefs_obj = {};
+        _.each(match_prefs, function(pref) {match_prefs_obj[pref]= true});
+
+        //save this matches in both profile and matchee
+        matchesForMatcheesRef.child(matcheeObj.key()).child(uid).set(match_prefs_obj);
+        matchesForProfileRef.child(uid).child(matcheeObj.key()).set(match_prefs_obj);
+
+     })
+    }
 
     function addItemToPreferences(uid, preferenceList, url) {
 
