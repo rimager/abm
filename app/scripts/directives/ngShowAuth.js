@@ -7,26 +7,18 @@
  * to be initialized so there is no initial flashing of incorrect state.
  */
 angular.module(window.appName)
-  .directive('ngShowAuth', ['abmConfig', '$timeout', function (abmConfig, $timeout) {
+  .directive('ngShowAuth', ['simpleLogin', '$timeout', function (simpleLogin, $timeout) {
     'use strict';
 
     var isLoggedIn = false;
-
+    simpleLogin.watch(function(user) {
+      isLoggedIn = !!user;
+    });
     return {
       restrict: 'A',
       scope: true,
       link: function(scope, el, attr) {
         el.addClass('ng-cloak'); // hide until we process it
-
-        scope.$on(abmConfig.events.account.loaded, function(e, data) {
-          isLoggedIn =  (attr.isUser === true && data.isUser);
-          update();
-        });
-
-        scope.$on(abmConfig.events.account.loggedOut, function(e, data) {
-          isLoggedIn = false;
-          update();
-        });
 
         function update() {
           // sometimes if ngCloak exists on same element, they argue, so make sure that
@@ -35,7 +27,8 @@ angular.module(window.appName)
             el.toggleClass('ng-cloak', !isLoggedIn);
           }, 0);
         }
+        simpleLogin.watch(update, scope);
 
       }
-    };
+    }
   }]);

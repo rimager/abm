@@ -29,11 +29,9 @@
 
     //all users are added to this list for the purpse of commont attributes like
     //type: [company, customer]
-    function addProfile(uid, data,  cb) {
-      var ref = fbutil.ref('profiles');
-      var profile = [];
-      profile[uid] = data;
-      ref.set(profile, cb);
+    function addProfile(uid,  data, type,  cb) {
+      var ref = fbutil.ref(type, uid);
+      ref.set(data, cb);
     }
 
     function updateProfile(resource_url, uid, data, cb) {

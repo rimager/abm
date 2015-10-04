@@ -10,28 +10,28 @@ angular.module(window.appName)
   .controller('ArtGroupRegisterCtrl', function ($scope, simpleLogin, fbutil,
                                         abmConfig,
                                         $state, $firebaseArray, $timeout,
-                                        accountSvc,
+                                        profileSvc,
                                         companySvc, flashSvc, preferenceSvc) {
 
-    var filterRef = fbutil.ref(abmConfig.api.filters.artgrouptypes);
+   // var filterRef = fbutil.ref(abmConfig.api.filters.artgrouptypes);
 
     //create a var to hold the company preferences
     $scope.preferences  = {};
 
 
     //load preferences data data
-    $scope.artgrouptypes = $firebaseArray(filterRef);
+    //$scope.artgrouptypes = $firebaseArray(filterRef);
 
     //If there was an error when loading the discipline data show it.
     // display any errors
-    $scope.artgrouptypes.$loaded().catch(showError);
+    //$scope.artgrouptypes.$loaded().catch(showError);
 
 
     //Handles the account creation
-    $scope.createAccount = function(email, pass) {
+    $scope.register= function() {
 
       //Validations are good so create account
-      simpleLogin.createAccount(email, pass, {rememberMe: true})
+      simpleLogin.createAccount($scope.email, $scope.pass, {rememberMe: true})
           .then(completeProfile, showError);
 
     };
@@ -39,17 +39,31 @@ angular.module(window.appName)
 
     function completeProfile(company) {
 
-      //add account to our manage list of accounts
-      accountSvc.addAccount(company.uid,
-        {type: abmConfig.profile.type.company});
+      var profileData =  {artsGroup: $scope.artsGroup, phone: $scope.phone,
+        preferences: $scope.preferences, 
+        address: $scope.address, address_2: $scope.address_2,
+        description: $scope.description, url: $scope.url, 
+        company: true
+        };
 
-      //adding profile data
-      companySvc.updateProfile(company.uid,
-        {artsGroup: $scope.artsGroup, phone: $scope.phone,
-        preferences: $scope.preferences}, flashSvc.error);
+
+      //add account to our manage list of accounts
+      profileSvc.addProfile(company.uid,sanitizeProfile(profileData), 'companies', flashSvc.error);
 
       //adding users to every preference
       updateCompanyPreferences(company);
+
+    }
+
+    function sanitizeProfile(profile) {
+      var defaults = {
+        address: "",
+        address_2: "",
+        description: "",
+        url: ""
+      }
+
+      return _.defaults(profile, defaults);
 
     }
 

@@ -64,26 +64,31 @@
 
 
     function loadAccount(uid, deferred) {
-      var accountRef = fbutil.ref(abmConfig.api.accounts, uid);
 
+     //try company
+     tryLoadAccount(uid, 'companies')
+    }
+
+    function tryLoadAccount(uid, type, deferred) {
+      
+      var accountRef = fbutil.ref(type ,uid);
       accountRef.once('value', function(snapshot) {
         var val = snapshot.val();
-        if (val) {
-          _account = val;
+        if (val) 
+          proccessAccount(val, deferred)
+         else if (type != 'users') tryLoadAccount(uid, 'users', deferred);
+        
+      });
+    }
+
+    function proccessAccount(account, deferred) {
+    
+          _account = account;
           _account.uid = uid;
           broadcastSvc(abmConfig.events.account.loaded, {account: _account,
             isUser: isAUserAccount(_account),
                isCompany: !isACompanyAccount(_account)});
           deferred.resolve(_account);
-
-        }
-        else {
-          clearAccount();
-          broadcastSvc(abmConfig.events.profile.error, {message: 'account not found.'});
-          deferred.reject({message: 'account not found.'});
-        }
-      });
-
     }
 
   }
