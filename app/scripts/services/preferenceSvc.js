@@ -17,7 +17,7 @@
 
     var preferences_companies_url = 'preferences_companies';
     var preferences_users_url = 'preferences_users';
-
+    var filter_list = 'filters';
 
 
     return {
@@ -127,20 +127,28 @@
 
     function addItemToPreferences(uid, preferenceList, url) {
 
-      var prefChild;
-      var itemAdded;
-      var prefRef = fbutil.ref(url);
+      var valueForPreference;
+      var filters; 
+      var preferenceRef;
+      var preferenceTypeRef = fbutil.ref(url); //preferences_candidates / companies
+      //need to grap or filtes and loop thru them. set to null what is not in
+      //preference list
+      fbutil.ref(filter_list).once('value', function (filtersObj) {
+        
+        filters = filtersObj.val();
+        _.each(_.keys(filters), function (filter) {
 
+           //proccess all filters for this filter. add companies to filter
+           //preference if filter is on preferenceList
+          _.each(_.keys(filters[filter]), function(preference) {
+              valueForPreference = preferenceList[preference] == true ? true : null; 
+              var companyPref = {};
+              companyPref[uid] = valueForPreference;
+              preferenceTypeRef.child(preference).update(companyPref); 
+          } )
 
-      //for every preference in this list, add the user id with value true
-      angular.forEach(preferenceList, function(value, key) {
-        if (value) {
-          itemAdded = {};
-          itemAdded[uid] = value;
-          prefChild = prefRef.child(key);
-          prefChild.update(itemAdded);
-        }
-      })
+        }); 
+      } ) 
 
     }
 
