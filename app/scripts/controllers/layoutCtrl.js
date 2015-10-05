@@ -18,13 +18,19 @@ angular.module(window.appName)
 
     //listen to login logout events
     simpleLogin.watch(function(profile) {
-      accountSvc.getAccount(profile.uid).then(function (account)  {
+
+      if (profile) {
+        accountSvc.getAccount(profile.uid).then(function (account)  {
          
-      var gotoState = account.company
-         ? abmConfig.states.company.home
-         : abmConfig.states.user.home;
-      $state.go(gotoState);
+        var gotoState = account.company
+           ? abmConfig.states.company.home
+           : abmConfig.states.user.home;
+        $state.go(gotoState);
       })
+      } else {
+      //no profile so go to home page
+        $state.go(abmConfig.states.home);
+      }
     });
 
 
