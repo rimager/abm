@@ -24,12 +24,17 @@
       addCompanyToPreferences: addCompanyToPreferences,
       addUserToPreferences: addUserToPreferences,
      matchByPreference: matchByPreference,
-      match: match
+      match: match,
+      getFilters: getFilters
     };
 
 
 
+    function getFilters(cb){
 
+    var filters = fbutil.ref('filters').once('value', function(filters) {
+      cb(filters.val());
+   })}
 
     /**
      *
@@ -133,7 +138,7 @@
    //preference_list is the list of uid.
    //uid is the id of candidate if we are trying to match companies and
    //viceversa
-    function match (uid, preference_list, uid_type ){
+    function match (uid, preference_list, uid_type, time_availability, minimum_donation ){
      var matcheeRefUrl = (uid_type == 'companies') ? 'companies' : 'candidates';
      var matcheeRef = fbutil.ref(matcheeRefUrl);
      var profileRefUrl = (uid_type == 'companies')? 'candidates' : 'companies';
@@ -149,9 +154,20 @@
         matchee = matcheeObj.val(); 
         //compares prefs
         var match_prefs = _.intersection(_.keys(preference_list), _.keys(matchee.preferences));
-        
+                
         var match_prefs_obj = {};
-        if (match_prefs.length === 0) 
+        
+        //try to match on time_availability
+        if (time_availability && matchee.time_availability &&  time_availability.min <= matchee.time_availability.max) {
+           match_prefs_obj[time_availability.key] = true
+        }
+
+        //try to match on minimum_donataion 
+        if (minimum_donation && matchee.minimum_donation && minimum_donation.min <= matchee.minimum_donation.max) {
+           match_prefs_obj[minimum_donation.key] = true
+        }
+        
+        if (_.isEmpty(match_prefs_obj) &&  match_prefs.length === 0) 
            match_prefs_obj = null;
         else   
           _.each(match_prefs, function(pref) {match_prefs_obj[pref]= true});

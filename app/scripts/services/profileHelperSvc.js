@@ -18,8 +18,19 @@
 
     return {
       sanitizePreferenceList: sanitizePreferenceList,
-      sanitizeArtGroupProfile: sanitizeArtGroupProfile
+      sanitizeArtGroupProfile: sanitizeArtGroupProfile,
+      objectToArray: objectToArray
     };
+
+    function objectToArray(obj) {
+     var arr = [];
+     _.each(_.keys(obj), function (key) {
+         var oArr = obj[key];
+         oArr.key = key;
+         arr.push(oArr);
+     });
+     return arr;
+    }
 
     function sanitizeArtGroupProfile (profile) {
 

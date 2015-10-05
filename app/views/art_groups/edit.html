@@ -35,69 +35,88 @@
                     <label for="address_2">Address continuation</label>
                     <input id="address_2" name="address_2"  type="text" ng-model="account.address_2" class="form-control" />
                 </p>
+        <div class="col-xs-12 form-group">
+            <label>Tell us about your company
+            <textarea  ng-model="account.description" name="description"></textarea> 
+            </label>
+        </div>
+        <div class="col-xs-12 form-group">
+            <label>Your Website Url?
+                <input type="text" ng-model="account.url"  name="url"  /> 
+            </label>
+        </div>
         </div>
         <div class="col-xs-12">
             <h3>What is your discipline?</h3>
         </div>
         <div class="col-xs-6 form-group">
-            <label class="ng-binding ng-scope">
+            <label>
                 <input type="checkbox" ng-model="account.preferences.artgrouptype_museum_visual_art" name="artgrouptype" > Museum/Visual art
             </label>
         </div>
         <div class="col-xs-6 form-group">
-            <label class="ng-binding ng-scope">
+            <label>
                 <input type="checkbox" ng-model="account.preferences.artgrouptype_film" name="artgrouptypes" > Film and Media
             </label>
         </div>        
         <div class="col-xs-6 form-group">
-            <label class="ng-binding ng-scope">
+            <label>
                 <input type="checkbox" ng-model="account.preferences.artgrouptype_literaty" name="artgrouptypes" > Literary
             </label>
         </div>
         <div class="col-xs-6 form-group">
-            <label class="ng-binding ng-scope">
+            <label>
                 <input type="checkbox" ng-model="account.preferences.artgrouptype_historic_preservation" name="artgrouptypes" > Historic preservation
             </label>
           </div>        
         <div class="col-xs-6 form-group">
-            <label class="ng-binding ng-scope">
+            <label>
                 <input type="checkbox" ng-model="account.preferences.artgrouptype_museum_dance" name="artgrouptypes" > Dance
             </label>
         </div>
           <div class="col-xs-6 form-group">
-            <label class="ng-binding ng-scope">
+            <label>
                 <input type="checkbox" ng-model="account.preferences.artgrouptype_service_and_support_group" name="artgrouptypes" > Service and Support Group
             </label>
         </div>        
         <div class="col-xs-6 form-group">
-            <label class="ng-binding ng-scope">
+            <label>
                 <input type="checkbox" ng-model="account.preferences.artgrouptype_music" name="artgrouptypes" > Music
             </label>
         </div>
         <div class="col-xs-6 form-group">
-            <label class="ng-binding ng-scope">
+            <label>
                 <input type="checkbox" ng-model="account.preferences.artgrouptype_multi_disciplinary" name="artgrouptypes" > Multi-Disciplinary
             </label>
         </div>        
         <div class="col-xs-6 form-group">
-            <label class="ng-binding ng-scope">
+            <label>
                 <input type="checkbox" ng-model="account.preferences.artgrouptype_theatre" name="artgrouptypes" > Theatre
             </label>
         </div>
 
         <div class="col-xs-6 form-group">
-            <label class="ng-binding ng-scope">
+            <label>
                 <input type="checkbox" ng-model="account.preferences.artgrouptype_programs_serving_children" name="artgrouptypes" > Arts programs serving children
             </label>
         </div>
-        <div class="col-xs-6 form-group">
-            <label class="ng-binding ng-scope">Tell us about your company
-            <textarea  ng-model="account.description" name="description"></textarea> 
-            </label>
+        <div class="col-xs-12">
+            <h3>How much time do your board members give each time</h3>
         </div>
         <div class="col-xs-6 form-group">
-            <label class="ng-binding ng-scope">Your Website Url?
-                <input type="text" ng-model="account.url"  name="url"  /> 
+            <label>Time availability
+                <select ng-model="account.time_availability"
+                  ng-options="item as item.name for item in time_availability
+                  track by item.key">
+                  <option value="" ng-if="!account.time_availability">Please select one</option>
+                  </select>  
+            </label>
+            <label>Minimum donation
+                <select ng-model="account.minimum_donation"
+                  ng-options="item as item.name for item in minimum_donation
+                  track by item.key">
+                  <option value="" ng-if="!account.minimum_donation">Please select one</option>
+                  </select>  
             </label>
         </div>
 </form>
