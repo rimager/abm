@@ -21,23 +21,45 @@
       getUsers: getUsers,
       getCompanies: getCompanies,
       getPreferences: getPreferences,
+      getCandidatesForCompany: getCandidatesForCompany,
+      getCompaniesForCandidate: getCompaniesForCandidate
+ 
     };
 
-    function getCandidates(candidadeList, cb) {
+    function getCandidatesForCompany(uid,  cb) {
+       getFullProfiles(uid, 'matches_for_companies', 'candidates', cb);
+     }
+     
+    function getCompaniesForCandidate(uid,  cb) {
+       getFullProfiles(uid, 'matches_for_candidates', 'companies', cb);
+     }
+    function getFullProfiles(uid, matches_url, profilesUrl, cb ) {
 
-      var candidatesArray = _.keys(candidates);
-      if (candidatesArray.length > 0) {
-         //get the list asyn
+      fbutil.ref(matches_url).child(uid).once('value', function(matches) {
+         getFullProfile(matches.val(), profilesUrl,  cb);
+      })
+    }
+
+    function getFullProfile(profiles, profileUrl, cb) {
+    
+      var profileKeys= _.keys(profiles);
+      if ( profileKeys.length > 0) {
+         //get the list asynch
+        var ref = fbutil.ref(profileUrl)
+        _.each( profileKeys, function(profileKey) {
+           ref.child(profileKey).once('value', function(profile) { cb(profile.key(),  profile.val()) } );
+        });
       }
     }
+
 
     function getUsers(keys) {
       return getList('users', keys);
     }
 
 
-    function getCompanies(keys) {
-      return getList('companies', keys);
+    function getCompanies(profiles, cb) {
+      return getFullProfile(profiles, 'companies', cb);
     }
 
     function getPreferences(keys, child_pref) {
