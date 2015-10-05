@@ -52,6 +52,7 @@ angular.module(window.appName)
       //adding users to every preference
       updateCompanyPreferences(company);
 
+      $state.go(abmConfig.states.company.home);
     }
 
     function updateCompanyPreferences(company) {
@@ -60,7 +61,6 @@ angular.module(window.appName)
       preferenceSvc.addCompanyToPreferences(company.uid, preference_list);
       preferenceSvc.match(company.uid, $scope.preferences, 'candidates');
       //preferenceSvc.addUserToCompanies(userData.user.uid, $scope.preferences);
-      //state.go(abmConfig.states.company.home);
     }
 
     //for each company that also share this preference

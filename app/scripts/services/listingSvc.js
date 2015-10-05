@@ -23,6 +23,13 @@
       getPreferences: getPreferences,
     };
 
+    function getCandidates(candidadeList, cb) {
+
+      var candidatesArray = _.keys(candidates);
+      if (candidatesArray.length > 0) {
+         //get the list asyn
+      }
+    }
 
     function getUsers(keys) {
       return getList('users', keys);

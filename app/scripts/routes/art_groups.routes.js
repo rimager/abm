@@ -12,12 +12,7 @@ angular.module(window.appName)
       .state('account.artGroup', {
         url: '/art_group',
         abstract: true,
-        templateUrl: "../../views/art_groups/index.html",
-        resolve: {
-          profile:  function(account, authSvc) {
-            return authSvc.authorizeCompany(account)
-          }
-        }
+        templateUrl: "../../views/art_groups/index.html"
       })
       .state('account.artGroup.home', {
         url: '',

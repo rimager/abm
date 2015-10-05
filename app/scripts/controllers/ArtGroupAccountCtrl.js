@@ -7,20 +7,18 @@
  * Provides rudimentary account management functions.
  */
 angular.module(window.appName)
-  .controller('ArtGroupAccountCtrl', function ($scope, $state, profile, simpleLogin, fbutil, companyUsersSvc, listingSvc) {
-    $scope.user = profile;
-    $scope.users = [];
+  .controller('ArtGroupAccountCtrl', function ($scope, $state, account, simpleLogin, fbutil, companyUsersSvc, listingSvc) {
+    $scope.account = account;
+    $scope.matches= [];
     $scope.preferences = [];
 
     //matching users
-    companyUsersSvc.matchUsersByPreferenceToCompany(profile.preferences)
-      .then(function(list) {
-        return listingSvc.getUsers(list);
-      })
-      .then(function (list) {
-        $scope.users = list;
-      } );
-
+    fbutil.ref('matches_for_companies').child(account.uid).once('value', function(candidateList) {
+      var candidates = candidateList.val();
+      listingSvc.getCandidates(candidatesList, function(fullCandidate) {
+         $scope.matches.push(fullCandidate);
+      }); 
+    })
 
     //matching preferences
     listingSvc.getPreferences(profile.preferences, 'artgrouptype')

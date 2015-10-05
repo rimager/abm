@@ -66,7 +66,7 @@
     function loadAccount(uid, deferred) {
 
      //try company
-     tryLoadAccount(uid, 'companies')
+     tryLoadAccount(uid, 'companies', deferred)
     }
 
     function tryLoadAccount(uid, type, deferred) {
@@ -75,20 +75,17 @@
       accountRef.once('value', function(snapshot) {
         var val = snapshot.val();
         if (val) 
-          proccessAccount(val, deferred)
+          proccessAccount(val, uid,deferred)
          else if (type != 'users') tryLoadAccount(uid, 'users', deferred);
         
       });
     }
 
-    function proccessAccount(account, deferred) {
+    function proccessAccount(account,uid,  deferred) {
     
           _account = account;
           _account.uid = uid;
-          broadcastSvc(abmConfig.events.account.loaded, {account: _account,
-            isUser: isAUserAccount(_account),
-               isCompany: !isACompanyAccount(_account)});
-          deferred.resolve(_account);
+         deferred.resolve(_account);
     }
 
   }

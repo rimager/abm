@@ -149,9 +149,12 @@
         matchee = matcheeObj.val(); 
         //compares prefs
         var match_prefs = _.intersection(_.keys(preference_list), _.keys(matchee.preferences));
-        if (match_prefs.length === 0) return;
+        
         var match_prefs_obj = {};
-        _.each(match_prefs, function(pref) {match_prefs_obj[pref]= true});
+        if (match_prefs.length === 0) 
+           match_prefs_obj = null;
+        else   
+          _.each(match_prefs, function(pref) {match_prefs_obj[pref]= true});
 
         //save this matches in both profile and matchee
         matchesForMatcheesRef.child(matcheeObj.key()).child(uid).set(match_prefs_obj);
