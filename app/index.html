@@ -1,6 +1,7 @@
 <!doctype html>
 <html class="no-js">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title></title>
     <base href="/">
@@ -18,92 +19,98 @@
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/bootstrap.css">
     <!-- endbuild -->
-  </head>
-  <body ng-app="abmApp" ng-controller="LayoutCtrl">
+</head>
+
+<body ng-app="abmApp" ng-controller="LayoutCtrl">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-
-
     <!-- Add your site or application content here -->
-      <div class="container header">
+    <div class="container header">
         <div class="row top10">
             <div class="col-md-8">
                 <img src="images/logo.png" alt="Arts Board Match Logo" class="img-responsive margin-bottom-sm">
             </div>
             <div class="col-md-4">
-                        <ul id="navbar-top" class="nav navbar-nav">
-                        <li><a href="https://www.facebook.com/ArtsBizMiami?fref=ts" target="_self"><i class="fa fa-twitter"></i></a></li>
-                        <li><a href="https://twitter.com/ArtsBizMiami" target="_self"><i class="fa fa-facebook"></i></a></li>
-                        <li><span ng-hide-auth=""><a ui-sref="artGroupRegister"
-                            style="background:yellow"> Art Group Registration</a> | <a ui-sref="artGroupLogin">Sign In</a></span></li>
-                        <li><span ng-show-auth=""><a href="#"
-                            ng-click="logout()" style="background:yellow">Log out</a></span></li>
-                    </ul>
+                <ul id="navbar-top" class="nav navbar-nav">
+                    <li><a href="https://www.facebook.com/ArtsBizMiami?fref=ts" target="_self"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="https://twitter.com/ArtsBizMiami" target="_self"><i class="fa fa-facebook"></i></a></li>
+                    <li><span ng-hide-auth=""><a ui-sref="artGroupRegister"
+                        > Art Group Registration</a> | <a ui-sref="artGroupLogin">Art Group Sign In</a></span></li>
+                    <li><span ng-show-auth=""><a href="#"
+                            ng-click="logout()">Log out</a></span></li>
+                </ul>
             </div>
+            <div class="col-md-3">
+                Brought to you by
+                <img class="img-responsive" alt="Arts Business Council Miami Logo" src="images/artsbusinesscouncil_logo.png"> </div>
         </div>
-      </div>
-
-<nav class="navbar navbar-inverse">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
+    </div>
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse navbar-right">
+                <ul class="nav navbar-nav">
+                    <li ng-class="{'active': currentState=='home'}"><a ui-sref="home">Home</a></li>
+                    <li ng-class="{'active': currentState=='about'}"><a ui-sref="about">About</a></li>
+                    <li ng-class="{'active': currentState=='board-stories'}"><a ui-sref="board-stories">Board Stories</a></li>
+                    <li ng-class="{'active': currentState=='info-links'}"><a ui-sref="info-links">Info</a></li>
+                    <li ng-class="{'active': currentState=='groups'}"><a ui-sref="groups">Art Groups</a></li>
+                    <li ng-class="{'active': currentState=='contact'}"><a ui-sref="contact">Contact Us</a></li>
+                </ul>
+            </div>
+            <!--/.nav-collapse -->
         </div>
-        <div id="navbar" class="navbar-collapse collapse navbar-right">
-          <ul class="nav navbar-nav">
-            <li ng-class="{'active': currentState=='home'}"><a ui-sref="home">Home</a></li>
-            <li ng-class="{'active': currentState=='about'}"><a ui-sref="about">About</a></li>
-            <li ng-class="{'active': currentState=='board-stories'}"><a ui-sref="board-stories">Board Stories</a></li>
-            <li ng-class="{'active': currentState=='info-links'}"><a ui-sref="info-links">Info</a></li>
-            <li ng-class="{'active': currentState=='art-groups'}"><a ui-sref="art-groups">Art Groups</a></li>
-            <li ng-class="{'active': currentState=='contact'}"><a ui-sref="contact">Contact Us</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
-      </div>
     </nav>
-
-      <div ui-view class="container-view container"></div>
-
-
-    <div id="footer" class="navbar-inverse">
+    <div ui-view class="container-view container"></div>
+    <div id="footer" class="navbar-inverse top30">
         <div class="container">
             <div class="row">
                 <footer>
-                    <p>© Copyright 2015. All rights reserved.
-                        Text, graphics, platform and code may not be copied, reprinted, published, hosted or otherwise distributed without express written consent. Arts Board Match name, brand, website and related are owned by the Arts & Business Council of Miami.</p>
-                    <div id="footerNav"><ul class="list-inline"><li><a href="/?no_cache=1">Home</a></li><li><a href="about/">About</a></li><li><a href="footer-navigation/art-group-profiles/">Art Group Profiles</a></li><li><a href="parners/">Partners</a></li><li><a href="footer-navigation/professional/">Professional</a></li><li><a href="footer-navigation/resources/">Resources</a></li><li><a href="footer-navigation/seminars/">Seminars</a></li><li><a href="contact/?no_cache=1">Contact Us</a></li><li><a href="footer-navigation/donate/">Donate</a></li></ul></div>
+                    <p>© Copyright 2015. All rights reserved. Text, graphics, platform and code may not be copied, reprinted, published, hosted or otherwise distributed without express written consent. Arts Board Match name, brand, website and related are owned by the Arts & Business Council of Miami.</p>
+                    <div id="footerNav">
+                        <ul class="list-inline">
+                            <li ng-class="{'active': currentState=='home'}"><a ui-sref="home">Home</a></li>
+                            <li ng-class="{'active': currentState=='about'}"><a ui-sref="about">About</a></li>
+                            <li ng-class="{'active': currentState=='board-stories'}"><a ui-sref="board-stories">Board Stories</a></li>
+                            <li ng-class="{'active': currentState=='info-links'}"><a ui-sref="info-links">Info</a></li>
+                            <li ng-class="{'active': currentState=='groups'}"><a ui-sref="groups">Art Groups</a></li>
+                            <li ng-class="{'active': currentState=='contact'}"><a ui-sref="contact">Contact Us</a></li>
+                            <li ng-class="{'active': currentState=='partners'}"><a ui-sref="partners">Partners</a></li>
+                            <li ng-class="{'active': currentState=='terms'}"><a ui-sref="terms">Terms</a></li>
+                        </ul>
+                    </div>
                 </footer>
             </div>
         </div>
     </div>
-
-
-
-
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script type="text/javascript">
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-34624446-1']);
-        _gaq.push(['_trackPageview']);
-        (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-34624446-1']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script');
+        ga.type = 'text/javascript';
+        ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0];
+        s.parentNode.insertBefore(ga, s);
+    })();
     </script>
-
     <!-- build:js(.) scripts/oldieshim.js -->
     <!--[if lt IE 9]>
     <script src="bower_components/es5-shim/es5-shim.js"></script>
     <script src="bower_components/json3/lib/json3.js"></script>
     <![endif]-->
     <!-- endbuild -->
-
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -126,18 +133,13 @@
     <!-- endbower -->
     <script src="bower_components/bootstrap/js/carousel.js"></script>
     <!-- endbuild -->
-
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-
-
-        <script src="scripts/app.js"></script>
-        <script src="scripts/custom/script.js"></script>
-
-        <!-- angularfire -->
-        <script src="scripts/angularfire/config.js"></script>
-        <script src="scripts/angularfire/firebase.utils.js"></script>
-        <script src="scripts/angularfire/simpleLogin.js"></script>
-
+    <!-- build:js({.tmp,app}) scripts/scripts.js -->
+    <script src="scripts/app.js"></script>
+    <script src="scripts/custom/script.js"></script>
+    <!-- angularfire -->
+    <script src="scripts/angularfire/config.js"></script>
+    <script src="scripts/angularfire/firebase.utils.js"></script>
+    <script src="scripts/angularfire/simpleLogin.js"></script>
     <!-- core scritps -->
     <script src="scripts/controllers/layoutCtrl.js"></script>
     <script src="scripts/services/broadcastSvc.js"></script>
@@ -148,7 +150,6 @@
     <script src="scripts/services/safeApply.js"></script>
     <script src="scripts/directives/ngShowAuth.js"></script>
     <script src="scripts/directives/ngHideAuth.js"></script>
-
     <!-- common data svc -->
     <script src="scripts/services/accountSvc.js"></script>
     <script src="scripts/services/authSvc.js"></script>
@@ -156,44 +157,33 @@
     <script src="scripts/services/preferenceSvc.js"></script>
     <script src="scripts/services/listingSvc.js"></script>
     <script src="scripts/services/profileHelperSvc.js"></script>
-
-
-
-        <!-- routes -->
-        <script src="scripts/routes/home.routes.js"></script>
-        <script src="scripts/routes/account.routes.js"></script>
-        <script src="scripts/routes/users.routes.js"></script>
-        <script src="scripts/routes/art_groups.routes.js"></script>
-
-        <!-- configs -->
-        <script src="scripts/config/abm.config.js"></script>
-        <script src="scripts/config/api.config.js"></script>
-        <script src="scripts/config/events.config.js"></script>
-        <script src="scripts/config/config.exceptionHandler.js"></script>
-
-        <!-- main area -->
-         <script src="scripts/controllers/mainCtrl.js"></script>
-
-        <!-- art groups -->
-        <script src="scripts/controllers/ArtGroupLoginCtrl.js"></script>
-        <script src="scripts/controllers/ArtGroupAccountCtrl.js"></script>
-        <script src="scripts/controllers/ArtGroupEditCtrl.js"></script>
-        <script src="scripts/controllers/ArtGroupRegisterCtrl.js"></script>
-        <script src="scripts/services/companySvc.js"></script>
-
-        <!-- user -->
-       <script src="scripts/controllers/UserRegisterCtrl.js"></script>
-       <script src="scripts/controllers/UserEditCtrl.js"></script>
-       <script src="scripts/controllers/UserLoginCtrl.js"></script>
-       <script src="scripts/controllers/UserAccountCtrl.js"></script>
-
-        <!-- user -->
-        <script src="scripts/services/userSvc.js"></script>
-
-
-        <script src="scripts/services/companyUsersSvc.js"></script>
-
-
-        <!-- endbuild -->
+    <!-- routes -->
+    <script src="scripts/routes/home.routes.js"></script>
+    <script src="scripts/routes/account.routes.js"></script>
+    <script src="scripts/routes/users.routes.js"></script>
+    <script src="scripts/routes/art_groups.routes.js"></script>
+    <!-- configs -->
+    <script src="scripts/config/abm.config.js"></script>
+    <script src="scripts/config/api.config.js"></script>
+    <script src="scripts/config/events.config.js"></script>
+    <script src="scripts/config/config.exceptionHandler.js"></script>
+    <!-- main area -->
+    <script src="scripts/controllers/mainCtrl.js"></script>
+    <!-- art groups -->
+    <script src="scripts/controllers/ArtGroupLoginCtrl.js"></script>
+    <script src="scripts/controllers/ArtGroupAccountCtrl.js"></script>
+    <script src="scripts/controllers/ArtGroupEditCtrl.js"></script>
+    <script src="scripts/controllers/ArtGroupRegisterCtrl.js"></script>
+    <script src="scripts/services/companySvc.js"></script>
+    <!-- user -->
+    <script src="scripts/controllers/UserRegisterCtrl.js"></script>
+    <script src="scripts/controllers/UserEditCtrl.js"></script>
+    <script src="scripts/controllers/UserLoginCtrl.js"></script>
+    <script src="scripts/controllers/UserAccountCtrl.js"></script>
+    <!-- user -->
+    <script src="scripts/services/userSvc.js"></script>
+    <script src="scripts/services/companyUsersSvc.js"></script>
+    <!-- endbuild -->
 </body>
+
 </html>

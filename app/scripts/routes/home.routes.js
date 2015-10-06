@@ -50,6 +50,11 @@ angular.module(window.appName)
                 templateUrl: '../../views/board-stories.html'
             })
 
+            .state('groups', {
+                url: 'groups',
+                templateUrl: '../../views/groups.html'
+            })
+
             .state('partners', {
                 url: 'partners',
                 templateUrl: '../../views/partners.html'

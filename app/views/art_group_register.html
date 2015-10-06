@@ -19,7 +19,7 @@
         </div>
         <div class="col-xs-12 form-group">
             <input type="checkbox" ng-model="has_address" name="has_address"
-            >Does you company has an
+            >Does you company have an
             address?
             <div ng-show="has_address">
                 <p class="form-group" ng-cloak>
@@ -32,6 +32,16 @@
                 </p>
             </div>
         </div>
+        <div class="col-xs-12 form-group">
+            <label class="ng-binding ng-scope">Tell us about your company</label>
+            <textarea  ng-model="description" name="description" class="form-control" ></textarea> 
+            
+        </div>
+        <div class="col-xs-12 form-group">
+            <label class="ng-binding ng-scope">Your Website Url?</label>
+                <input type="text" ng-model="url"  name="url" class="form-control"  /> 
+            
+        </div>        
         <div class="col-xs-12">
             <h3>What is your discipline?</h3>
         </div>
@@ -86,16 +96,7 @@
                 <input type="checkbox" ng-model="preferences.artgrouptype_programs_serving_children" name="artgrouptypes" > Arts programs serving children
             </label>
         </div>
-        <div class="col-xs-6 form-group">
-            <label class="ng-binding ng-scope">Tell us about your company
-            <textarea  ng-model="description" name="description"></textarea> 
-            </label>
-        </div>
-        <div class="col-xs-6 form-group">
-            <label class="ng-binding ng-scope">Your Website Url?
-                <input type="text" ng-model="url"  name="url"  /> 
-            </label>
-        </div>
+
 </div>
-<button type="button" ng-click="register()">Register</button>
+<button type="button" class="btn btn-primary" ng-click="register()">Register</button>
 
