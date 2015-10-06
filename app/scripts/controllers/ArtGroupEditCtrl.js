@@ -15,6 +15,7 @@ angular.module(window.appName)
     
 
       safeApply(function() {
+       $scope.filters = filters;
        $scope.time_availability = profileHelperSvc.objectToArray(filters.time_availability);
        $scope.minimum_donation = profileHelperSvc.objectToArray(filters.donations);
 
