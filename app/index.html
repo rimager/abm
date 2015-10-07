@@ -29,7 +29,7 @@
     <div class="container header">
         <div class="row top10">
             <div class="col-md-8">
-                <img src="images/logo.png" alt="Arts Board Match Logo" class="img-responsive margin-bottom-sm">
+                <a ui-sref="home"><img src="images/logo.png" alt="Arts Board Match Logo" class="img-responsive margin-bottom-sm"></a>
             </div>
             <div class="col-md-4">
                 <ul id="navbar-top" class="nav navbar-nav">
@@ -43,6 +43,7 @@
             </div>
             <div class="col-md-3">
                 Brought to you by
+                <a href="http://www.artsbizmiami.org/" target="_blank"></a>
                 <img class="img-responsive" alt="Arts Business Council Miami Logo" src="images/artsbusinesscouncil_logo.png"> </div>
         </div>
     </div>
@@ -61,7 +62,7 @@
                     <li ng-class="{'active': currentState=='home'}"><a ui-sref="home">Home</a></li>
                     <li ng-class="{'active': currentState=='about'}"><a ui-sref="about">About</a></li>
                     <li ng-class="{'active': currentState=='board-stories'}"><a ui-sref="board-stories">Board Stories</a></li>
-                    <li ng-class="{'active': currentState=='info-links'}"><a ui-sref="info-links">Info</a></li>
+                    <li ng-class="{'active': currentState=='resources'}"><a ui-sref="resources">Resources</a></li>
                     <li ng-class="{'active': currentState=='groups'}"><a ui-sref="groups">Art Groups</a></li>
                     <li ng-class="{'active': currentState=='contact'}"><a ui-sref="contact">Contact Us</a></li>
                 </ul>
@@ -80,7 +81,7 @@
                             <li ng-class="{'active': currentState=='home'}"><a ui-sref="home">Home</a></li>
                             <li ng-class="{'active': currentState=='about'}"><a ui-sref="about">About</a></li>
                             <li ng-class="{'active': currentState=='board-stories'}"><a ui-sref="board-stories">Board Stories</a></li>
-                            <li ng-class="{'active': currentState=='info-links'}"><a ui-sref="info-links">Info</a></li>
+                            <li ng-class="{'active': currentState=='resources'}"><a ui-sref="resources">Resources</a></li>
                             <li ng-class="{'active': currentState=='groups'}"><a ui-sref="groups">Art Groups</a></li>
                             <li ng-class="{'active': currentState=='contact'}"><a ui-sref="contact">Contact Us</a></li>
                             <li ng-class="{'active': currentState=='partners'}"><a ui-sref="partners">Partners</a></li>
@@ -130,6 +131,7 @@
     <script src="bower_components/waypoints/lib/noframework.waypoints.js"></script>
     <script src="bower_components/angularfire/dist/angularfire.js"></script>
     <script src="bower_components/lodash/lodash.js"></script>
+    <script src="bower_components/ekko-lightbox/dist/ekko-lightbox.min.js"></script>
     <!-- endbower -->
     <script src="bower_components/bootstrap/js/carousel.js"></script>
     <!-- endbuild -->

@@ -60,9 +60,9 @@ angular.module(window.appName)
                 templateUrl: '../../views/partners.html'
             })
 
-            .state('info-links', {
-                url: 'info-links',
-                templateUrl: '../../views/info_links.html'
+            .state('resources', {
+                url: 'resources',
+                templateUrl: '../../views/resources.html'
             })
 
             .state('workshops', {

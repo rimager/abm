@@ -13,7 +13,6 @@ angular.module(window.appName)
    //Do some aninmation on elementes on the main view
    //onScrollInit comes from a outside script
    onScrollInit( $('.os-animation') );
-   onScrollInit( $('.staggered-animation'), $('.staggered-animation-container') );
     
 
   });
