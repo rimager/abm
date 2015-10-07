@@ -31,5 +31,10 @@
     "sinon": "http://sinonjs.org/releases/sinon-1.10.2.js",
     "sinon-chai": "https://github.com/domenic/sinon-chai.git"
   },
-  "appPath": "app"
+  "appPath": "app",
+  "overrides":{
+    "waypoints": {
+      "main": "lib/jquery.waypoints.min.js"
+    }
+  }
 }
