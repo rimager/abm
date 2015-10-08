@@ -21,7 +21,11 @@ angular.module(window.appName)
 
       if (profile) {
         accountSvc.getAccount(profile.uid).then(function (account)  {
-         
+
+        //only navigate if we know the type of account as this time
+        if (account.company ==  null || account.company == undefined)
+            return;
+
         var gotoState = account.company
            ? abmConfig.states.company.home
            : abmConfig.states.user.home;
