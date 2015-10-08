@@ -189,6 +189,16 @@ module.exports = function (grunt) {
                 }
 
         },
+        includeSource: {
+            options: {
+                basePath: 'app'
+            },
+            js: {
+                files: {
+                    '<%= yeoman.app %>/index.html': '<%= yeoman.app %>/index.html'
+                }
+            }
+        },
 
 
         // Compiles Less to CSS and generates necessary files if requested
@@ -413,6 +423,7 @@ module.exports = function (grunt) {
         grunt.task.run([
             'clean:server',
             'wiredep',
+            'includeSource',
             'concurrent:server',
             'autoprefixer',
             'connect:livereload',
@@ -436,6 +447,7 @@ module.exports = function (grunt) {
     grunt.registerTask('build', [
         'clean:dist',
         'wiredep',
+        'includeSource',
         'useminPrepare',
         'concurrent:dist',
         'autoprefixer',
