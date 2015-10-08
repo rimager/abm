@@ -5,6 +5,7 @@ angular.module(window.appName)
       restrict: 'AE',
       scope: {
          preferenceTitle: '=',
+         preferenceSubtitle: '=',
          preferenceList:  '=',
          model: '='
       },
