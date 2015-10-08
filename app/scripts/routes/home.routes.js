@@ -34,6 +34,12 @@ angular.module(window.appName)
                 controller: 'ArtGroupRegisterCtrl'
             })
 
+            .state('candidateRegister', {
+                url: 'candidate_register',
+                templateUrl: '../../views/candidate_register.html',
+                controller: 'CandidateRegisterCtrl'
+            })
+
           .state('userLogin', {
             url: 'user_login',
             templateUrl: '../../views/user_login.html',

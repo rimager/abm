@@ -16,7 +16,7 @@
   function preferenceSvc(fbutil, $firebaseArray,$firebaseObject, $q, abmConfig) {
 
     var preferences_companies_url = 'preferences_companies';
-    var preferences_users_url = 'preferences_users';
+    var preferences_users_url = 'preferences_candidates';
     var filter_list = 'filters';
 
 
@@ -158,12 +158,12 @@
         var match_prefs_obj = {};
         
         //try to match on time_availability
-        if (time_availability && matchee.time_availability &&  time_availability.min <= matchee.time_availability.max) {
+        if (time_availability && matchee.time_availability &&  time_availability.min <= matchee.time_availability.min) {
            match_prefs_obj[time_availability.key] = true
         }
 
         //try to match on minimum_donataion 
-        if (minimum_donation && matchee.minimum_donation && minimum_donation.min <= matchee.minimum_donation.max) {
+        if (minimum_donation && matchee.minimum_donation && minimum_donation.min <= matchee.minimum_donation.min) {
            match_prefs_obj[minimum_donation.key] = true
         }
         

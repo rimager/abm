@@ -25,14 +25,13 @@ angular.module(window.appName)
 
     $scope.update = function () {
 
-
       //add account to our manage list of accounts
       profileSvc.addProfile($scope.account.uid,profileHelperSvc.sanitizeArtGroupProfile($scope.account), 'companies', flashSvc.error);
-      updateCompanyPreferences(account);
-    }   
+        updatePreferences(account);
+    };
 
 
-    function updateCompanyPreferences(company) {
+    function updatePreferences(company) {
      //sanitize preflist
      var preference_list = profileHelperSvc.sanitizePreferenceList($scope.account.preferences); 
       preferenceSvc.addCompanyToPreferences(account.uid, preference_list);

@@ -11,21 +11,25 @@
   <h3>Profile</h3>
 
   <form role="form">
-    <p class="form-group">
-      <label>Account ID</label>
-      <br />{{account.uid}}
-    </p>
-
+      <div class="col-xs-12 form-group">
+         <p class="form-group">
+         <label>Account ID</label>
+          <br />{{account.uid}}
+          </p>
+          <div class="col-xs-6 form-group" ng-cloak>
     <p class="form-group">
       <label>Name:</label>
       <input type="text" name="name" ng-model="account.artsGroup" class="form-control" />
     </p>
+          </div>
+
 
         <div class="col-xs-6 form-group" ng-cloak>
             <label for="phone">Phone</label>
             <input id="phone" required name="phone" type="text"
             ng-model="account.phone" class="form-control" />
         </div>
+          </div>
         <div class="col-xs-12 form-group">
                 <p class="form-group" ng-cloak>
                     <label for="address">Address</label>
@@ -35,6 +39,7 @@
                     <label for="address_2">Address continuation</label>
                     <input id="address_2" name="address_2"  type="text" ng-model="account.address_2" class="form-control" />
                 </p>
+            </div>
         <div class="col-xs-12 form-group">
             <label>Tell us about your company
             <textarea  ng-model="account.description" name="description"></textarea> 
@@ -45,7 +50,7 @@
                 <input type="text" ng-model="account.url"  name="url"  /> 
             </label>
         </div>
-        </div>
+
         <abm-preference-selection preference-title="'What is your discipline?'" preference-list="filters.artgrouptype" model="account.preferences"></abm-preference-selection>
         <div class="col-xs-12">
         <div class="col-xs-6 form-group">
@@ -72,10 +77,12 @@
       <abm-preference-selection preference-title="'Demographic info.'" preference-subtitle="'The more you check, the more matches you will be eligible for.'"  preference-list="filters.demographic" model="account.preferences"></abm-preference-selection>
       <abm-preference-selection preference-title="'Assets that your group hast that are valuable to our members?'" preference-list="filters.benefits" model="account.preferences"></abm-preference-selection>
 
+      <div class="col-xs-12 form-group">
+          <button role="button" ng-click="update()" class="btn">Update</button>
+          </div>
 </form>
 </div>
 
- <button role="button" ng-click="update()" class="btn">Update</button>
 </div>
 <p class="clearfix"></p>
 <div ng-repeat="message in messages" class="alert alert-{{message.type}}">{{message.text}}</div>

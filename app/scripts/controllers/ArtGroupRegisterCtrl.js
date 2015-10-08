@@ -19,14 +19,6 @@ angular.module(window.appName)
     $scope.preferences  = {};
 
 
-    //load preferences data data
-    //$scope.artgrouptypes = $firebaseArray(filterRef);
-
-    //If there was an error when loading the discipline data show it.
-    // display any errors
-    //$scope.artgrouptypes.$loaded().catch(showError);
-
-
     //Handles the account creation
     $scope.register= function() {
 

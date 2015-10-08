@@ -7,7 +7,8 @@ angular.module(window.appName)
          preferenceTitle: '=',
          preferenceSubtitle: '=',
          preferenceList:  '=',
-         model: '='
+         model: '=',
+         controlType: '='
       },
       templateUrl: './views/preference_selection.html'
     };
