@@ -7,7 +7,7 @@
  * Provides rudimentary account management functions.
  */
 angular.module(window.appName)
-  .controller('ArtGroupAccountCtrl', function ($scope, $state, accountSvc, safeApply,  listingSvc) {
+  .controller('ArtGroupAccountCtrl', function ($scope, $state, account, accountSvc, safeApply,  listingSvc) {
     $scope.account = account;
     $scope.matches= [];
     $scope.preferences = [];

@@ -29,7 +29,7 @@ angular.module(window.appName)
 
         var profileData = {name: $scope.name, company: false};
 
-        profileSvc.addProfile(profile.uid, profileData, profileData, function (err) {
+        profileSvc.addProfile(profile.uid, profileData, 'candidates', function (err) {
             if (!err)
                 $state.go('account.user.edit');
             else

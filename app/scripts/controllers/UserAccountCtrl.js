@@ -8,43 +8,26 @@
  */
 angular.module(window.appName)
   .controller('UserAccountCtrl',
-  function ($scope, $state, profile, simpleLogin, fbutil, companyUsersSvc, listingSvc) {
-    $scope.user = profile;
+  function ($scope, $state, account, accountSvc, safeApply,  listingSvc) {
 
-    if (!profile.preferences || profile.preferences.lenght == 0) {
-      $state.go('account.user.edit');
-      return;
-    }
-
-    $scope.users = [];
+    $scope.account = account;
+    $scope.matches= [];
     $scope.preferences = [];
 
-    //matching users
-    companyUsersSvc.matchCompaniesByPreferenceToUser(profile.preferences)
-      .then(function(list) {
-        return listingSvc.getUsers(list);
-      })
-      .then(function (list) {
-        $scope.users = list;
-      } );
 
-
-    //matching preferences
-    listingSvc.getPreferences(profile.preferences, 'artgrouptype')
-      .then(function(list) {
-        $scope.preferences = list;
+    //neeed to watch for changes in the account and match
+    accountSvc.watchAccount(account.uid, 'candidates', function(data) {
+      safeApply(function() {
+        $scope.account = data;
       });
+    });
 
+    listingSvc.getCompaniesForCandidate(account.uid, addMatch);
 
-    //var profile;
-    //loadProfile(user);
-
-
-    function loadProfile(user) {
-      if( profile ) {
-        profile.$destroy();
-      }
-      profile = fbutil.syncObject('companies/'+user.uid);
-      profile.$bindTo($scope, 'profile');
+    function addMatch(key, match) {
+      safeApply(function () {$scope.matches.push(match);});
     }
+
+
+
   });

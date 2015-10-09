@@ -13,11 +13,6 @@ angular.module(window.appName)
         url: '/user',
         abstract: true,
         templateUrl: "../../views/users/index.html",
-        resolve: {
-          profile:  function(account, authSvc) {
-            return authSvc.authorizeUser(account)
-          }
-        }
       })
       .state('account.user.home', {
         url: '',

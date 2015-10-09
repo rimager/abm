@@ -19,6 +19,7 @@
     return {
       sanitizePreferenceList: sanitizePreferenceList,
       sanitizeArtGroupProfile: sanitizeArtGroupProfile,
+      sanitizeCandidateProfile: sanitizeCandidateProfile,
       objectToArray: objectToArray
     };
 
@@ -39,10 +40,21 @@
         address_2: "",
         description: "",
         url: ""
-      }
+          };
 
       return _.defaults(profile, defaults);
     }
+
+      function sanitizeCandidateProfile (profile) {
+
+          var defaults = {
+              title: ""
+          };
+
+          return _.defaults(profile, defaults);
+      }
+
+
     function  sanitizePreferenceList(list) {
      return  _.pick(list, function (p) {return p} );
     }
