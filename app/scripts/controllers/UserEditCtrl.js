@@ -7,7 +7,7 @@
  * Manages authentication to any active providers.
  */
 angular.module(window.appName)
-  .controller('UserEditCtrl', function ($scope, $state, account,
+  .controller('UserEditCtrl', function ($scope, $state, account,accountSvc,
                                         preferenceSvc,
                                         profileSvc,
                                         profileHelperSvc,
@@ -15,7 +15,11 @@ angular.module(window.appName)
 
       $scope.account = account;
 
-      //get time availability and minimun donations
+        //neeed to watch for changes in the account and match
+        accountSvc.watchAccount(account.uid, 'candidates', $scope.account);
+
+
+        //get time availability and minimun donations
       preferenceSvc.getFilters( function(filters) {
 
 

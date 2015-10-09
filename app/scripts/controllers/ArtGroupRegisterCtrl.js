@@ -23,7 +23,7 @@ angular.module(window.appName)
     $scope.register= function() {
 
       //Validations are good so create account
-      simpleLogin.createAccount($scope.email, $scope.pass, {rememberMe: true})
+      simpleLogin.createAccount($scope.email, $scope.pass, true,  {rememberMe: true})
           .then(completeProfile, showError);
 
     };

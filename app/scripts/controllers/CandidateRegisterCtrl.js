@@ -16,7 +16,7 @@ angular.module(window.appName)
     $scope.createAccount = function(email, pass, confirm) {
 
       //Validations are good so create account
-      simpleLogin.createAccount(email, pass, {rememberMe: true})
+      simpleLogin.createAccount(email, pass, false, {rememberMe: true})
           .then(completeProfile, flashSvc.error);
 
     };

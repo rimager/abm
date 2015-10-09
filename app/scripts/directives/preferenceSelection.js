@@ -10,6 +10,13 @@ angular.module(window.appName)
          model: '=',
          controlType: '='
       },
-      templateUrl: './views/preference_selection.html'
+      templateUrl: './views/preference_selection.html',
+      link: function(scope, element, attrs) {
+         scope.directiveModel = scope.model;
+         scope.$watchCollection('directiveModel', function(newValue, oldValue)
+           {
+                scope.model = angular.extend({}, scope.model, newValue);
+           })
+        }
     };
   }]);

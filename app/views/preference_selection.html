@@ -4,7 +4,7 @@
 </div>
 <div class="col-xs-12">
   <div  class = "col-xs-6 for-group" ng-repeat="(key, value) in preferenceList">
-    <input type="{{controlType || 'checkbox'}}" ng-model="model[key]"
+    <input type="{{controlType || 'checkbox'}}" ng-model="directiveModel[key]"
            name="{{title.replace(' ','_')}}"
            value="{{key}}" />{{value.name}}
   </div>

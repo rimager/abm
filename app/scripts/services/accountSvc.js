@@ -14,7 +14,7 @@
   angular.module(window.appName).factory('accountSvc',  accountSvc);
 
   function accountSvc(fbutil,  $q, abmConfig,
-                       broadcastSvc
+                      safeApply
                        ) {
 
     var _account;
@@ -64,12 +64,17 @@
     }
 
 
-    function watchAccount(uid, type, cb) {
+    function watchAccount(uid, type, target, cb) {
       var accountRef = fbutil.ref(type ,uid);
       accountRef.on('value', function(snapshot) {
         var val = snapshot.val();
-        if (val)
-          cb(val);
+        if (val) {
+          _account  = val;
+          safeApply(function() {
+            target = angular.extend({}, target, val);
+            if (cb) cb(val);
+          });
+        }
       });
 
     }

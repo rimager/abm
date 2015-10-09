@@ -7,8 +7,12 @@
  * Provides rudimentary account management functions.
  */
 angular.module(window.appName)
-  .controller('ArtGroupEditCtrl', function ($scope, $state, account, preferenceSvc, profileSvc, profileHelperSvc,safeApply, flashSvc) {
+  .controller('ArtGroupEditCtrl', function ($scope, $state, account, accountSvc, preferenceSvc, profileSvc, profileHelperSvc,safeApply, flashSvc) {
     $scope.account = account;
+
+        //neeed to watch for changes in the account and match
+        accountSvc.watchAccount(account.uid, 'companies', $scope.account);
+
 
    //get time availability and minimun donations
     preferenceSvc.getFilters( function(filters) {
@@ -27,11 +31,11 @@ angular.module(window.appName)
 
       //add account to our manage list of accounts
       profileSvc.addProfile($scope.account.uid,profileHelperSvc.sanitizeArtGroupProfile($scope.account), 'companies', flashSvc.error);
-        updatePreferences(account);
+        updatePreferences();
     };
 
 
-    function updatePreferences(company) {
+    function updatePreferences() {
      //sanitize preflist
      var preference_list = profileHelperSvc.sanitizePreferenceList($scope.account.preferences); 
       preferenceSvc.addCompanyToPreferences(account.uid, preference_list);

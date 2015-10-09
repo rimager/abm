@@ -47,7 +47,7 @@
          //get the list asynch
         var ref = fbutil.ref(profileUrl);
         _.each( profileKeys, function(profileKey) {
-           ref.child(profileKey).on('child_added', function(profile) { cb(profile.key(),  profile.val()) } );
+           ref.child(profileKey).once('value', function(profile) { cb(profile.key(),  profile.val()) } );
         });
       }
     }

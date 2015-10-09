@@ -52,7 +52,7 @@
           auth.$unauth();
         },
 
-        createAccount: function(email, pass, opts) {
+        createAccount: function(email, pass, isCompany, opts) {
           return auth.$createUser({email: email, password: pass})
             .then(function() {
               // authenticate so we have permission to write to Firebase
@@ -60,7 +60,7 @@
             })
             .then(function(user) {
               // store user data in Firebase after creating account
-              return createProfile(user.uid, email/*, name*/).then(function() {
+              return createProfile(user.uid, email, email, isCompany).then(function() {
                 return user;
               });
             });
@@ -98,9 +98,9 @@
     })
 
     .factory('createProfile', function(fbutil, $q, $timeout) {
-      return function(id, email, name) {
+      return function(id, email, name, isCompany) {
         var ref = fbutil.ref('users', id), def = $q.defer();
-        ref.set({email: email, name: name||firstPartOfEmail(email)}, function(err) {
+        ref.set({email: email, name: name||firstPartOfEmail(email), company: isCompany} , function(err) {
           $timeout(function() {
             if( err ) {
               def.reject(err);

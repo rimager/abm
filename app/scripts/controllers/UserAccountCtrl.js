@@ -16,11 +16,7 @@ angular.module(window.appName)
 
 
     //neeed to watch for changes in the account and match
-    accountSvc.watchAccount(account.uid, 'candidates', function(data) {
-      safeApply(function() {
-        $scope.account = data;
-      });
-    });
+    accountSvc.watchAccount(account.uid, 'candidates', $scope.account);
 
     listingSvc.getCompaniesForCandidate(account.uid, addMatch);
 

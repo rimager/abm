@@ -12,13 +12,7 @@ angular.module(window.appName)
     $scope.matches= [];
     $scope.preferences = [];
 
-
-    //neeed to watch for changes in the account and match
-    accountSvc.watchAccount(account.uid, 'companies', function(data) {
-        safeApply(function() {
-           $scope.account = data;
-        });
-    });
+    accountSvc.watchAccount(account.uid, 'companies', $scope.account);
 
     listingSvc.getCandidatesForCompany(account.uid, addCandidate);
    
