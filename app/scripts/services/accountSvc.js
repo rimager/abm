@@ -23,6 +23,7 @@
     return {
       getAccount: getAccount,
       addAccount: addAccount,
+      watchAccount: watchAccount,
       clearAccount: clearAccount,
       isAUserAccount: isAUserAccount,
       isACompanyAccount: isACompanyAccount
@@ -63,6 +64,16 @@
     }
 
 
+    function watchAccount(uid, type, cb) {
+      var accountRef = fbutil.ref(type ,uid);
+      accountRef.on('value', function(snapshot) {
+        var val = snapshot.val();
+        if (val)
+          cb(val);
+      });
+
+    }
+
     function loadAccount(uid, deferred) {
 
      //try company
@@ -75,7 +86,7 @@
       accountRef.once('value', function(snapshot) {
         var val = snapshot.val();
         if (val) 
-          proccessAccount(val, uid,deferred)
+          proccessAccount(val, uid,deferred);
          else if (type != 'users') tryLoadAccount(uid, 'users', deferred);
         
       });

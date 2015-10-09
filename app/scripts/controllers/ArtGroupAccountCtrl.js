@@ -7,10 +7,18 @@
  * Provides rudimentary account management functions.
  */
 angular.module(window.appName)
-  .controller('ArtGroupAccountCtrl', function ($scope, $state, account, safeApply,  listingSvc) {
+  .controller('ArtGroupAccountCtrl', function ($scope, $state, accountSvc, safeApply,  listingSvc) {
     $scope.account = account;
     $scope.matches= [];
     $scope.preferences = [];
+
+
+    //neeed to watch for changes in the account and match
+    accountSvc.watchAccount(account.uid, 'companies', function(data) {
+        safeApply(function() {
+           $scope.account = data;
+        });
+    });
 
     listingSvc.getCandidatesForCompany(account.uid, addCandidate);
    
