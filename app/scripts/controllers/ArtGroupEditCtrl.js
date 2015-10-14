@@ -11,7 +11,11 @@ angular.module(window.appName)
     $scope.account = account;
 
         //neeed to watch for changes in the account and match
-        accountSvc.watchAccount(account.uid, 'companies', $scope.account);
+        accountSvc.watchAccount(account.uid, 'companies', $scope.account,  function(data) {
+            safeApply(function() {
+                $scope.account = data;
+            });
+        });
 
 
    //get time availability and minimun donations
@@ -31,15 +35,15 @@ angular.module(window.appName)
 
       //add account to our manage list of accounts
       profileSvc.addProfile($scope.account.uid,profileHelperSvc.sanitizeArtGroupProfile($scope.account), 'companies', flashSvc.error);
-        updatePreferences();
+        updatePreferences($scope.account);
     };
 
 
-    function updatePreferences() {
+    function updatePreferences(account) {
      //sanitize preflist
-     var preference_list = profileHelperSvc.sanitizePreferenceList($scope.account.preferences); 
+     var preference_list = profileHelperSvc.sanitizePreferenceList(account.preferences);
       preferenceSvc.addCompanyToPreferences(account.uid, preference_list);
-      preferenceSvc.match(account.uid, preference_list, 'candidates', $scope.account.time_availability, $scope.account.minimum_donation);
+      preferenceSvc.match(account.uid, preference_list, 'candidates', account.time_availability, account.minimum_donation);
       //preferenceSvc.addUserToCompanies(userData.user.uid, $scope.preferences);
     }
   });
