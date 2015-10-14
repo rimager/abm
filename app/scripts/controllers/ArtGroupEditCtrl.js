@@ -41,9 +41,9 @@ angular.module(window.appName)
 
     function updatePreferences(account) {
      //sanitize preflist
-     var preference_list = profileHelperSvc.sanitizePreferenceList(account.preferences);
+     var preference_list = profileHelperSvc.sanitizePreferenceList(account.match_preferences);
       preferenceSvc.addCompanyToPreferences(account.uid, preference_list);
-      preferenceSvc.match(account.uid, preference_list, 'candidates', account.time_availability, account.minimum_donation);
+      preferenceSvc.match(account.uid, preference_list, 'candidates', account.minimum_donation);
       //preferenceSvc.addUserToCompanies(userData.user.uid, $scope.preferences);
     }
   });

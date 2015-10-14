@@ -138,11 +138,10 @@
    //preference_list is the list of uid.
    //uid is the id of candidate if we are trying to match companies and
    //viceversa
-    function match (uid, preference_list, uid_type, time_availability, minimum_donation ){
+    function match (uid, preference_list, uid_type, minimum_donation ){
      var matcheeRefUrl = (uid_type == 'companies') ? 'companies' : 'candidates';
      var matcheeRef = fbutil.ref(matcheeRefUrl);
      var profileRefUrl = (uid_type == 'companies')? 'candidates' : 'companies';
-     var profileRef = fbutil.ref(profileRefUrl);
      var matchesForMatcheesRef = fbutil.ref('matches_for_' + matcheeRefUrl);
      var matchesForProfileRef = fbutil.ref('matches_for_' + profileRefUrl);
      var matchee;
@@ -153,18 +152,23 @@
         
         matchee = matcheeObj.val(); 
         //compares prefs
-        var match_prefs = _.intersection(_.keys(preference_list), _.keys(matchee.preferences));
+        var match_prefs = _.intersection(_.keys(preference_list), _.keys(matchee.match_preferences));
                 
         var match_prefs_obj = {};
         
         //try to match on time_availability
-        if (time_availability && matchee.time_availability &&  time_availability.min <= matchee.time_availability.min) {
-           match_prefs_obj[time_availability.key] = true
-        }
+        //if (time_availability && matchee.time_availability &&  time_availability.min <= matchee.time_availability.min) {
+        //   match_prefs_obj[time_availability.key] = true
+        //}
 
         //try to match on minimum_donataion 
-        if (minimum_donation && matchee.minimum_donation && minimum_donation.min <= matchee.minimum_donation.min) {
-           match_prefs_obj[minimum_donation.key] = true
+        if (minimum_donation && matchee.minimum_donation)   {
+
+            //when matching candidates
+            if (uid_type == 'candidate' && minimum_donation.min <= matchee.minimum_donation.min)
+                match_prefs_obj[minimum_donation.key] = true;
+            else if (uid_type == 'companies' && minimum_donation.min >= matchee.minimum_donation.min)
+                match_prefs_obj[minimum_donation.key] = true;
         }
         
         if (_.isEmpty(match_prefs_obj) &&  match_prefs.length === 0) 

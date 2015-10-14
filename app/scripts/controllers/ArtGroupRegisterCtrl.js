@@ -11,19 +11,27 @@ angular.module(window.appName)
                                         abmConfig, profileHelperSvc,
                                         $state, $firebaseArray, $timeout,
                                         profileSvc,
-                                        companySvc, flashSvc, preferenceSvc) {
+                                        companySvc, flashSvc, preferenceSvc, safeApply) {
 
    // var filterRef = fbutil.ref(abmConfig.api.filters.artgrouptypes);
 
     //create a var to hold the company preferences
-    $scope.preferences  = {};
+        //get time availability and minimun donations
+        preferenceSvc.getFilters( function(filters) {
+            safeApply(function() {
+                $scope.filters = filters;
+
+            })});
+
+
+    $scope.account = {company: true};
 
 
     //Handles the account creation
-    $scope.register= function() {
+    $scope.register= function(email, pass) {
 
       //Validations are good so create account
-      simpleLogin.createAccount($scope.email, $scope.pass, true,  {rememberMe: true})
+      simpleLogin.createAccount(email, pass, true,  {rememberMe: true})
           .then(completeProfile, showError);
 
     };
@@ -31,15 +39,9 @@ angular.module(window.appName)
 
     function completeProfile(company) {
 
-      var profileData =  {artsGroup: $scope.artsGroup, phone: $scope.phone,
-        preferences: $scope.preferences, 
-        address: $scope.address, address_2: $scope.address_2,
-        description: $scope.description, url: $scope.url, 
-        company: true
-        };
 
       //add account to our manage list of accounts
-      profileSvc.addProfile(company.uid,profileHelperSvc.sanitizeArtGroupProfile(profileData), 'companies', flashSvc.error);
+      profileSvc.addProfile(company.uid,profileHelperSvc.sanitizeArtGroupProfile($scope.account), 'companies', flashSvc.error);
 
       //adding users to every preference
       updateCompanyPreferences(company);
@@ -49,15 +51,11 @@ angular.module(window.appName)
 
     function updateCompanyPreferences(company) {
      //sanitize preflist
-     var preference_list = profileHelperSvc.sanitizePreferenceList($scope.preference_list); 
+     var preference_list = profileHelperSvc.sanitizePreferenceList($scope.account.match_preferences);
       preferenceSvc.addCompanyToPreferences(company.uid, preference_list);
-      preferenceSvc.match(company.uid, $scope.preferences, 'candidates');
-      //preferenceSvc.addUserToCompanies(userData.user.uid, $scope.preferences);
+
     }
 
-    //for each company that also share this preference
-    // update the user on the companies user collection
-    // update the company in the user company collection.
     function showError(err) {
       flashSvc.error(err);
     }

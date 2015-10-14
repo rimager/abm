@@ -30,7 +30,7 @@
         </div>
         <div class="col-xs-12">
             <div  class = "col-xs-6 for-group" ng-repeat="(key, value) in filters.artgrouptype">
-                <input type="checkbox" ng-model="account.preferences[key]"
+                <input type="checkbox" ng-model="account.match_preferences[key]"
                        name="artgrouptype"
                        value="{{key}}" />{{value.name}}
             </div>
@@ -61,7 +61,7 @@
         </div>
         <div class="col-xs-12">
             <div  class = "col-xs-6 for-group" ng-repeat="(key, value) in filters.business_skills">
-                <input type="checkbox" ng-model="account.preferences[key]"
+                <input type="checkbox" ng-model="account.match_preferences[key]"
                        name="business_skills"
                        value="{{key}}" />{{value.name}}
             </div>

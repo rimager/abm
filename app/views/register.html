@@ -5,7 +5,7 @@
 <form role="form" name="regForm" novalidate>
   <p class="form-group">
     <label for="loginEmail">email</label>
-    <input id="loginEmail" ngRequired="true" name="email" type="email" ng-model="email" class="form-control" />
+    <input id="loginEmail" ngRequired="true" name="email" type="email" ng-model="account.email" class="form-control" />
   </p>
   <p class="form-group">
     <label for="loginPass">password</label>
@@ -18,20 +18,20 @@
   </p>
   <p class="form-group" ng-cloak>
     <label for="artsGroup">arts Group</label>
-    <input id="artsGroup" ngRequired="true" name="artsGroup" type="text" ng-model="artsGroup" class="form-control" />
+    <input id="artsGroup" ngRequired="true" name="artsGroup" type="text" ng-model="account.artsGroup" class="form-control" />
   </p>
   <p class="form-group" ng-cloak>
-    <label for="phone">phone</label>
-    <input id="phone" required name="phone" type="text" ng-model="phone" class="form-control" />
+    <label for="account_name">account name:</label>
+    <input id="phone" ngRequired="true" name="account_name" type="text" ng-model="account.name" class="form-control" />
   </p>
   <p>
   <label ng-repeat="item in artgrouptypes">
-    <input type="checkbox" ng-model="preferences[item.$id]" name="artgrouptypes"  value="preferences[item.$id]"> {{item.$value}}
+    <input type="checkbox" ng-model="preferences[item.$id]" name="artgrouptypes"  value="account.match_preferences[item.$id]"> {{item.$value}}
   </label>
   </p>
   <p>
     <button  class="btn btn-primary" ng-cloak ng-disabled="regForm.$invalid"
-            ng-click="createAccount(email, pass, confirm)">Create Account</button>
+            ng-click="createAccount(account.email, pass, confirm)">Create Account</button>
   </p>
 </form>
 
