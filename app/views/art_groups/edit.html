@@ -1,11 +1,11 @@
 
-<div class="row-fluid">
+<div class="row">
 <div class="col-md-12">
 
   <p>
-       <a ui-sref="account.artGroup.home"  class="btn">account home</a>
- <button role="button" ng-click="logout()" class="btn btn-danger">Log Out</button>
- <button role="button" ng-click="update()" class="btn">Update</button>
+<a ui-sref="account.artGroup.home"  class="btn btn-primary">Account Home</a>
+ <button role="button" ng-click="logout()" class="btn btn-info">Log Out</button>
+ <button role="button" ng-click="update()" class="btn-success">Update</button>
   </p>
  
   <h3>Profile</h3>
@@ -16,6 +16,7 @@
          <label>Account ID</label>
           <br />{{account.uid}}
           </p>
+        </div>
           <div class="col-xs-6 form-group" ng-cloak>
     <p class="form-group">
       <label>Name:</label>
@@ -36,49 +37,47 @@
                     <input id="address" name="address"  type="text" ng-model="account.address" class="form-control" />
                 </p>
                 <p class="form-group" ng-cloak>
-                    <label for="address_2">Address continuation</label>
+                    <label for="address_2">Address Continuation</label>
                     <input id="address_2" name="address_2"  type="text" ng-model="account.address_2" class="form-control" />
                 </p>
             </div>
         <div class="col-xs-12 form-group">
             <label>Tell us about your company
-            <textarea  ng-model="account.description" name="description"></textarea> 
+            <textarea  ng-model="account.description" name="description"  class="form-control" ></textarea> 
             </label>
         </div>
         <div class="col-xs-12 form-group">
-            <label>Your Website Url?
-                <input type="text" ng-model="account.url"  name="url"  /> 
+            <label>Your Website Address
+                <input type="text" ng-model="account.url"  name="url"   class="form-control" /> 
             </label>
         </div>
 
         <abm-preference-selection preference-title="'What is your discipline?'" preference-list="filters.artgrouptype" model="account.preferences"></abm-preference-selection>
-        <div class="col-xs-12">
-        <div class="col-xs-6 form-group">
-            <h5>How much time do your board members give each time</h5>
+        <div class="col-xs-12 form-group">
+            <h4>How much time do your board members give each month</h4>
                 <select ng-model="account.time_availability"
                   ng-options="item as item.name for item in time_availability
                   track by item.key">
                   <option value="" ng-if="!account.time_availability">Please select one</option>
                   </select>  
             </div>
-        <div class="col-xs-6 form-group">
-          <h5>Minimum donation</h5>
+        <div class="col-xs-12 form-group">
+          <h4>What is your boards minimum financial contribution</h4>
                 <select ng-model="account.minimum_donation"
                   ng-options="item as item.name for item in minimum_donation
                   track by item.key">
                   <option value="" ng-if="!account.minimum_donation">Please select one</option>
                   </select>  
         </div>
-        </div>
-      <abm-preference-selection preference-title="'Business Skills'" preference-list="filters.business_skills" model="account.preferences"></abm-preference-selection>
-      <abm-preference-selection preference-title="'In Kind Donation'" preference-list="filters.in_kind_donation" model="account.preferences"></abm-preference-selection>
+      <abm-preference-selection preference-title="'What Business Skills can you use on your board'" preference-list="filters.business_skills" model="account.preferences"></abm-preference-selection>
+      <abm-preference-selection preference-title="'What In-Kind Donations can you use from Board Members'" preference-list="filters.in_kind_donation" model="account.preferences"></abm-preference-selection>
       <div class="col-xs-12">Demographic info about board members you are looking</div>
-      <abm-preference-selection preference-title="'What age group are you looking to recruit?'" preference-list="filters.age" model="account.preferences"></abm-preference-selection>
-      <abm-preference-selection preference-title="'Demographic info.'" preference-subtitle="'The more you check, the more matches you will be eligible for.'"  preference-list="filters.demographic" model="account.preferences"></abm-preference-selection>
-      <abm-preference-selection preference-title="'Assets that your group hast that are valuable to our members?'" preference-list="filters.benefits" model="account.preferences"></abm-preference-selection>
+      <abm-preference-selection preference-title="'What age group(s) are you looking to recruit?'" preference-list="filters.age" model="account.preferences"></abm-preference-selection>
+      <abm-preference-selection preference-title="'Demographic info about board members you are looking for'" preference-subtitle="'The more you check, the more matches you will be eligible for.'"  preference-list="filters.demographic" model="account.preferences"></abm-preference-selection>
+      <abm-preference-selection preference-title="'What assets does your group have that are valuable to our members?'" preference-list="filters.benefits" model="account.preferences"></abm-preference-selection>
 
       <div class="col-xs-12 form-group">
-          <button role="button" ng-click="update()" class="btn">Update</button>
+          <button role="button" ng-click="update()" class="btn btn-primary">Update</button>
           </div>
 </form>
 </div>

@@ -1,17 +1,19 @@
-<div class="row-fluid">
-  <p>artboad name: {{account.artsGroup}}</p>
-  <p>phone: {{account.phone}}</p>
-       <a ui-sref="account.artGroup.edit"  class="btn">edit account</a>
-  <button role="button" ng-click="logout()" class="btn btn-danger">Log Out</button>
-</div>
+<div class="row">
+  <div class="col-md-8">.
 
-<div class="row-fluid">
-  <h2>Candidates</h2>
+  <p>Art Group Name: {{account.artsGroup}}</p>
+  <p>Phone: {{account.phone}}</p>
+       <a ui-sref="account.artGroup.edit"  class="btn btn-primary">Edit Account</a>
+  <button role="button" ng-click="logout()" class="btn btn-info">Log Out</button>
+  </div>
+  <div class="col-md-4">
+  <h2>Matches</h2>
   <ul>
   <li ng-repeat="match in matches" >
      {{match.name}}
   </li>
   </ul>
+</div>
 </div>
 
 
