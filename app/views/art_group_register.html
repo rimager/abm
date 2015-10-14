@@ -28,8 +28,17 @@
                 <input type="text" ng-model="account.url"  name="url" class="form-control"  />
             
         </div>
-        <abm-preference-selection preference-title="'What is your discipline?'" preference-list="filters.artgrouptype" model="account.match_preferences"></abm-preference-selection>
-
+        <!-- Art group type -->
+        <div class="col-xs-12">
+            <h3>What's your discipline?</h3>
+        </div>
+        <div class="col-xs-12">
+            <div  class = "col-xs-6 for-group" ng-repeat="(key, value) in filters.artgrouptype">
+                <input type="checkbox" ng-model="account.match_preferences[key]"
+                       name="artgrouptype"
+                       value="{{key}}" />{{value.name}}
+            </div>
+        </div>
 
 <button type="button" class="btn btn-primary" ng-click="register(email, pass)"  ng-disabled="regForm.$invalid">Register</button>
 </form>
