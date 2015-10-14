@@ -16,7 +16,10 @@ angular.module(window.appName)
       $scope.account = account;
 
         //neeed to watch for changes in the account and match
-        accountSvc.watchAccount(account.uid, 'candidates', $scope.account);
+        accountSvc.watchAccount(account.uid, 'candidates',  function(data) {
+            safeApply(function() {
+                $scope.account = data;
+            })});
 
 
         //get time availability and minimun donations
