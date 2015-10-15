@@ -1,5 +1,6 @@
 <div class="row">
     <h2>Art Group Registration Page</h2>
+    <p>ARTS GROUPS ARE REQUIRED TO ATTEND A BUILDING A BETTER BOARD WORKSHOP BEFORE YOU CAN BE FEATURED. If you have not yet attended a workshop call ABC at 305-326-1011 so we can sign you up. </p>
     <form role="form" name="regForm" novalidate>
         <div class="col-xs-6 form-group">
             <label for="loginEmail">Email</label>
@@ -39,7 +40,7 @@
             
         </div>
         <div class="col-xs-12 form-group">
-            <label class="ng-binding ng-scope">Your Website Adsress?</label>
+            <label class="ng-binding ng-scope">Your Website Address?</label>
                 <input type="text" ng-model="url"  name="url" class="form-control"  /> 
             
         </div>        
@@ -99,6 +100,18 @@
                 <input type="checkbox" ng-model="preferences.artgrouptype_programs_serving_children" name="artgrouptypes" > Arts programs serving children
             </label>
         </div>
+
+        <div class="col-xs-6 form-group">
+            <label class="ng-binding ng-scope">
+                <input type="checkbox" ng-model="preferences.artgrouptype_advisory" name="artgrouptypes" > Advisory Board
+            </label>
+        </div>     
+
+        <div class="col-xs-12 form-group">
+            <label>
+                <input type="checkbox" name="terms" > I accept the <a ui-sref="terms">terms & conditions</a> of ArtsBoardMatch.org</label>
+            
+        </div>    
 
 </div>
 <button type="button" class="btn btn-primary" ng-click="register()">Register</button>

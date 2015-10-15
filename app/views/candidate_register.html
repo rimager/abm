@@ -15,6 +15,12 @@
     <label for="loginPass">Password</label>
     <input id="loginPass" ngRequired="true"  name="pass" type="password" ng-model="pass" class="form-control" />
   </p>
+
+  <p class="form-group">
+    <label>
+        <input type="checkbox" name="terms" > I accept the <a ui-sref="terms">terms & conditions</a> of ArtsBoardMatch.org</label>
+    
+</p>   
   <p>
     <button  class="btn btn-primary" ng-cloak ng-disabled="regForm.$invalid"
             ng-click="createAccount(email, pass, confirm)">Create Account</button>

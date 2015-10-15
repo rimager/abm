@@ -8,10 +8,10 @@ angular.module(window.appName)
     .config(['$stateProvider', '$locationProvider', '$urlRouterProvider', function ($stateProvider, $locationProvider, $urlRouterProvider) {
 
         //use html5. Drop the #
-        $locationProvider.html5Mode(false);
+        $locationProvider.html5Mode(true);
 
         // For any unmatched url, redirect to /state1
-        $urlRouterProvider.otherwise("/");
+        //$urlRouterProvider.otherwise("/");
 
 
         $stateProvider
