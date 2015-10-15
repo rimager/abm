@@ -12,107 +12,43 @@
         </div>
         <div class="col-xs-6 form-group" ng-cloak>
             <label for="artsGroup">Arts Group Name</label>
-            <input id="artsGroup" ngRequired="true" name="artsGroup" type="text" ng-model="artsGroup" class="form-control" />
+            <input id="artsGroup" ngRequired="true" name="artsGroup" type="text" ng-model="account.artsGroup" class="form-control" />
         </div>
         <div class="col-xs-6 form-group" ng-cloak>
-            <label for="phone">Phone</label>
-            <input id="phone" required name="phone" type="text" ng-model="phone" class="form-control" />
+            <label for="account_name">Name</label>
+            <input id="account_name" ngRequired="true" name="account_name" type="text" ng-model="account.name" class="form-control" />
         </div>
         <div class="col-xs-12 form-group">
-            <input type="checkbox" ng-model="has_address" name="has_address"
-            >Does you company have an
-            address?
-            <div ng-show="has_address">
-                <p class="form-group" ng-cloak>
-                    <label for="address">Address</label>
-                    <input id="address" name="address"  type="text" ng-model="address" class="form-control" />
-                </p>
-                <p class="form-group" ng-cloak>
-                    <label for="address_2">Address continuation</label>
-                    <input id="address_2" name="address_2"  type="text" ng-model="address_2" class="form-control" />
-                </p>
+            <label>Tell Us About Your Arts Group</label>
+            <p>Tip: board prospects will see this. This is your chance to sell your group and your assets. Make it short, sweet and impactful.</p>
+            <textarea  ng-model="account.description" name="description" class="form-control" ></textarea>
+            
+        </div>
+        <div class="col-xs-12 form-group">
+            <label>Your Website Address?</label>
+                <input type="text" ng-model="account.url"  name="url" class="form-control"  />
+            
+        </div>
+        <!-- Art group type -->
+        <div class="col-xs-12">
+            <h3>What's your discipline?</h3>
+        </div>
+        <div class="col-xs-12">
+            <div  class = "col-xs-6 for-group" ng-repeat="(key, value) in filters.artgrouptype">
+                <input type="checkbox" ng-model="account.match_preferences[key]"
+                       name="artgrouptype"
+                       value="{{key}}" />{{value.name}}
             </div>
         </div>
-        <div class="col-xs-12 form-group">
-            <label class="ng-binding ng-scope">Tell Us About Your Arts Group</label>
-            <p>Tip: board prospects will see this. This is your chance to sell your group and your assets. Make it short, sweet and impactful.</p>
-            <textarea  ng-model="description" name="description" class="form-control" ></textarea> 
-            
-        </div>
-        <div class="col-xs-12 form-group">
-            <label class="ng-binding ng-scope">Your Website Address?</label>
-                <input type="text" ng-model="url"  name="url" class="form-control"  /> 
-            
-        </div>        
-        <div class="col-xs-12">
-            <h3>What is Your Discipline.</h3>
-            <p>Tip: You can check more than one.</h3>
-</p>
-        </div>
-        <div class="col-xs-6 form-group">
-            <label class="ng-binding ng-scope">
-                <input type="checkbox" ng-model="preferences.artgrouptype_museum_visual_art" name="artgrouptype" > Museum/Visual art
-            </label>
-        </div>
-        <div class="col-xs-6 form-group">
-            <label class="ng-binding ng-scope">
-                <input type="checkbox" ng-model="preferences.artgrouptype_film" name="artgrouptypes" > Film and Media
-            </label>
-        </div>        
-        <div class="col-xs-6 form-group">
-            <label class="ng-binding ng-scope">
-                <input type="checkbox" ng-model="preferences.artgrouptype_literaty" name="artgrouptypes" > Literary
-            </label>
-        </div>
-        <div class="col-xs-6 form-group">
-            <label class="ng-binding ng-scope">
-                <input type="checkbox" ng-model="preferences.artgrouptype_historic_preservation" name="artgrouptypes" > Historic preservation
-            </label>
-          </div>        
-        <div class="col-xs-6 form-group">
-            <label class="ng-binding ng-scope">
-                <input type="checkbox" ng-model="preferences.artgrouptype_museum_dance" name="artgrouptypes" > Dance
-            </label>
-        </div>
-          <div class="col-xs-6 form-group">
-            <label class="ng-binding ng-scope">
-                <input type="checkbox" ng-model="preferences.artgrouptype_service_and_support_group" name="artgrouptypes" > Service and Support Group
-            </label>
-        </div>        
-        <div class="col-xs-6 form-group">
-            <label class="ng-binding ng-scope">
-                <input type="checkbox" ng-model="preferences.artgrouptype_music" name="artgrouptypes" > Music
-            </label>
-        </div>
-        <div class="col-xs-6 form-group">
-            <label class="ng-binding ng-scope">
-                <input type="checkbox" ng-model="preferences.artgrouptype_multi_disciplinary" name="artgrouptypes" > Multi-Disciplinary
-            </label>
-        </div>        
-        <div class="col-xs-6 form-group">
-            <label class="ng-binding ng-scope">
-                <input type="checkbox" ng-model="preferences.artgrouptype_theatre" name="artgrouptypes" > Theatre
-            </label>
-        </div>
-
-        <div class="col-xs-6 form-group">
-            <label class="ng-binding ng-scope">
-                <input type="checkbox" ng-model="preferences.artgrouptype_programs_serving_children" name="artgrouptypes" > Arts programs serving children
-            </label>
-        </div>
-
-        <div class="col-xs-6 form-group">
-            <label class="ng-binding ng-scope">
-                <input type="checkbox" ng-model="preferences.artgrouptype_advisory" name="artgrouptypes" > Advisory Board
-            </label>
-        </div>     
+  
 
         <div class="col-xs-12 form-group">
             <label>
                 <input type="checkbox" name="terms" > I accept the <a ui-sref="terms">terms & conditions</a> of ArtsBoardMatch.org</label>
             
         </div>    
-
+<div class="col-xs-12 form-group">
+<button type="button" class="btn btn-primary" ng-click="register(email, pass)"  ng-disabled="regForm.$invalid">Register</button>
 </div>
-<button type="button" class="btn btn-primary" ng-click="register()">Register</button>
-
+</form>
+</div>
