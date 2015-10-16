@@ -138,30 +138,28 @@
    //preference_list is the list of uid.
    //uid is the id of candidate if we are trying to match companies and
    //viceversa
-    function match (uid, preference_list, uid_type, minimum_donation ){
+    function match (uid,  uid_type, disciplines, business_skills, minimum_donation ){
      var gmatcheeRefUrl = (uid_type == 'companies') ? 'companies' : 'candidates';
      var matcheeRef = fbutil.ref(matcheeRefUrl);
      var profileRefUrl = (uid_type == 'companies')? 'candidates' : 'companies';
      var matchesForMatcheesRef = fbutil.ref('matches_for_' + matcheeRefUrl);
      var matchesForProfileRef = fbutil.ref('matches_for_' + profileRefUrl);
      var matchee;
-     
 
       //navigate all matchees
       matcheeRef.on('child_added', function (matcheeObj) {
-        
+
+
         matchee = matcheeObj.val(); 
-        //compares prefs
-        var match_prefs = _.intersection(_.keys(preference_list), _.keys(matchee.match_preferences));
-                
-        var match_prefs_obj = {};
-        
-        //try to match on time_availability
-        //if (time_availability && matchee.time_availability &&  time_availability.min <= matchee.time_availability.min) {
-        //   match_prefs_obj[time_availability.key] = true
-        //}
+
+        //compares disciplines
+        var match_disciplines = _.intersection(_.keys(disciplines), _.keys(matchee.disciplines));
+
+        //compares business_skills
+        var match_business_skills = _.intersection(_.keys(business_skills), _.keys(matchee.business_skills));
 
         //try to match on minimum_donataion 
+        var match_prefs_obj = {};
         if (minimum_donation && matchee.minimum_donation)   {
 
             //when matching candidates
@@ -171,11 +169,17 @@
                 match_prefs_obj[minimum_donation.key] = true;
         }
         
-        if (_.isEmpty(match_prefs_obj) &&  match_prefs.length === 0) 
+        if (_.isEmpty(match_prefs_obj) ||  match_disciplines.length === 0 || match_business_skills.length === 0 )
            match_prefs_obj = null;
-        else   
-          _.each(match_prefs, function(pref) {match_prefs_obj[pref]= true});
+        else {
+            _.each(match_disciplines, function (pref) {
+                match_prefs_obj[pref] = true
+            });
+            _.each(match_business_skills, function (pref) {
+                match_prefs_obj[pref] = true
+            });
 
+        }
         //save this matches in both profile and matchee
         matchesForMatcheesRef.child(matcheeObj.key()).child(uid).set(match_prefs_obj);
         matchesForProfileRef.child(uid).child(matcheeObj.key()).set(match_prefs_obj);

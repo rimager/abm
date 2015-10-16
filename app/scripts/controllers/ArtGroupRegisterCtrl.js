@@ -51,7 +51,7 @@ angular.module(window.appName)
 
     function updateCompanyPreferences(company) {
      //sanitize preflist
-     var preference_list = profileHelperSvc.sanitizePreferenceList($scope.account.match_preferences);
+     var preference_list = profileHelperSvc.sanitizePreferenceList(angular.extend({}, $scope.account.disciplines, $scope.account.business_skills,$scope.account.preferences));
       preferenceSvc.addCompanyToPreferences(company.uid, preference_list);
 
     }

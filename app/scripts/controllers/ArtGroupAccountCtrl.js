@@ -12,7 +12,7 @@ angular.module(window.appName)
     $scope.matches= [];
     $scope.preferences = [];
 
-    accountSvc.watchAccount(account.uid, 'companies', $scope.account,  function(data) {
+    accountSvc.watchAccount(account.uid, 'companies', function(data) {
         safeApply(function() {
             $scope.account = data;
         })});

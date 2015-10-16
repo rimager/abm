@@ -46,9 +46,9 @@ angular.module(window.appName)
     };
 
     function updatePreferences(account) {
-      var preference_list = profileHelperSvc.sanitizePreferenceList(account.match_preferences);
+      var preference_list = profileHelperSvc.sanitizePreferenceList(angular.extend({}, account.disciplines, account.business_skills,account.preferences));
       preferenceSvc.addUserToPreferences(account.uid, preference_list);
-      preferenceSvc.match(account.uid, preference_list, 'companies', account.minimum_donation);
+      preferenceSvc.match(account.uid, 'companies', account.disciplines, account.business_skills, account.minimum_donation);
 
       //$state.go(abmConfig.states.user.home);
     }

@@ -64,16 +64,13 @@
     }
 
 
-    function watchAccount(uid, type, target, cb) {
+    function watchAccount(uid, type, cb) {
       var accountRef = fbutil.ref(type ,uid);
       accountRef.on('value', function(snapshot) {
         var val = snapshot.val();
         if (val) {
           _account  = val;
-          safeApply(function() {
-            target = angular.extend({}, target, val);
-            if (cb) cb(val);
-          });
+          if (cb) cb(val);
         }
       });
 
