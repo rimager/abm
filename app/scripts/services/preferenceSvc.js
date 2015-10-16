@@ -139,7 +139,7 @@
    //uid is the id of candidate if we are trying to match companies and
    //viceversa
     function match (uid,  uid_type, disciplines, business_skills, minimum_donation ){
-     var gmatcheeRefUrl = (uid_type == 'companies') ? 'companies' : 'candidates';
+     var matcheeRefUrl = (uid_type == 'companies') ? 'companies' : 'candidates';
      var matcheeRef = fbutil.ref(matcheeRefUrl);
      var profileRefUrl = (uid_type == 'companies')? 'candidates' : 'companies';
      var matchesForMatcheesRef = fbutil.ref('matches_for_' + matcheeRefUrl);

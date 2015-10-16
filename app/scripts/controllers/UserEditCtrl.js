@@ -18,7 +18,7 @@ angular.module(window.appName)
         //neeed to watch for changes in the account and match
         accountSvc.watchAccount(account.uid, 'candidates',  function(data) {
             safeApply(function() {
-                $scope.account = data;
+                $scope.account = angular.extend({}, $scope.account, data);
             })});
 
 
@@ -40,7 +40,7 @@ angular.module(window.appName)
 
       //add account to our manage list of accounts
       profileSvc.addProfile($scope.account.uid,profileHelperSvc.sanitizeCandidateProfile($scope.account), 'candidates', flashSvc.error);
-      updatePreferences(account);
+      updatePreferences($scope.account);
 
 
     };
