@@ -2,7 +2,8 @@
   <div class="col-md-8">.
 
   <p>Art Group Name: {{account.artsGroup}}</p>
-  <p>Phone: {{account.phone}}</p>
+  <p>rep name: {{account.name}}</p>
+    <img ng-src="{{account.logo}}" width="60px" height="auto" alt="account.artsGroup" /><br />
        <a ui-sref="account.artGroup.edit"  class="btn btn-primary">Edit Account</a>
   <button role="button" ng-click="logout()" class="btn btn-info">Log Out</button>
   </div>

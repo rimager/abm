@@ -7,7 +7,7 @@
  * Provides rudimentary account management functions.
  */
 angular.module(window.appName)
-  .controller('ArtGroupEditCtrl', function ($scope, $state, account, accountSvc, preferenceSvc, profileSvc, profileHelperSvc,safeApply, flashSvc) {
+  .controller('ArtGroupEditCtrl', function ($scope, $state, account, accountSvc, preferenceSvc, profileSvc, profileHelperSvc,safeApply, imgLoaderSvc, flashSvc) {
     $scope.account = account;
 
         //neeed to watch for changes in the account and match
@@ -16,6 +16,16 @@ angular.module(window.appName)
             safeApply(function() {
                 $scope.account = angular.extend({}, $scope.account, data);
             })});
+     //get a handdle of the img
+     document.getElementById("file-upload").addEventListener('change', loadLogo, false);
+
+
+
+        function loadLogo(evt) {
+        imgLoaderSvc.loadToFirebase(account.uid, 'companies', evt.target.files[0], function(logo) {
+            console.log(logo);
+        } )
+    };
 
 
    //get time availability and minimun donations

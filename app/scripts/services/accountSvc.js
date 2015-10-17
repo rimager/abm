@@ -28,13 +28,12 @@
       isAUserAccount: isAUserAccount,
       isACompanyAccount: isACompanyAccount
 
-
-
     };
 
     function clearAccount() {
       _account = null;
     }
+
 
     function isAUserAccount(account) {
       return account.type === abmConfig.profile.type.user;
