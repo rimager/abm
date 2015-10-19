@@ -7,10 +7,13 @@
     </div>
     <div class="col-md-12">
         <h2>Matches</h2>
-        <ul>
-            <li ng-repeat="match in matches">
-                <img ng-src="{{match.logo}}" width="60px" height="auto" alt="account.artsGroup" />
-                <br /> name: {{match.artsGroup}}, url: {{match.url}}, description: {{match.description}}, address: {{match.address}} {{match.address_2}}, phone: {{match.phone}}
+        <ul class="list-group">
+            <li ng-repeat="match in matches" class="list-group-item">
+              <h4 class="list-group-item-heading">{{match.artsGroup}}</h4>
+              <img ng-src="{{match.logo}}" class="img-responsive" alt="account.artsGroup"/>
+    <p class="list-group-item-text">Description: {{match.description}}</p>
+                
+                <p><a href="{{match.url}}">{{match.url}}</a></p>
             </li>
         </ul>
     </div>

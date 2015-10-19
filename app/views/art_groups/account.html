@@ -1,21 +1,20 @@
 <div class="row">
-  <div class="col-md-12">
-
-  <p>Art Group Name: {{account.artsGroup}}</p>
-  <p>Contact Name: {{account.name}}</p>
-    <img ng-src="{{account.logo}}" class="img-responsive" height="auto" alt="Art Group Photo" /><br />
-       <a ui-sref="account.artGroup.edit"  class="btn btn-primary">Additional Information</a>
-
-  <button role="button" ng-click="logout()" class="btn btn-info">Log Out</button>
-  <p>Please note, you need to complete the additional information to get better matches.</p>
-  </div>
-  <div class="col-md-12">
-  <h2>Matches</h2>
-  <ul>
-  <li ng-repeat="match in matches">
-     name: {{match.name}}, title: {{match.title}},  donation: {{match.minimum_donation.name}}
-  </li>
-  </ul>
+    <div class="col-md-12">
+        <p>Art Group Name: {{account.artsGroup}}</p>
+        <p>Contact Name: {{account.name}}</p>
+        <img ng-src="{{account.logo}}" class="img-responsive" height="auto" alt="Art Group Photo" />
+        <br />
+        <a ui-sref="account.artGroup.edit" class="btn btn-primary">Additional Information</a>
+        <button role="button" ng-click="logout()" class="btn btn-info">Log Out</button>
+        <p>Please note, you need to complete the additional information to get better matches.</p>
+    </div>
+    <div class="col-md-12">
+        <h2>Matches</h2>
+        <ul class="list-group">
+            <li ng-repeat="match in matches" class="list-group-item">
+                <h4 class="list-group-item-heading">{{match.name}}</h4> 
+                <p>Title: {{match.title}}, Company: {{match.company}} Email: {{match.email}}</p>
+            </li>
+        </ul>
+    </div>
 </div>
-</div>
-
