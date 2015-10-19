@@ -5,24 +5,38 @@
 <form role="form" name="regForm" novalidate>
   <p class="form-group">
     <label for="name">Name</label>
-    <input id="name" ngRequired="true" name="name" type="text" ng-model="name" class="form-control" />
+    <input id="name" required="required" name="name" type="text" ng-model="name" class="form-control" minlength="4" minlength="16" />
+    <div ng-show="regForm.$submitted || regForm.name.$touched">
+      <span ng-show="regForm.name.$error.required">Please Tell us your name.</span>
+      <span ng-show="regForm.name.$error.minlength">Minimum amount of character is 4</span>
+      <span ng-show="regForm.name.$error.maxlength">Maximum amount of character is 16</span>
+    </div>
   </p>
   <p class="form-group">
     <label for="loginEmail">Email</label>
-    <input id="loginEmail" ngRequired="true" name="email" type="email" ng-model="email" class="form-control" />
+    <input id="loginEmail" required="required" name="email" type="email" ng-model="email" class="form-control" />
+  <div ng-show="regForm.$submitted || regForm.email.$touched">
+    <span ng-show="regForm.email.$error.required">Tell us your email.</span>
+    <span ng-show="regForm.email.$error.email">This is not a valid email.</span>
+  </div>
   </p>
   <p class="form-group">
     <label for="loginPass">Password</label>
-    <input id="loginPass" ngRequired="true"  name="pass" type="password" ng-model="pass" class="form-control" />
+    <input id="loginPass" ngRequired="true"  name="pass" type="password" ng-model="pass" ng-minlength="5" ng-maxlength="15"  class="form-control" />
+    div ng-show="regForm.$submitted || regForm.pass.$touched">
+    <span ng-show="regForm.pass.$error.required">Please enter your password</span>
+    <span ng-show="regForm.pass.$error.minlength">Minimum: 5 characters</span>
+    <span ng-show="regForm.pass.$error.maxlength">Maximum: 15 characters</span>
+    </div>
   </p>
 
   <p class="form-group">
     <label>
-        <input type="checkbox" name="terms" > I accept the <a ui-sref="terms">terms & conditions</a> of ArtsBoardMatch.org</label>
+        <input type="checkbox" required="required"  name="terms" ng-model="term"> I accept the <a ui-sref="terms">terms & conditions</a> of ArtsBoardMatch.org</label>
     
 </p>   
   <p>
-    <button  class="btn btn-primary" ng-cloak ng-disabled="regForm.$invalid"
+    <button  class="btn btn-primary" ng-cloak ng-disabled="!terms || regForm.$invalid"
             ng-click="createAccount(email, pass, confirm)">Create Account</button>
   </p>
 </form>

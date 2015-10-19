@@ -6,7 +6,7 @@
             <button role="button" ng-click="logout()" class="btn btn-info">Log Out</button>
         </p>
         <h3>Profile</h3>
-        <form role="form">
+        <form role="form" name="regForm" class="css-form" novalidate>
             <div class="col-xs-12 form-group">
                 <p class="form-group">
                     <label>Account ID</label>
@@ -15,8 +15,13 @@
                 <div class="col-xs-6 form-group" ng-cloak>
                     <p class="form-group">
                         <label>Board Name:</label>
-                        <input type="text" name="boardName" ng-model="account.artsGroup" class="form-control" />
-                        <p>Board Logo</p>
+                        <input type="text" name="boardName"  required="required" ng-model="account.artsGroup" ng-minlength="4" ng-maxlength="50" class="form-control" />
+                    <div ng-show="regForm.$submitted || regForm.boardName.$touched">
+                        <span ng-show="regForm.boardName.$error.required">Please enter your board name.</span>
+                        <span ng-show="regForm.boardName.$error.minlength">Minimum: 4 characters</span>
+                        <span ng-show="regForm.boardName.$error.maxlength">Maximum: 50 characters</span>
+                    </div>
+                    <p>Board Logo</p>
                         <img ng-src="{{account.logo}}" width="60px" height="auto" alt="Art Group Photo" />
                         <br />
                         <input class="" type="file" accept="image/*" capture="camera" id="file-upload" style="display: inline-block;">
@@ -24,7 +29,12 @@
                 </div>
                 <div class="col-xs-6 form-group" ng-cloak>
                     <label for="contactName">Contact Name</label>
-                    <input id="contactName" required name="contactName" type="text" ng-model="account.name" class="form-control" />
+                    <input id="contactName" required="required" name="contactName" type="text"  ng-minlength="4" ng-maxlength="50"  ng-model="account.name" class="form-control" />
+                    <div ng-show="regForm.$submitted || regForm.boardName.$touched">
+                        <span ng-show="regForm.contactName.$error.required">Please enter your contact name.</span>
+                        <span ng-show="regForm.contactName.$error.minlength">Minimum: 4 characters</span>
+                        <span ng-show="regForm.contactName.$error.maxlength">Maximum: 50 characters</span>
+                    </div>
                 </div>
             </div>
             <div class="col-xs-12 form-group">
@@ -40,13 +50,23 @@
             <div class="col-xs-12 form-group">
                 <label>Tell Us About Your Arts Group </label>
 <p>Tip: board prospects will see this. This is your chance to sell your group and your assets. Make it short, sweet and impactful.</p>
-                    <textarea ng-model="account.description" name="description" class="form-control"></textarea>
-                
+                    <textarea ng-model="account.description" required="required" name="description" ng-minlength="10"  ng-maxlength="400" class="form-control"></textarea>
+                <div ng-show="regForm.$submitted || regForm.description.$touched">
+                    <span ng-show="regForm.description.$error.required">Please enter a group description</span>
+                    <span ng-show="regForm.description.$error.minlength">Minimum: 10 characters</span>
+                    <span ng-show="regForm.description.$error.maxlength">Minimum: 400 characters</span>
+                </div>
+
             </div>
             <div class="col-xs-12 form-group">
-                <label>Your Website Address
-                    <input type="text" ng-model="account.url" name="url" class="form-control" />
-                </label>
+                <label>Your Website Address</label>
+                <input type="url" required="required" ng-model="account.url" name="url" class="form-control" />
+                <div ng-show="regForm.$submitted || regForm.url.$touched">
+                    <span ng-show="regForm.url.$error.required">Please enter your site url</span>
+                    <span ng-show="regForm.url.$error.url">Invalid url</span>
+                </div>
+
+
             </div>
             <!-- Art group type -->
             <div class="col-xs-12">
