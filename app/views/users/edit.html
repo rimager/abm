@@ -6,7 +6,7 @@
             <button role="button" ng-click="logout()" class="btn btn-info">Log Out</button>
             <button role="button" ng-click="update()" class="btn btn-success">Update</button>
         </p>
-        <form role="form" name="editForm" novalidate>
+        <form role="form" name="regForm" class="css-form" novalidate>
             <div class="col-xs-12 form-group">
                 <p class="form-group">
                     <label>Account ID</label>
@@ -16,11 +16,21 @@
             <div class="col-xs-12 form-group">
                 <p>
                     <label>Name</label>
-                    <input type="text" ng-model="account.name" id="userName" name="userName" ng-required="true" class="form-control">
+                    <input type="text" ng-model="account.name" id="userName" name="name" required="required" minlength="4" minlength="16"  class="form-control">
+                <div ng-show="regForm.$submitted || regForm.name.$touched">
+                    <span ng-show="regForm.name.$error.required">Please Tell us your name.</span>
+                    <span ng-show="regForm.name.$error.minlength">Minimum amount of character is 4</span>
+                    <span ng-show="regForm.name.$error.maxlength">Maximum amount of character is 16</span>
+                </div>
                 </p>
                 <p>
                     <label>Title</label>
-                    <input type="text" ng-model="account.title" id="userTitle" name="useTitle" ng-required="true" class="form-control">
+                    <input type="text" ng-model="account.title" id="userTitle" name="useTitle" required="required" minlength="4" minlength="16" class="form-control">
+                <div ng-show="regForm.$submitted || regForm.name.$touched">
+                    <span ng-show="regForm.useTitle.$error.required">Please Tell us your title.</span>
+                    <span ng-show="regForm.useTitle.$error.minlength">Minimum amount of character is 4</span>
+                    <span ng-show="regForm.useTitle.$error.maxlength">Maximum amount of character is 16</span>
+                </div>
                 </p>
             </div>
             <!-- Art group type -->
@@ -105,7 +115,7 @@
                 </div>
             </div>
             <div class="col-xs-12 form-group">
-                <button class="btn btn-primary" ng-cloak ng-disabled="editForm.$invalid" ng-click="updateProfile()">Update profile</button>
+                <button class="btn btn-primary" ng-cloak ng-disabled="regForm.$invalid" ng-click="updateProfile()">Update profile</button>
             </div>
         </form>
     </div>
