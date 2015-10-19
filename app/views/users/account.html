@@ -1,22 +1,17 @@
-<div class="row-fluid">
-  <p>user name: {{acccount.name}}</p>
-  <p>title: {{acccount.title}}</p>
-  <a role="button" ui-sref="account.user.edit" class="btn btn-danger">Edit</a>
-  <button role="button" ng-click="logout()" class="btn btn-danger">Log Out</button>
+<div class="row">
+    <div class="col-md-12">
+        <p>Name: {{acccount.name}}</p>
+        <p>Title: {{acccount.title}}</p>
+        <a role="button" ui-sref="account.user.edit" class="btn btn-primary">Edit</a>
+        <button role="button" ng-click="logout()" class="btn btn-info">Log Out</button>
+    </div>
+    <div class="col-md-12">
+        <h2>Matches</h2>
+        <ul>
+            <li ng-repeat="match in matches">
+                <img ng-src="{{match.logo}}" width="60px" height="auto" alt="account.artsGroup" />
+                <br /> name: {{match.artsGroup}}, url: {{match.url}}, description: {{match.description}}, address: {{match.address}} {{match.address_2}}, phone: {{match.phone}}
+            </li>
+        </ul>
+    </div>
 </div>
-
-
-<div class="row-fluid">
-  <h2>Matches</h2>
-  <ul>
-  <li ng-repeat="match in matches" >
-      <img ng-src="{{match.logo}}" width="60px" height="auto"  alt="account.artsGroup" /><br />
-     name: {{match.artsGroup}}, url: {{match.url}},
-     description: {{match.description}},
-    address: {{match.address}} {{match.address_2}},
-    phone: {{match.phone}}
-   </li>
-  </ul>
-</div>
-
-

@@ -1,50 +1,43 @@
 .navbar-fixed-top + * {
-  margin-top: 30px;
+    margin-top: 30px;
 }
 
 .navbar {
-  border: none;
+    border: none;
 }
 
 .navbar-inverse {
-
-  
-  
-  a,p {
-    color: @navbar-inverse-link-color;
-
-    &:hover,
-    &:focus {
-      color: @navbar-inverse-link-hover-color;
-      background-color: @navbar-inverse-link-hover-bg;
+    a,
+    p {
+        color: @navbar-inverse-link-color;
+        &:hover,
+        &:focus {
+            color: @navbar-inverse-link-hover-color;
+            background-color: @navbar-inverse-link-hover-bg;
+        }
     }
-  }
 }
 
-
-
-#navbar-main{
+#navbar-main {
     background-color: @gray-dark;
-
-  .navbar-inverse {
-    background-color: transparent;
-  }
-
-}
-
-#navbar-top{
-  color: @pink;
-  a {
-    color: @pink;
-    padding-top: 0;
-
-    &:hover,
-    &:focus {
-      color: @pink;
-      background-color: @navbar-inverse-link-hover-bg;
+    .navbar-inverse {
+        background-color: transparent;
     }
-  }
 }
 
+#navbar-top {
+    color: @pink;
+    a {
+        color: @pink;
+        padding-top: 0;
+        &:hover,
+        &:focus {
+            color: @pink;
+            background-color: @navbar-inverse-link-hover-bg;
+        }
+    }
+}
 
-
+.navbar-nav li a {
+    padding: 15px;
+}
