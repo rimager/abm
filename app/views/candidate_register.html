@@ -33,10 +33,10 @@
   <p class="form-group">
     <label>
         <input type="checkbox" required="required"  name="terms" ng-model="term"> I accept the <a ui-sref="terms">terms & conditions</a> of ArtsBoardMatch.org</label>
-    
-</p>   
+
+</p>
   <p>
-    <button  class="btn btn-primary" ng-cloak ng-disabled="!terms || regForm.$invalid"
+    <button  class="btn btn-primary" ng-disabled="!terms || regForm.$invalid"
             ng-click="createAccount(email, pass, confirm)">Create Account</button>
   </p>
 </form>

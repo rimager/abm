@@ -11,16 +11,16 @@
     <label for="loginPass">password</label>
     <input id="loginPass" ngRequired="true"  name="pass" type="password" ng-model="pass" class="form-control" />
   </p>
-  <p class="form-group" ng-cloak>
+  <p class="form-group">
     <label for="loginConfirm">confirm pass</label>
     <input id="loginConfirm" ngRequired="true" name="confirm" type="password" ng-model="confirm"  match="pass" class="form-control" />
     <div ng-show="regForm.confirm.$error.match">Passwords do not match!</div>
   </p>
-  <p class="form-group" ng-cloak>
+  <p class="form-group">
     <label for="artsGroup">arts Group</label>
     <input id="artsGroup" ngRequired="true" name="artsGroup" type="text" ng-model="account.artsGroup" class="form-control" />
   </p>
-  <p class="form-group" ng-cloak>
+  <p class="form-group">
     <label for="account_name">account name:</label>
     <input id="phone" ngRequired="true" name="account_name" type="text" ng-model="account.name" class="form-control" />
   </p>
@@ -30,7 +30,7 @@
   </label>
   </p>
   <p>
-    <button  class="btn btn-primary" ng-cloak ng-disabled="regForm.$invalid"
+    <button  class="btn btn-primary"  ng-disabled="regForm.$invalid"
             ng-click="createAccount(account.email, pass, confirm)">Create Account</button>
   </p>
 </form>

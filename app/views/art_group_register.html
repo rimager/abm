@@ -20,7 +20,7 @@
                 <span ng-show="regForm.pass.$error.maxlength">Maximum: 15 characters</span>
             </div>
         </div>
-        <div class="col-xs-6 form-group" ng-cloak>
+        <div class="col-xs-6 form-group">
             <label for="artsGroup">Arts Group Name</label>
             <input id="artsGroup" required="required" name="artsGroup" type="text"  ng-minlength="4" ng-maxlength="50" ng-model="account.artsGroup" class="form-control" />
             <div ng-show="regForm.$submitted || regForm.artsGroup.$touched">
@@ -28,7 +28,7 @@
                 <span ng-show="regForm.artsGroup.$error.minlength">Minimum: 4 characters</span>
             </div>
         </div>
-        <div class="col-xs-6 form-group" ng-cloak>
+        <div class="col-xs-6 form-group">
             <label for="account_name">Group Contact Name</label>
             <input id="account_name" required="true" name="account_name" type="text" ng-minlength="3" ng-model="account.name" class="form-control" />
             <div ng-show="regForm.$submitted || regForm.account_name.$touched">
@@ -65,13 +65,13 @@
                        value="{{key}}" />{{value.name}}
             </div>
         </div>
-  
+
 
         <div class="col-xs-12 form-group">
             <label>
                 <input type="checkbox" name="terms" required="required" ng-model="terms" > I accept the <a ui-sref="terms">terms & conditions</a> of ArtsBoardMatch.org</label>
-            
-        </div>    
+
+        </div>
 <div class="col-xs-12 form-group">
 <button type="button" class="btn btn-primary" ng-click="register(email, pass)"  ng-disabled="!terms || regForm.$invalid">Register</button>
 </div>

@@ -12,7 +12,7 @@
                     <label>Account ID</label>
                     <br />{{account.uid}}
                 </p>
-                <div class="col-xs-6 form-group" ng-cloak>
+                <div class="col-xs-6 form-group" >
                     <p class="form-group">
                         <label>Board Name:</label>
                         <input type="text" name="boardName"  required="required" ng-model="account.artsGroup" ng-minlength="4" ng-maxlength="50" class="form-control" />
@@ -27,7 +27,7 @@
                         <input class="" type="file" accept="image/*" capture="camera" id="file-upload" style="display: inline-block;">
                     </p>
                 </div>
-                <div class="col-xs-6 form-group" ng-cloak>
+                <div class="col-xs-6 form-group" >
                     <label for="contactName">Contact Name</label>
                     <input id="contactName" required="required" name="contactName" type="text"  ng-minlength="4" ng-maxlength="50"  ng-model="account.name" class="form-control" />
                     <div ng-show="regForm.$submitted || regForm.boardName.$touched">
@@ -38,11 +38,11 @@
                 </div>
             </div>
             <div class="col-xs-12 form-group">
-                <p class="form-group" ng-cloak>
+                <p class="form-group" >
                     <label for="address">Address</label>
                     <input id="address" name="address" type="text" ng-model="account.address" class="form-control" />
                 </p>
-                <p class="form-group" ng-cloak>
+                <p class="form-group" >
                     <label for="address_2">Address Continuation</label>
                     <input id="address_2" name="address_2" type="text" ng-model="account.address_2" class="form-control" />
                 </p>

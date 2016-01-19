@@ -7,7 +7,7 @@
  * to be initialized so there is no initial flashing of incorrect state.
  */
 angular.module(window.appName)
-  .directive('ngShowAuth', ['simpleLogin', '$timeout', function (simpleLogin, $timeout) {
+  .directive('ngShowAuth', ['simpleLogin', '$timeout', 'safeApply', function (simpleLogin, $timeout, safeApply) {
     'use strict';
 
     var isLoggedIn = false;
@@ -24,10 +24,11 @@ angular.module(window.appName)
           // sometimes if ngCloak exists on same element, they argue, so make sure that
           // this one always runs last for reliability
           $timeout(function () {
-            el.toggleClass('ng-cloak', !isLoggedIn);
+            isLoggedIn === true ? el.removeClass('ng-cloak') : el.addClass('ng-cloak');
+            //el.toggleClass('ng-cloak', !isLoggedIn);
           }, 0);
         }
-        simpleLogin.watch(update, scope);
+        simpleLogin.watch(safeApply(update), scope);
 
       }
     }
