@@ -46,6 +46,8 @@ angular.module(window.appName)
       //add account to our manage list of accounts
       profileSvc.addProfile($scope.account.uid,profileHelperSvc.sanitizeArtGroupProfile($scope.account), 'companies', flashSvc.error);
         updatePreferences($scope.account);
+
+        alert("Profile updated! Click Account Home to see your matches.");
     };
 
 

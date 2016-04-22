@@ -28,23 +28,22 @@
     <!-- Add your site or application content here -->
     <div class="container header">
         <div class="row top10">
-            <div class="col-md-8">
+            <div class="col-md-8 col-sm-12">
                 <a ui-sref="home"><img src="images/logo.png" alt="Arts Board Match Logo" class="img-responsive margin-bottom-sm"></a>
             </div>
-            <div class="col-md-4">
-                <ul id="navbar-top" class="nav navbar-nav">
-                    <li><a href="https://www.facebook.com/ArtsBizMiami?fref=ts" target="_self"><i class="fa fa-twitter"></i></a></li>
-                    <li><a href="https://twitter.com/ArtsBizMiami" target="_self"><i class="fa fa-facebook"></i></a></li>
-                    <li><span id="abmHeaderRegisterLinks" ng-hide-auth=""><a ui-sref="artGroupRegister"
-                        > Art Group Registration</a> | <a ui-sref="artGroupLogin">Art Group Sign In</a></span></li>
+            <div class="col-md-4 col-sm-12">
+                <ul id="navbar-top">
+                    <li><a href="https://twitter.com/ArtsBizMiami" target="_self"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="https://www.facebook.com/ArtsBizMiami?fref=ts" target="_self"><i class="fa fa-facebook"></i></a></li>
+                    <li><span id="abmHeaderRegisterLinks" ng-hide-auth=""><!-- <a ui-sref="artGroupRegister"
+                        > Art Group Registration</a>  |--> <a ui-sref="artGroupLogin">Art Group Sign In</a></span></li>
                     <!-- <li><span ng-show-auth=""><a ui-sref="account.artGroup.account"><i class="fa fa-user"></i></a></span></li> -->
                     <li><span  id="abmHeaderLogoutBtn" ng-show-auth=""><a href="#"
                             ng-click="logout()">Log out</a></span></li>
 
                 </ul>
             </div>
-            <div class="col-md-3">
-               A program of
+            <div class="col-md-3 col-sm-12">
                 <a href="http://www.artsbizmiami.org/" target="_blank">
                 <img class="img-responsive" alt="Arts Business Council Miami Logo" src="images/artsbusinesscouncil_logo.png"> </a></div>
         </div>

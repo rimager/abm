@@ -24,6 +24,15 @@
                 </div>
                 </p>
                 <p>
+                    <label>Company</label>
+                    <input type="text" ng-model="account.userCompany" id="userCompany" name="userCompany" required="required" minlength="4" minlength="16" class="form-control">
+                <div ng-show="regForm.$submitted || regForm.name.$touched">
+                    <span ng-show="regForm.useTitle.$error.required">What is your Company name?</span>
+                    <span ng-show="regForm.useTitle.$error.minlength">Minimum amount of character is 4</span>
+                    <span ng-show="regForm.useTitle.$error.maxlength">Maximum amount of character is 16</span>
+                </div>
+                </p>                
+                <p>
                     <label>Title</label>
                     <input type="text" ng-model="account.title" id="userTitle" name="useTitle" required="required" minlength="4" minlength="16" class="form-control">
                 <div ng-show="regForm.$submitted || regForm.name.$touched">

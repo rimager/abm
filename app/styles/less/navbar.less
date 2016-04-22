@@ -26,14 +26,21 @@
 }
 
 #navbar-top {
+    padding: 0;
     color: @pink;
+    list-style: none;
     a {
         color: @pink;
-        padding-top: 0;
+        padding: 10px 15px;
         &:hover,
         &:focus {
             color: @pink;
             background-color: @navbar-inverse-link-hover-bg;
         }
     }
+
+    li{
+            float: left;
+    }
+
 }

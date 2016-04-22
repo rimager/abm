@@ -23,7 +23,7 @@
   <p class="form-group">
     <label for="loginPass">Password</label>
     <input id="loginPass" ngRequired="true"  name="pass" type="password" ng-model="pass" ng-minlength="5" ng-maxlength="15"  class="form-control" />
-    div ng-show="regForm.$submitted || regForm.pass.$touched">
+    <div ng-show="regForm.$submitted || regForm.pass.$touched">
     <span ng-show="regForm.pass.$error.required">Please enter your password</span>
     <span ng-show="regForm.pass.$error.minlength">Minimum: 5 characters</span>
     <span ng-show="regForm.pass.$error.maxlength">Maximum: 15 characters</span>

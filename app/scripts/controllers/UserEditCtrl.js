@@ -42,6 +42,8 @@ angular.module(window.appName)
       profileSvc.addProfile($scope.account.uid,profileHelperSvc.sanitizeCandidateProfile($scope.account), 'candidates', flashSvc.error);
       updatePreferences($scope.account);
 
+      alert("Profile updated! Click Account Home to see your matches.");
+
 
     };
 
