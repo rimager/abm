@@ -21,7 +21,6 @@ angular.module(window.appName)
                 $scope.account = angular.extend({}, $scope.account, data);
             })});
 
-
         //get time availability and minimun donations
       preferenceSvc.getFilters( function(filters) {
 
@@ -42,8 +41,9 @@ angular.module(window.appName)
       profileSvc.addProfile($scope.account.uid,profileHelperSvc.sanitizeCandidateProfile($scope.account), 'candidates', flashSvc.error);
       updatePreferences($scope.account);
 
-      alert("Profile updated! Click Account Home to see your matches.");
-
+      //redirect home
+      flashSvc.success('Profile updated!', 'Great');
+      $state.go('account.user.home');
 
     };
 
