@@ -42,7 +42,7 @@ angular.module(window.appName)
       updatePreferences($scope.account);
 
       //redirect home
-      flashSvc.success('Profile updated!', 'Great');
+      flashSvc.success('Please see your matching Art Boards below', 'Your Profile has been updated!');
       $state.go('account.user.home');
 
     };

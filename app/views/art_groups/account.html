@@ -10,6 +10,7 @@
     </div>
     <div class="col-md-12">
         <h2>Matches</h2>
+        <p ng-hide="matches.length">Your currently have no matches. Please edit your profile to get matched up with candidates!</p>
         <ul class="list-group">
             <li ng-repeat="match in matches" class="list-group-item">
                 <h4 class="list-group-item-heading">{{match.name}}</h4> 
