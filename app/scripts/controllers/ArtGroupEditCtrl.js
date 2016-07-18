@@ -30,7 +30,7 @@ angular.module(window.appName)
 
    //get time availability and minimun donations
     preferenceSvc.getFilters( function(filters) {
-    
+
 
       safeApply(function() {
        $scope.filters = filters;
@@ -39,7 +39,7 @@ angular.module(window.appName)
 
       })});
 
-    
+
 
     $scope.update = function () {
 
@@ -49,7 +49,7 @@ angular.module(window.appName)
 
       //redirect home
       flashSvc.success('Please see your matching candidates below', 'Your Profile has been updated!');
-      $state.go('account.user.home');
+      $state.go('account.artGroup.home');
     };
 
 

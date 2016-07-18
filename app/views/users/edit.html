@@ -1,12 +1,12 @@
 <div class="row-fluid">
     <div class="col-md-12">
-        <h2>User Profile</h2>
-        <p>
+        <form role="form" name="regForm" class="css-form" novalidate>
+          <h2>User Profile</h2>
+          <p>
             <a ui-sref="account.user.home" class="btn btn-primary">User Account Home</a>
             <button role="button" ng-click="logout()" class="btn btn-info">Log Out</button>
-            <button role="button" ng-click="update()" class="btn btn-success">Update</button>
-        </p>
-        <form role="form" name="regForm" class="css-form" novalidate>
+            <button role="button"  ng-disabled="regForm.$invalid" ng-click="updateProfile()" class="btn btn-success">Update</button>
+          </p>
             <div class="col-xs-12 form-group">
                 <p class="form-group">
                     <label>Account ID</label>
