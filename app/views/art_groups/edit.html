@@ -2,7 +2,7 @@
     <div class="col-md-12">
         <p>
             <a ui-sref="account.artGroup.home" class="btn btn-primary">Account Home</a>
-            <button role="button" ng-click="update()" class="btn btn-success">Update</button>
+            <button role="button" ng-click="update()" ng-disabled="regForm.$invalid"  class="btn btn-success">Update</button>
             <button role="button" ng-click="logout()" class="btn btn-info">Log Out</button>
         </p>
         <h3>Profile</h3>
@@ -137,7 +137,7 @@
                 </div>
             </div>
             <div class="col-xs-12 form-group">
-                <button role="button" ng-click="update()" ng-disabled="regForm.$invalid"> class="btn btn-primary">Update</button>
+                <button role="button" ng-click="update()" ng-disabled="regForm.$invalid" class="btn btn-primary">Update</button>
             </div>
         </form>
     </div>
