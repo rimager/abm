@@ -150,7 +150,7 @@
       matcheeRef.on('child_added', function (matcheeObj) {
 
 
-        matchee = matcheeObj.val(); 
+        matchee = matcheeObj.val();
 
         //compares disciplines
         var match_disciplines = _.intersection(_.keys(disciplines), _.keys(matchee.disciplines));
@@ -158,17 +158,17 @@
         //compares business_skills
         var match_business_skills = _.intersection(_.keys(business_skills), _.keys(matchee.business_skills));
 
-        //try to match on minimum_donataion 
+        //try to match on minimum_donataion
         var match_prefs_obj = {};
         if (minimum_donation && matchee.minimum_donation)   {
 
             //when matching candidates
-            if (uid_type == 'candidate' && minimum_donation.min <= matchee.minimum_donation.min)
+            if (uid_type == 'candidates' && minimum_donation.min <= matchee.minimum_donation.min)
                 match_prefs_obj[minimum_donation.key] = true;
             else if (uid_type == 'companies' && minimum_donation.min >= matchee.minimum_donation.min)
                 match_prefs_obj[minimum_donation.key] = true;
         }
-        
+
         if (_.isEmpty(match_prefs_obj) ||  match_disciplines.length === 0 || match_business_skills.length === 0 )
            match_prefs_obj = null;
         else {
@@ -190,27 +190,27 @@
     function addItemToPreferences(uid, preferenceList, url) {
 
       var valueForPreference;
-      var filters; 
+      var filters;
       var preferenceRef;
       var preferenceTypeRef = fbutil.ref(url); //preferences_candidates / companies
       //need to grap or filtes and loop thru them. set to null what is not in
       //preference list
       fbutil.ref(filter_list).once('value', function (filtersObj) {
-        
+
         filters = filtersObj.val();
         _.each(_.keys(filters), function (filter) {
 
            //proccess all filters for this filter. add companies to filter
            //preference if filter is on preferenceList
           _.each(_.keys(filters[filter]), function(preference) {
-              valueForPreference = preferenceList[preference] == true ? true : null; 
+              valueForPreference = preferenceList[preference] == true ? true : null;
               var companyPref = {};
               companyPref[uid] = valueForPreference;
-              preferenceTypeRef.child(preference).update(companyPref); 
+              preferenceTypeRef.child(preference).update(companyPref);
           } )
 
-        }); 
-      } ) 
+        });
+      } )
 
     }
 
