@@ -5,8 +5,11 @@
           <p>
             <a ui-sref="account.user.home" class="btn btn-primary">User Account Home</a>
             <button role="button" ng-click="logout()" class="btn btn-info">Log Out</button>
-            <button role="button"  ng-disabled="regForm.$invalid" ng-click="updateProfile()" class="btn btn-success">Update</button>
+            <button role="button"   ng-click="updateProfile()" class="btn btn-success">Update</button>
           </p>
+          <div ng-show="regForm.$submitted && regForm.$invalid" class="errorContainer">
+            <span>Some of your information is not valid. Please correct them before submitting.</span>
+          </div>
             <div class="col-xs-12 form-group">
                 <p class="form-group">
                     <label>Account ID</label>
@@ -17,7 +20,7 @@
                 <p>
                     <label>Name</label>
                     <input type="text" ng-model="account.name" id="userName" name="name" required="required" minlength="4" minlength="16"  class="form-control">
-                <div ng-show="regForm.name.$touched">
+                <div ng-show="regForm.$submitted ||  regForm.name.$touched" class="errorContainer">
                     <span ng-show="regForm.name.$error.required">Please Tell us your name.</span>
                     <span ng-show="regForm.name.$error.minlength">Minimum amount of character is 4</span>
                     <span ng-show="regForm.name.$error.maxlength">Maximum amount of character is 16</span>
@@ -26,7 +29,7 @@
                 <p>
                     <label>Company</label>
                     <input type="text" ng-model="account.userCompany" id="userCompany" name="userCompany" required="required" minlength="4" minlength="16" class="form-control">
-                <div ng-show="regForm.userCompany.$touched">
+                <div ng-show="regForm.$submitted || regForm.userCompany.$touched"  class="errorContainer">
                     <span ng-show="regForm.userCompany.$error.required">What is your Company name?</span>
                     <span ng-show="regForm.userCompany.$error.minlength">Minimum amount of character is 4</span>
                     <span ng-show="regForm.userCompany.$error.maxlength">Maximum amount of character is 16</span>
@@ -35,7 +38,7 @@
                 <p>
                     <label>Title</label>
                     <input type="text" ng-model="account.title" id="userTitle" name="useTitle" minlength="2" minlength="16" class="form-control">
-                <div ng-show="regForm.useTitle.$touched">
+                <div ng-show="regForm.$submitted || regForm.useTitle.$touched"  class="errorContainer">
                     <span ng-show="regForm.useTitle.$error.minlength">Minimum amount of character is 4</span>
                     <span ng-show="regForm.useTitle.$error.maxlength">Maximum amount of character is 16</span>
                 </div>
@@ -123,7 +126,10 @@
                 </div>
             </div>
             <div class="col-xs-12 form-group">
-                <button class="btn btn-primary"  ng-disabled="regForm.$invalid" ng-click="updateProfile()">Update profile</button>
+                <button class="btn btn-primary"  ng-click="updateProfile()">Update profile</button>
+              <div ng-show="regForm.$submitted && regForm.$invalid" class="errorContainer">
+                <span>Some of your information is not valid. Please correct them before submitting.</span>
+              </div>
             </div>
         </form>
     </div>

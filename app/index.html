@@ -35,11 +35,22 @@
                 <ul id="navbar-top">
                     <li><a href="https://twitter.com/ArtsBizMiami" target="_self"><i class="fa fa-twitter"></i></a></li>
                     <li><a href="https://www.facebook.com/ArtsBizMiami?fref=ts" target="_self"><i class="fa fa-facebook"></i></a></li>
-                    <li><span id="abmHeaderRegisterLinks" ng-hide-auth=""><!-- <a ui-sref="artGroupRegister"
-                        > Art Group Registration</a>  |--> <a ui-sref="artGroupLogin">Art Group Sign In</a></span></li>
-                    <!-- <li><span ng-show-auth=""><a ui-sref="account.artGroup.account"><i class="fa fa-user"></i></a></span></li> -->
-                    <li><span  id="abmHeaderLogoutBtn" ng-show-auth=""><a href="#"
-                            ng-click="logout()">Log out</a></span></li>
+                  <li  ng-show-auth=""> <a href="#" ng-click="gotToMyAccount()">my account</a> | </li>
+
+                    <li  ng-hide-auth="">
+                      <span id="abmHeaderRegisterLinks">
+                       <!-- <a ui-sref="artGroupRegister"> Art Group Registration</a>  |-->
+                       <a ui-sref="artGroupLogin">Art Group Sign In</a>
+                      </span>
+                    </li>
+                    <!-- <li><span ng-show-auth="">
+                     <a ui-sref="account.artGroup.account"><i class="fa fa-user"></i></a></span>
+                    </li> -->
+                    <li>
+                      <span  id="abmHeaderLogoutBtn" ng-show-auth="">
+                        <a href="#" ng-click="logout()">Log out</a>
+                      </span>
+                    </li>
 
                 </ul>
             </div>

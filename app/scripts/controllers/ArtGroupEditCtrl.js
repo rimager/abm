@@ -43,6 +43,10 @@ angular.module(window.appName)
 
     $scope.update = function () {
 
+      if ($scope.regForm.$invalid) {
+        return
+      }
+
       //add account to our manage list of accounts
       profileSvc.addProfile($scope.account.uid,profileHelperSvc.sanitizeArtGroupProfile($scope.account), 'companies', flashSvc.error);
         updatePreferences($scope.account);

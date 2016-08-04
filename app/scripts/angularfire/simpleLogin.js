@@ -13,7 +13,7 @@
       };
     })
 
-    .factory('simpleLogin', function($firebaseAuth, fbutil, $q, $rootScope, createProfile) {
+    .factory('simpleLogin', function($firebaseAuth, fbutil, $q, $rootScope, createProfile, safeApply) {
       var auth = $firebaseAuth(fbutil.ref());
       var listeners = [];
 
@@ -21,7 +21,7 @@
         fns.initialized = true;
         fns.user = auth.$getAuth() || null;
         angular.forEach(listeners, function(fn) {
-          fn(fns.user);
+          safeApply(fn(fns.user));
         });
       }
 

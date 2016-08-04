@@ -4,9 +4,12 @@
         <form role="form" name="regForm" class="css-form" novalidate>
           <p>
             <a ui-sref="account.artGroup.home" class="btn btn-primary">Account Home</a>
-            <button role="button" ng-click="update()" ng-disabled="regForm.$invalid"  class="btn btn-success">Update</button>
+            <button role="button" ng-click="update()"  class="btn btn-success">Update</button>
             <button role="button" ng-click="logout()" class="btn btn-info">Log Out</button>
           </p>
+          <div ng-show="regForm.$submitted && regForm.$invalid" class="errorContainer">
+            <span>Some of your information is not valid. Please correct them before submitting.</span>
+          </div>
           <h3>Profile</h3>
             <div class="col-xs-12 form-group">
                 <p class="form-group">
@@ -17,7 +20,7 @@
                     <p class="form-group">
                         <label>Board Name:</label>
                         <input type="text" name="boardName"  required="required" ng-model="account.artsGroup" ng-minlength="4" ng-maxlength="50" class="form-control" />
-                    <div ng-show="regForm.$submitted || regForm.boardName.$touched">
+                    <div ng-show="regForm.$submitted || regForm.boardName.$touched"  class="errorContainer">
                         <span ng-show="regForm.boardName.$error.required">Please enter your board name.</span>
                         <span ng-show="regForm.boardName.$error.minlength">Minimum: 4 characters</span>
                         <span ng-show="regForm.boardName.$error.maxlength">Maximum: 50 characters</span>
@@ -31,7 +34,7 @@
                 <div class="col-xs-6 form-group" >
                     <label for="contactName">Contact Name</label>
                     <input id="contactName" required="required" name="contactName" type="text"  ng-minlength="4" ng-maxlength="50"  ng-model="account.name" class="form-control" />
-                    <div ng-show="regForm.$submitted || regForm.boardName.$touched">
+                    <div ng-show="regForm.$submitted || regForm.contactName.$touched" class="errorContainer">
                         <span ng-show="regForm.contactName.$error.required">Please enter your contact name.</span>
                         <span ng-show="regForm.contactName.$error.minlength">Minimum: 4 characters</span>
                         <span ng-show="regForm.contactName.$error.maxlength">Maximum: 50 characters</span>
@@ -52,7 +55,7 @@
                 <label>Tell Us About Your Arts Group </label>
 <p>Tip: board prospects will see this. This is your chance to sell your group and your assets. Make it short, sweet and impactful.</p>
                     <textarea ng-model="account.description" required="required" name="description" ng-minlength="10"  ng-maxlength="400" class="form-control"></textarea>
-                <div ng-show="regForm.$submitted || regForm.description.$touched">
+                <div ng-show="regForm.$submitted || regForm.description.$touched"  class="errorContainer">
                     <span ng-show="regForm.description.$error.required">Please enter a group description</span>
                     <span ng-show="regForm.description.$error.minlength">Minimum: 10 characters</span>
                     <span ng-show="regForm.description.$error.maxlength">Minimum: 400 characters</span>
@@ -62,7 +65,7 @@
             <div class="col-xs-12 form-group">
                 <label>Your Website Address</label>
                 <input type="url" required="required" ng-model="account.url" name="url" class="form-control" />
-                <div ng-show="regForm.$submitted || regForm.url.$touched">
+                <div ng-show="regForm.$submitted || regForm.url.$touched"  class="errorContainer">
                     <span ng-show="regForm.url.$error.required">Please enter your site url</span>
                     <span ng-show="regForm.url.$error.url">Invalid url</span>
                 </div>
@@ -138,7 +141,10 @@
                 </div>
             </div>
             <div class="col-xs-12 form-group">
-                <button role="button" ng-click="update()" ng-disabled="regForm.$invalid" class="btn btn-primary">Update</button>
+              <div ng-show="regForm.$submitted && regForm.$invalid">
+                <span>Some of your information is not valid. Please correct them before submitting.</span>
+              </div>
+                <button role="button" ng-click="update()" class="btn btn-primary">Update</button>
             </div>
         </form>
     </div>

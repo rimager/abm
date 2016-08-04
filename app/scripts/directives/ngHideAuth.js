@@ -10,7 +10,8 @@
 angular.module(window.appName)
   .directive('ngHideAuth', ['simpleLogin', '$timeout', 'safeApply', function (simpleLogin, $timeout, safeApply) {
     'use strict';
-    var isLoggedIn;
+    //iniit isLoggedIn with gettingCurrent User
+    var isLoggedIn = !!simpleLogin.getUser();
     simpleLogin.watch(function(user) {
       isLoggedIn = !!user;
     });
@@ -37,8 +38,8 @@ angular.module(window.appName)
           }, 0);
         }
 
-        simpleLogin.watch(safeApply(update), scope);
-        simpleLogin.getUser(safeApply(update));
+        simpleLogin.watch(update, scope);
+        simpleLogin.getUser(update);
       }
     };
   }]);

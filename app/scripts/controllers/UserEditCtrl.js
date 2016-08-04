@@ -37,6 +37,10 @@ angular.module(window.appName)
     //Handles the account creation
     $scope.updateProfile = function() {
 
+      if ($scope.regForm.$invalid) {
+        return
+      }
+
       //add account to our manage list of accounts
       profileSvc.addProfile($scope.account.uid,profileHelperSvc.sanitizeCandidateProfile($scope.account), 'candidates', flashSvc.error);
       updatePreferences($scope.account);

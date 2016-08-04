@@ -10,7 +10,7 @@ angular.module(window.appName)
   .directive('ngShowAuth', ['simpleLogin', '$timeout', 'safeApply', function (simpleLogin, $timeout, safeApply) {
     'use strict';
 
-    var isLoggedIn = false;
+    var isLoggedIn = !!simpleLogin.getUser();
     simpleLogin.watch(function(user) {
       isLoggedIn = !!user;
     });
@@ -28,7 +28,7 @@ angular.module(window.appName)
             //el.toggleClass('ng-cloak', !isLoggedIn);
           }, 0);
         }
-        simpleLogin.watch(safeApply(update), scope);
+        simpleLogin.watch(update, scope);
 
       }
     }
