@@ -54,11 +54,11 @@
             <div class="col-xs-12 form-group">
                 <label>Tell Us About Your Arts Group </label>
 <p>Tip: board prospects will see this. This is your chance to sell your group and your assets. Make it short, sweet and impactful.</p>
-                    <textarea ng-model="account.description" required="required" name="description" ng-minlength="10"  ng-maxlength="400" class="form-control"></textarea>
+                    <textarea ng-model="account.description" required="required" name="description" ng-minlength="10"  ng-maxlength="800" class="form-control"></textarea>
                 <div ng-show="regForm.$submitted || regForm.description.$touched"  class="errorContainer">
                     <span ng-show="regForm.description.$error.required">Please enter a group description</span>
                     <span ng-show="regForm.description.$error.minlength">Minimum: 10 characters</span>
-                    <span ng-show="regForm.description.$error.maxlength">Minimum: 400 characters</span>
+                    <span ng-show="regForm.description.$error.maxlength">Max: 800 characters</span>
                 </div>
 
             </div>
