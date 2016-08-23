@@ -12,10 +12,10 @@
           </div>
           <h3>Profile</h3>
             <div class="col-xs-12 form-group">
-                <p class="form-group">
+<!--                 <p class="form-group">
                     <label>Account ID</label>
                     <br />{{account.uid}}
-                </p>
+                </p> -->
                 <div class="col-xs-6 form-group" >
                     <p class="form-group">
                         <label>Board Name:</label>
@@ -140,7 +140,7 @@
                     <input type="checkbox" ng-model="account.preferences[key]" name="candidate_benefits" value="{{key}}" />{{value.name}}
                 </div>
             </div>
-            <div class="col-xs-12 form-group">
+            <div class="col-xs-12 form-group top30">
               <div ng-show="regForm.$submitted && regForm.$invalid">
                 <span>Some of your information is not valid. Please correct them before submitting.</span>
               </div>

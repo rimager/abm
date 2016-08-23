@@ -1,7 +1,7 @@
 <div class="row-fluid">
     <div class="col-md-12">
         <form role="form" name="regForm" class="css-form" novalidate>
-          <h2>User Profile</h2>
+          <!-- <h2>User Profile</h2> -->
           <p>
             <a ui-sref="account.user.home" class="btn btn-primary">User Account Home</a>
             <button role="button" ng-click="logout()" class="btn btn-info">Log Out</button>
@@ -10,12 +10,12 @@
           <div ng-show="regForm.$submitted && regForm.$invalid" class="errorContainer">
             <span>Some of your information is not valid. Please correct them before submitting.</span>
           </div>
-            <div class="col-xs-12 form-group">
+<!--             <div class="col-xs-12 form-group">
                 <p class="form-group">
                     <label>Account ID</label>
                     <br />{{account.uid}}
                 </p>
-            </div>
+            </div> -->
             <div class="col-xs-12 form-group">
                 <p>
                     <label>Name</label>
@@ -125,7 +125,7 @@
                     <input type="checkbox" ng-model="account.preferences[key]" name="candidate_benefits" value="{{key}}" />{{value.name}}
                 </div>
             </div>
-            <div class="col-xs-12 form-group">
+            <div class="col-xs-12 form-group top30">
                 <button class="btn btn-primary"  ng-click="updateProfile()">Update profile</button>
               <div ng-show="regForm.$submitted && regForm.$invalid" class="errorContainer">
                 <span>Some of your information is not valid. Please correct them before submitting.</span>
